@@ -30,19 +30,13 @@ const PAGES = {
   }
 };
 
-const ARR = Object.values(PAGES).sort((a,b)=>a>b);
-
 ReactDOM.render((
   <Router history={history}>
     <div className="app">
       <Menu>
-        {ARR.map((item, index) => {
-          return <MenuItem
-            key={index}
-            path={item.path}
-            text={item.link}
-          />
-        })}
+        <MenuItem path={PAGES.page1.path} text={PAGES.page1.link} />
+        <MenuItem path={PAGES.page2.path} text={PAGES.page2.link} />
+        <MenuItem path={PAGES.page3.path} text={PAGES.page3.link} />
       </Menu>
       <Route path={PAGES.page1.path} component={Page1} />
       <Route path={PAGES.page2.path} component={Page2} />
