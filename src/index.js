@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Menu, { MenuItem } from './components/menu';
-import Page1 from './components/page1';
-import Page2 from './components/page2';
-import Page3 from './components/page3';
+import Page from './components/page';
 
 import './normalize.css';
 import { StyleBase } from './scss/_stylebase.scss';
@@ -17,30 +15,40 @@ const history = createBrowserHistory();
 
 const PAGES = {
   page1: {
-    path: "/page1",
+    path: "/page/1",
     link: "Section 1"
   },
   page2: {
-    path: "/page2",
+    path: "/page/2",
     link: "Section 2"
   },
   page3: {
-    path: "/page3",
+    path: "/page/3",
     link: "Section 3"
   }
 };
+
+const ARR = Object.values(PAGES).sort((a,b)=>a>b);
 
 ReactDOM.render((
   <Router history={history}>
     <div className="app">
       <Menu>
-        <MenuItem path={PAGES.page1.path} text={PAGES.page1.link} />
-        <MenuItem path={PAGES.page2.path} text={PAGES.page2.link} />
-        <MenuItem path={PAGES.page3.path} text={PAGES.page3.link} />
+        {ARR.map((item, index) => {
+          return <MenuItem
+            key={index}
+            text={item.link}
+            path={item.path}
+          />
+        })}
       </Menu>
-      <Route path={PAGES.page1.path} component={Page1} />
-      <Route path={PAGES.page2.path} component={Page2} />
-      <Route path={PAGES.page3.path} component={Page3} />
+      {ARR.map((item, index) => {
+        return <Route 
+          key={index}
+          path={item.path}
+          component={Page}>
+        </Route>
+      })}
     </div>
   </Router>
 ), document.getElementById('root'));
