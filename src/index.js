@@ -18,18 +18,15 @@ const history = createBrowserHistory()
 const PAGES = {
   page1: {
     path: "/page1",
-    link: "Section 1",
-    content: "CONTENT 1"
+    link: "Section 1"
   },
   page2: {
     path: "/page2",
-    link: "Section 2",
-    content: "CONTENT 2"
+    link: "Section 2"
   },
   page3: {
     path: "/page3",
-    link: "Section 3",
-    content: "CONTENT 3"
+    link: "Section 3"
   }
 }
 
