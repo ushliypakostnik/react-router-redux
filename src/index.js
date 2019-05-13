@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import { createBrowserHistory } from "history"
 import Menu, { MenuItem } from './components/menu'
 import Page1 from './components/page1'
@@ -44,9 +44,9 @@ ReactDOM.render((
           />
         })}
       </Menu>
-      <Route path="/page1" component={Page1} />
-      <Route path="/page2" component={Page2} />
-      <Route path="/page3" component={Page3} />
+      <Route path={PAGES.page1.path} component={Page1} />
+      <Route path={PAGES.page1.path} component={Page2} />
+      <Route path={PAGES.page1.path} component={Page3} />
     </div>
   </Router>
 ), document.getElementById('root'))
