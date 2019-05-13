@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const Page3 = props => (
   <section className="app__page">
@@ -6,4 +6,4 @@ const Page3 = props => (
   </section>
 );
 
-export default Page3
+export default Page3;
