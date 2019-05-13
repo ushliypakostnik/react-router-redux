@@ -1,24 +1,24 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import classNames from "classnames";
+import React from "react"
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom"
 
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const Menu = props => (
-  <ul className="page__menu">
+  <ul className="app__menu">
     {props.children}
   </ul>
-);
+)
 
-export const MenuItem = ({ onClick, text, className, path }) => (
+export const MenuItem = ({ onClick, text, path, className }) => (
   <li>
-    <Link 
-      to={path} 
-      className={className}
+    <NavLink
+      to={path}
       onClick={onClick}
-    ><FontAwesomeIcon icon={faHome} /> {text}</Link>
+      className={className}
+      activeClassName="app__menu--active"
+    ><FontAwesomeIcon icon={faHome} /> {text}</NavLink>
   </li>
-);
+)
 
-export default Menu;
+export default Menu

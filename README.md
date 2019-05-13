@@ -1,4 +1,4 @@
-cd F:/projects/react/proj01/react-skel
+cd F:/projects/react/proj04/
 
 http://localhost:3000/
 

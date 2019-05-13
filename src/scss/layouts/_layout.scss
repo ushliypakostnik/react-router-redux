@@ -1,6 +1,6 @@
 @import "../_stylebase.scss";
 
-.page {
+.app {
   &__menu {
     background: $color_black;
     padding: 10px 20px;
@@ -21,14 +21,9 @@
     }
   }
 
-  &__section {
-    display: none;
+  &__page {
     padding: 20px;
     font-size: 50px;
     font-weight: bold;
-
-    &--active {
-      display: block;
-    }
   }
 }
