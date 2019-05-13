@@ -7,7 +7,7 @@ import Page from './components/page';
 
 import './normalize.css';
 import { StyleBase } from './scss/_stylebase.scss';
-import './scss/layouts/_layout.scss';
+import './scss/layouts/_app.scss';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -43,11 +43,11 @@ ReactDOM.render((
         })}
       </Menu>
       {ARR.map((item, index) => {
-        return <Route 
+        return <Route
           key={index}
           path={item.path}
-          component={Page}>
-        </Route>
+          component={Page}
+        />
       })}
     </div>
   </Router>
