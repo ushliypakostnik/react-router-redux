@@ -1,0 +1,7 @@
+// Utilities
+//////////////////////////////////////////////////////
+
+.pulse {
+    $duration: $transition_duration * 2;
+    @include animation('pulse #{$transition_duration} infinite', 'fadeOn #{$duration} forwards');
+}

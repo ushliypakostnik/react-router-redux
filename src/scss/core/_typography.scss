@@ -1,0 +1,178 @@
+// Typography
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+// Typographic Variables
+//////////////////////////////////////////////////////
+
+// Good line-height and letter-spacing
+$line-height_base: 1.428571429;
+$normal-letter-spacing: normal;
+
+// Guide
+
+$font-size_base: 16px;
+$font-size_coefficient_large: 1.5;
+$font-size_coefficient_normal: 1.15;
+$font-size_coefficient_small: 0.9;
+$font-size_coefficient_xsmall: 0.8;
+
+$font-size_large: round($font-size_base * $font-size_coefficient_large); // 24px
+$font-size_normal: round($font-size_base * $font-size_coefficient_normal); // 18px
+$font-size_small: round($font-size_base * $font-size_coefficient_small); // 14px
+$font-size_xsmall: round($font-size_base * $font-size_coefficient_xsmall); // 13px
+
+$line-height_computed: round($font-size_base * $line-height_base);
+$line-height_large: floor($line-height_computed * $font-size_coefficient_large); // 34px
+$line-height_normal: floor($line-height_computed * $font-size_coefficient_normal); // 26px
+$line-height_small: floor($line-height_computed * $font-size_coefficient_small); // 20px
+$line-height_xsmall: floor($line-height_computed * $font-size_coefficient_xsmall); // 18px
+
+$font-family_sans: "Open Sans", Helvetica, Arial, sans-serif;
+$font-weight_sans_light: 300;
+$font-weight_sans_regular: 400;
+$font-weight_sans_semibold: 600;
+$font-weight_sans_bold: 700;
+
+$font-family_serif: "Roboto", Georgia, Times New Roman, sans-serif;
+$font-weight_serif_light: 300;
+$font-weight_serif_regular: 400;
+$font-weight_serif_medium: 500;
+$font-weight_serif_bold: 700;
+
+/* open-sans-300 - cyrillic_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/open-sans/open-sans-v16-cyrillic_latin-300.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans Light'), local('OpenSans-Light'),
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-300.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-300.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+/* open-sans-regular - cyrillic_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/open-sans/open-sans-v16-cyrillic_latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+/* open-sans-600 - cyrillic_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/open-sans/open-sans-v16-cyrillic_latin-600.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-600.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-600.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+/* open-sans-700 - cyrillic_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/open-sans/open-sans-v16-cyrillic_latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-700.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/open-sans/open-sans-v16-cyrillic_latin-700.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+// Universal Typographic Mixin
+//////////////////////////////////////////////////////
+
+// Используем одну, только одну, Карл, универсальную примесь для всех случаев!!!!!!!!!!
+
+@mixin text($font-family, $font-size, $font-weight) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  letter-spacing: $normal-letter-spacing;
+
+  @if $font-size == $font-size_large {
+    line-height: $line-height_large;
+  } @else if $font-size == $font-size_normal {
+    line-height: $line-height_normal;
+  } @else if $font-size == $font-size_small {
+    line-height: $line-height_small;
+  } @else if $font-size == $font-size_xsmall {
+    line-height: $line-height_xsmall;
+  } @else {
+    line-height: floor($font-size * $line-height_base);
+  }
+}
+
+
+// Typographic Base
+//////////////////////////////////////////////////////
+
+body {
+  font-family: $font-family_sans;
+  font-size: round($font-size_base * 0.9);
+}
+
+a {
+  font-family: $font-family_sans;
+  font-weight: $font-weight_sans-regular;
+}
+
+// Обычный параграф
+p {
+  color: $color_text;
+  margin-bottom: $indent-size;
+  @include text($font-family_sans, $font-size_xsmall, $font-weight_sans_regular);
+}
+
+// Заголовки по умолчанию
+
+h1 {
+  @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
+}
+
+h2 {
+  @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
+}
+
+h3 {
+  @include text($font-family_sans, $font-size_small, $font-weight_sans_semibold);
+}
+
+h4 {
+  @include text($font-family_sans, round($font-size_small * 0.9), $font-weight_sans_semibold);
+}
+
+h5 {
+  @include text($font-family_sans, round($font-size_small * 0.75), $font-weight_sans_regular);
+}
+
+h6 {
+  @include text($font-family_sans, round($font-size_xsmall * 0.74), $font-weight_sans_regular);
+}
+
+h1, h2, h3 {
+  &:first-child {
+    margin-top: 0;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  color: $color_text;
+}
+
+strong {
+  font-weight: $font-weight_sans_bold;
+}

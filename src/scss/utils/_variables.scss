@@ -1,0 +1,202 @@
+// Project variables
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+$fade: 8%;
+
+// Colors
+//////////////////////////////////////////////////////
+
+// Palette
+
+$color_white: #fff;
+$color_black: #000;
+
+$color_mint: #44c6a8;
+$color_cian: #22b394;
+$color_blue: #2d84c6;
+$color_green: #21b499;
+$color_orange: #f0ac61;
+$color_red: #ef5a99;
+
+//Grays
+
+$color_gray:  #cfdae0;
+$color_gray_darken: #a0a0a0;
+$color_gray_light: #f1f3f6;
+
+$color_gray_01: #bac2c8;
+
+// Main
+
+$color_main: $color_mint;
+
+$color_second: $color_blue;
+
+$color_danger: $color_red;
+
+$color_warning: $color_orange;
+
+$color_success: $color_green;
+
+// Special
+
+$color_light: #f3f3f4;
+
+$color_dark: #2f4050;
+
+$color_dark_darken_01: darken($color_dark, ($fade / 2)); // #273643
+$color_dark_darken_02: darken($color_dark, ($fade * 1)); // #202b36
+$color_dark_darken_03: darken($color_dark, ($fade * 1.5)); // #182129
+
+$color_dark_lighten_01: lighten($color_dark, ($fade * 4)); // #7592ae
+$color_dark_lighten_02: lighten($color_dark, ($fade * 8)); // #dbe3ea
+
+$color_dark_alfa: rgba($color_dark, 0.66);
+
+// Text
+
+$color_text: #575757;
+$color_text_light: lighten($color_text, ($fade * 2)); // #a0a0a0
+$color_text_alfa: rgba($color_black, 0.75);
+
+$color_text_dark-theme: #7592ae;
+
+// Links
+
+$color_link: #557aa7;
+$color_link-hover: #44529c;
+
+// Shadows
+
+$color_shadow: rgba($color_black, 0.15);
+$color_text-shadow: $color_shadow;
+
+// Brands
+
+$color_poloniex: #4c9eac;
+$color_bitrex: #2c3641;
+$color_binance: #96c552;
+$color_coinmarketcap: #389bdc;
+
+$color_fb: #3b5998;
+
+// Functional
+
+$color_disabled: darken($color_light, ($fade * 4)); // #9e9ea6
+
+$color_placeholder: $color_disabled;
+
+$color_background: #f1f3f6;
+$color_background_light: #fbf8f3;
+
+// Borders
+
+$color_border: $color_gray;
+$color_border-light: #e7eaec;
+$color_border-dark: #81949f;
+
+$color_border_dark-theme: $color_dark;
+
+
+// Effects
+//////////////////////////////////////////////////////
+
+$transition_duration: 0.2s;
+$transition_timing-function: ease-out;
+$transition_delay: 0s;
+
+$shadow_coords-x: 0;
+$shadow_coords-y: 1px;
+$shadow_size: 4px;
+$shadow_stretch: 0;
+
+$text-shadow_coords-x: 0;
+$text-shadow_coords-y: 1px;
+$text-shadow_size: 4px;
+
+
+// Sizes
+//////////////////////////////////////////////////////
+
+$indent-size: 20px;
+
+$input_height: $indent-size * 2;
+
+
+// Breackpoints and containers
+//////////////////////////////////////////////////////
+
+// Брекпоинты между мониторами и большими мониторами
+$breackpoint_xl: 1499px;
+// Брекпоинты между большими мониторами и очень большими мониторами
+$breackpoint_mg: 1700px;
+
+$breackpoint-min: 360px; // для отслеживания устройств с совсем маленькими экранами
+
+// Extra small screen / XS / phone
+$breackpoint_xs:                  480px !global;
+$breackpoint_xs_min:              $breackpoint_xs !global;
+
+// Small screen / SM / tablet
+$breackpoint_sm:                  768px !global;
+$breackpoint_sm_min:              $breackpoint_sm !global;
+
+// Medium screen / MD desktop / нетбуки типо чтоле
+$breackpoint_md:                  992px !global;
+$breackpoint_md_min:              $breackpoint_md !global;
+
+// Large screen / LG desktop / небольшие экраны - ноуты
+$breackpoint_lg:                  1200px !global;
+$breackpoint_lg_min:              $breackpoint_lg !global;
+
+// Large screen / XL desktop / средние экраны
+$breackpoint_xl:                  $breackpoint_xl !global;
+$breackpoint_xl_min:              $breackpoint_xl !global;
+
+// Large screen / MG desktop / большие экраны
+$breackpoint_mg:                  $breackpoint_mg !global;
+$breackpoint_mg_min:              $breackpoint_lg !global;
+
+$breackpoint_xs_max:              ($breackpoint_sm_min - 1) !global;
+$breackpoint_sm_max:              ($breackpoint_md_min - 1) !global;
+$breackpoint_md_max:              ($breackpoint_lg_min - 1) !global;
+$breackpoint_lg_max:              ($breackpoint_xl_min - 1) !global;
+$breackpoint_md_max:              ($breackpoint_mg_min - 1) !global;
+
+// Container sizes
+
+$content-container_sm: 720px;
+$content-container_md: 940px;
+$content-container_lg: 1140px;
+
+// Small screen / tablet
+$container_sm:                 ($content-container_sm + $indent_size);
+
+// Medium screen / desktop
+$container_md:                 ($content-container_md + $indent_size);
+
+// Large screen / wide desktop
+$container_lg:                 ($content-container_lg + $indent_size);
+
+
+// Elements
+//////////////////////////////////////////////////////
+
+// Roundings
+
+$border-radius_base: 0;
+$border-radius_xsmall: 3px;
+$border-radius_small: 4px;
+$border-radius_large: 6px;
+
+// Buttons
+
+$btn_padding_horizontal_base: 12px;
+$btn_padding_vertical_base: 6px;
+
+
+
+
+

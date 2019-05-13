@@ -1,0 +1,61 @@
+// Main Elements
+//////////////////////////////////////////////////////
+
+// @media all {}
+
+html {
+  -webkit-text-size-adjust: none;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  color: $color_text;
+  background: $color_white;
+  padding: 0;
+  quotes: "\00ab" "\00bb";
+
+  overflow-x: hidden; // not scrolling horizontal body
+
+  backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+
+  &.night-theme {
+    background: $color_dark_darken-02;
+  }
+}
+
+// Кнопки
+button, a {
+  outline: none !important;
+
+  &:hover, &:active, &:focus {
+    outline: none !important;
+  }
+}
+
+// Ccылки
+a {
+  color: $color_link;
+  text-decoration: none;
+
+  &:hover {
+    color: $color_link-hover;
+  }
+
+  &:hover, &:active , &:focus {
+    outline: none !important;
+    text-decoration: none;
+  }
+
+  .night-theme & {
+    &:hover {
+      color: lighten($color_link, $fade);
+    }
+  }
+}
+
+iframe {
+  border-width: 0;
+}
