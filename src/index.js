@@ -46,7 +46,7 @@ ReactDOM.render((
         return <Route
           key={index}
           path={item.path}
-          component={Page}
+          component={props => <Page {...props} id={(index + 1)} />}
         />
       })}
     </div>

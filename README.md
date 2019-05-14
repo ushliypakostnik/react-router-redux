@@ -1,4 +1,4 @@
-cd F:/projects/react/proj04/
+cd F:/projects/react/proj05/front
 
 http://localhost:3000/
 
