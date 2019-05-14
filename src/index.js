@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Menu, { MenuItem } from './components/menu';
 import Page from './components/page';
@@ -12,6 +12,8 @@ import './scss/layouts/_app.scss';
 import * as serviceWorker from './serviceWorker';
 
 const history = createBrowserHistory();
+
+history.push('/page/1');
 
 const PAGES = {
   page1: {
@@ -42,13 +44,15 @@ ReactDOM.render((
           />
         })}
       </Menu>
-      {ARR.map((item, index) => {
-        return <Route
-          key={index}
-          path={item.path}
-          component={props => <Page {...props} id={(index + 1)} />}
-        />
-      })}
+      <Switch>
+        {ARR.map((item, index) => {
+          return <Route
+            key={index}
+            path={item.path}
+            component={props => <Page {...props} id={(index + 1)} />}
+          />
+        })}
+      </Switch>
     </div>
   </Router>
 ), document.getElementById('root'));
