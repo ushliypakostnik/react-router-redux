@@ -13,19 +13,17 @@ import * as serviceWorker from './serviceWorker';
 
 const history = createBrowserHistory();
 
-history.push('/page/1');
-
 const PAGES = {
   page1: {
-    path: "/page/1",
+    path: "/album1",
     link: "Section 1"
   },
   page2: {
-    path: "/page/2",
+    path: "/album2",
     link: "Section 2"
   },
   page3: {
-    path: "/page/3",
+    path: "/album3",
     link: "Section 3"
   }
 };
