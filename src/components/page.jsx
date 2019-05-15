@@ -15,7 +15,7 @@ class Page extends Component {
 
   componentDidMount() {
     fetch(this.fetchUrl)
-      .then(res => res.json());
+      .then(res => res.json())
       .then(
         (result) => {
           this.setState({
@@ -27,7 +27,7 @@ class Page extends Component {
           this.setState({
             isLoaded: true,
             error
-          });
+          })
         }
       );
   }
