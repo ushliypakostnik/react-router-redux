@@ -67,7 +67,6 @@ class Album extends Component {
             isOpen={true}
           />
         )}
-        {console.log(this.state.lightboxIsOpen)}
       </div>
     );
   }
