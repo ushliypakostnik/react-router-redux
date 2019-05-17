@@ -12,7 +12,7 @@ $normal-letter-spacing: normal;
 // Guide
 
 $font-size_base: 16px;
-$font-size_coefficient_large: 1.5;
+$font-size_coefficient_large: 2;
 $font-size_coefficient_normal: 1.15;
 $font-size_coefficient_small: 0.9;
 $font-size_coefficient_xsmall: 0.8;
@@ -42,7 +42,7 @@ $font-weight_serif_bold: 700;
 
 /* open-sans-300 - cyrillic_latin */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans Light';
   font-style: normal;
   font-weight: 300;
   src: url('/fonts/open-sans/open-sans-v16-cyrillic_latin-300.eot'); /* IE9 Compat Modes */
@@ -55,7 +55,7 @@ $font-weight_serif_bold: 700;
 }
 /* open-sans-regular - cyrillic_latin */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans Regular';
   font-style: normal;
   font-weight: 400;
   src: url('/fonts/open-sans/open-sans-v16-cyrillic_latin-regular.eot'); /* IE9 Compat Modes */
@@ -68,7 +68,7 @@ $font-weight_serif_bold: 700;
 }
 /* open-sans-600 - cyrillic_latin */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans Semibold';
   font-style: normal;
   font-weight: 600;
   src: url('/fonts/open-sans/open-sans-v16-cyrillic_latin-600.eot'); /* IE9 Compat Modes */
@@ -81,7 +81,7 @@ $font-weight_serif_bold: 700;
 }
 /* open-sans-700 - cyrillic_latin */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans Bold';
   font-style: normal;
   font-weight: 700;
   src: url('/fonts/open-sans/open-sans-v16-cyrillic_latin-700.eot'); /* IE9 Compat Modes */

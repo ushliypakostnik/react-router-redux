@@ -9,7 +9,7 @@ class Album extends Component {
     super(props);
     this.state = { 
       currentImage: 0,
-      lightboxData: []
+      lightboxData: [],
     };
     this.closeLightbox = this.closeLightbox.bind(this);
     this.openLightbox = this.openLightbox.bind(this);

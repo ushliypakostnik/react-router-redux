@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import Menu, { MenuItem } from './components/menu';
+
+import Header from './components/header';
 import Page from './components/page';
 
 import './normalize.css';
@@ -33,15 +34,7 @@ const ARR = Object.values(PAGES).sort((a,b)=>a>b);
 ReactDOM.render((
   <Router history={history}>
     <div className="app">
-      <Menu>
-        {ARR.map((item, index) => {
-          return <MenuItem
-            key={index}
-            text={item.link}
-            path={item.path}
-          />
-        })}
-      </Menu>
+      <Header items={ARR} />
       <Switch>
         {ARR.map((item, index) => {
           return <Route

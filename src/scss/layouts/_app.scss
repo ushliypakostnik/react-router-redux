@@ -1,15 +1,29 @@
 @import "../_stylebase.scss";
 
+$header-height: 50px;
+
 .app {
-  &__menu {
+  &__header {
+    height: $header-height;
+    width: 100%;
+    position: fixed;
     background: $color_black;
-    padding: 10px 20px;
+  }
+
+  &__menu {
+    display: inline-block;
     margin: 0;
+    padding: 0;
 
     > li {
       display: inline-block;
-      font-size: 30px;
       margin-right: 40px;
+      padding-top: 12px;
+
+      a {
+        color: $color_white;
+        @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
+      }
 
       a svg {
         margin-right: 10px;
@@ -24,5 +38,14 @@
   &__page {
     font-size: 50px;
     font-weight: bold;
+    padding-top: $header-height;
+  }
+}
+
+.header {
+  &__right {
+    color: $color_white;
+    float: right;
+    @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
   }
 }

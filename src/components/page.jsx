@@ -9,12 +9,26 @@ class Page extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      images: []
+      images: [],
+      windowHeight: props.windowHeight,
+      minHeight: window.innerHeight + 1 + 'px'
     };
     this.fetchUrl = "http://127.0.0.1:8082/albums/album" + this.props.id;
   }
 
+  componentWillMount() {
+    this.setState({
+      windowHeight: window.innerHeight + 'px'
+    });
+  }
+
   componentDidMount() {
+    const string = parseInt(this.state.windowHeight.replace('px', '')) + 1 + 'px';
+    if (typeof(string) != undefined) {
+      this.setState({
+        minHeight: string
+      });
+    }
     fetch(this.fetchUrl)
       .then(res => res.json())
       .then(
@@ -34,15 +48,16 @@ class Page extends Component {
   }
 
   render() {
-    const { error, isLoaded, images } = this.state;
+    const { error, isLoaded, images, windowHeight, minHeight } = this.state;
+    console.log(windowHeight, minHeight);
 
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return <div className="app__page" style={{minHeight: this.state.minHeight}}>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div className="app__page" style={{minHeight: this.state.minHeight}}></div>;
     } else {
       return (
-        <section className="app__page">
+        <section className="app__page" style={{minHeight: this.state.minHeight}}>
           <Album photos={images} />
         </section>
       );
