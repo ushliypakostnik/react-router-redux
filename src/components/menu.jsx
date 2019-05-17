@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,12 +10,12 @@ const Menu = props => (
   </ul>
 );
 
-export const MenuItem = ({ text, path }) => (
+export const MenuItem = ({ text, path, className }) => (
   <li>
-    <NavLink
+    <Link
       to={path}
-      activeClassName="app__menu--active"
-    ><FontAwesomeIcon icon={faHome} /> {text}</NavLink>
+      className={className}
+    >{text}</Link>
   </li>
 );
 

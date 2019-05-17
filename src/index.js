@@ -16,16 +16,16 @@ const history = createBrowserHistory();
 
 const PAGES = {
   page1: {
-    path: "/album1",
-    link: "Section 1"
+    path: "/",
+    link: "pinhole"
   },
   page2: {
     path: "/album2",
-    link: "Section 2"
+    link: "wedding"
   },
   page3: {
     path: "/album3",
-    link: "Section 3"
+    link: "concert"
   }
 };
 
@@ -38,6 +38,7 @@ ReactDOM.render((
       <Switch>
         {ARR.map((item, index) => {
           return <Route
+            exact={index > 0 ? false : true}
             key={index}
             path={item.path}
             component={props => <Page {...props} id={(index + 1)} />}

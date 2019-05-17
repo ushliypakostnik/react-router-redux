@@ -17,7 +17,7 @@ $header-height: 50px;
 
     > li {
       display: inline-block;
-      margin-right: 40px;
+      margin-right: $indent-size * 3;
       padding-top: 12px;
 
       a {
@@ -26,7 +26,7 @@ $header-height: 50px;
       }
 
       a svg {
-        margin-right: 10px;
+        margin-right: $indent-size / 2;
       }
     }
 
@@ -42,10 +42,34 @@ $header-height: 50px;
   }
 }
 
+// Witgets
+
 .header {
   &__right {
     color: $color_white;
     float: right;
-    @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
+
+    .logo {
+      color: $color_white;
+      @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
+    }
   }
+}
+
+.social {
+    margin-right: $indent-size * 2;
+    @include link-style($color_white, $color_white);
+    @include text($font-family_sans, round($font-size_normal * 1.5), $font-weight_sans_light);
+}
+
+// Lightbox customization
+
+.ril__outer {
+  background: $color_black;
+}
+
+.ril__toolbar,
+.ril__navButtonPrev,
+.ril__navButtonNext {
+  background-color: transparent;
 }
