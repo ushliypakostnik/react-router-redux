@@ -2,16 +2,20 @@ import React, { Component } from "react";
 import { fetch } from 'whatwg-fetch';
 
 import Gallery from 'react-photo-gallery';
-import Lightbox from 'react-images';
+import LightboxContainer from './lightbox';
 
 class Album extends Component {
-  constructor() {
-    super();
-    this.state = { currentImage: 0 };
+  constructor(props) {
+    super(props);
+    this.state = { 
+      currentImage: 0,
+      lightboxData: []
+    };
     this.closeLightbox = this.closeLightbox.bind(this);
     this.openLightbox = this.openLightbox.bind(this);
     this.gotoNext = this.gotoNext.bind(this);
     this.gotoPrevious = this.gotoPrevious.bind(this);
+    this.overlayKey = 0;
   }
   openLightbox(event, obj) {
     this.setState({
@@ -35,24 +39,37 @@ class Album extends Component {
       currentImage: this.state.currentImage + 1,
     });
   }
+  componentWillMount() {
+    let lightboxDataArr = Object.values(this.props.photos);
+    let result = [];
+    lightboxDataArr.forEach(function(data) {
+      result.push(Object.values(data)[0]);
+    });
+    this.setState({
+      lightboxData: result
+    });
+  }
   render() {
+    ++this.overlayKey;
+
     return (
       <div>
         <Gallery
           photos={this.props.photos}
-          margin="0"
-          targetRowHeight={400}
+          margin={0}
+          targetRowHeight={350}
           onClick={this.openLightbox} />
-        <Lightbox
-          images={this.props.photos}
-          onClose={this.closeLightbox}
-          onClickPrev={this.gotoPrevious}
-          onClickNext={this.gotoNext}
-          currentImage={this.state.currentImage}
-          isOpen={this.state.lightboxIsOpen}
-        />
+        {this.state.lightboxIsOpen && (
+          <LightboxContainer
+            key={this.overlayKey}
+            images={this.state.lightboxData}
+            index={this.state.currentImage}
+            isOpen={true}
+          />
+        )}
+        {console.log(this.state.lightboxIsOpen)}
       </div>
-    )
+    );
   }
 }
 
