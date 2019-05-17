@@ -48,8 +48,7 @@ class Page extends Component {
   }
 
   render() {
-    const { error, isLoaded, images, windowHeight, minHeight } = this.state;
-    console.log(windowHeight, minHeight);
+    const { error, isLoaded, images, minHeight } = this.state;
 
     if (error) {
       return <div className="app__page" style={{minHeight: this.state.minHeight}}>Error: {error.message}</div>;
