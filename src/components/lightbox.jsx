@@ -5,8 +5,7 @@ import 'react-image-lightbox/style.css';
 
 import '../scss/widgets/_lightbox.scss';
 
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Icon } from 'antd';
 
 class LightboxContainer extends Component {
   constructor(props) {
@@ -60,7 +59,7 @@ class LightboxContainer extends Component {
                 this.setState({ isOpen: false });
                 this.props.lightboxUpdate(this.state.isOpen);
               }}
-            ><FontAwesomeIcon icon={faTimes} /></a>
+            ><Icon type="close" /></a>
           </Fragment>
         )}
       </Fragment>
