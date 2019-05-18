@@ -62,7 +62,6 @@ class Header extends Component {
             closable={true}
             onClose={this.onClose}
             visible={this.state.visible}
-            bodyStyle={{overflow: 'auto'}}
             className={'app__panel'}
             width={"60%"}
           >
