@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
+
+import '../scss/widgets/_lightbox.scss';
 
 class LightboxContainer extends Component {
   constructor(props) {
@@ -14,7 +17,6 @@ class LightboxContainer extends Component {
 
   render() {
     const { photoIndex, isOpen } = this.state;
-    console.log("Внутри: ", isOpen);
 
     return (
       <div>

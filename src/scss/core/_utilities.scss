@@ -9,4 +9,9 @@
 .container-fluid {
   padding-left: $indent-size;
   padding-right: $indent-size;
+
+  @include xs {
+    padding-left: $indent-size / 2;
+    padding-right: $indent-size / 2;
+  }
 }

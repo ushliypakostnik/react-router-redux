@@ -1,13 +1,21 @@
 @import "../_stylebase.scss";
 
 $header-height: 50px;
+$header-height-mobile: 40px;
+
+// Main Layout
 
 .app {
   &__header {
+    position: relative;
     height: $header-height;
     width: 100%;
     position: fixed;
     background: $color_black;
+
+    @include xs {
+      height: $header-height-mobile;
+    }
   }
 
   &__menu {
@@ -21,17 +29,30 @@ $header-height: 50px;
       padding-top: 12px;
 
       a {
-        color: $color_white;
+        @include link-style($color_white, $color_white);
         @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
       }
 
       a svg {
         margin-right: $indent-size / 2;
       }
+
+      @include sm {
+        padding-top: 15px;
+        margin-right: $indent-size * 2;
+
+        a {
+          @include text($font-family_sans, $font-size_small, $font-weight_sans_semibold);
+        }
+      }
     }
 
     &--active {
       color: $color_white;
+    }
+
+    @include xs {
+      display: none;
     }
   }
 
@@ -39,6 +60,10 @@ $header-height: 50px;
     font-size: 50px;
     font-weight: bold;
     padding-top: $header-height;
+
+    @include xs {
+      padding-top: $header-height-mobile;
+    }
   }
 }
 
@@ -48,28 +73,61 @@ $header-height: 50px;
   &__right {
     color: $color_white;
     float: right;
+    white-space: nowrap;
 
-    .logo {
-      color: $color_white;
-      @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
+    @include sm {
+      padding-top: 7px;
+    }
+
+    @include xs {
+      padding-top: 6px;
     }
   }
-}
 
-.social {
-    margin-right: $indent-size * 2;
+  &__logo {
     @include link-style($color_white, $color_white);
-    @include text($font-family_sans, round($font-size_normal * 1.5), $font-weight_sans_light);
-}
+    @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
 
-// Lightbox customization
+    @include sm {
+        @include text($font-family_sans, round($font-size_normal * 1.25), $font-weight_sans_light);
+    }
 
-.ril__outer {
-  background: $color_black;
-}
+    @include xs {
+        @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
+    }
+  }
 
-.ril__toolbar,
-.ril__navButtonPrev,
-.ril__navButtonNext {
-  background-color: transparent;
+  &__social {
+      margin-right: $indent-size * 2;
+      @include link-style($color_white, $color_white);
+      @include text($font-family_sans, round($font-size_normal * 1.5), $font-weight_sans_light);
+
+      @include sm {
+        margin-right: $indent-size * 1.5;
+        @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
+      }
+
+      @include xs {
+        position: relative;
+        top: -2px;
+        margin-right: $indent-size;
+        @include text($font-family_sans, $font-size_small, $font-weight_sans_light);
+      }
+  }
+
+  &__navbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    font-size: 20px;
+    line-height: $header-height-mobile;
+    text-align: center;
+    @include link-style($color_white, $color_white);
+    @include size($header-height-mobile, $header-height-mobile);
+
+    @include not-xs {
+      display: none;
+    }
+  }
 }

@@ -1,0 +1,53 @@
+@import "../_stylebase.scss";
+
+// Lightbox customization
+
+.ril__outer {
+  background: $color_black;
+}
+
+.ril__toolbar,
+.ril__navButtonPrev,
+.ril__navButtonNext {
+  background-color: transparent;
+}
+
+.ril__navButtonPrev,
+.ril__navButtonNext {
+  @include xs {
+    display: none;
+  }
+}
+
+.ril__toolbarRightSide,
+.ril__toolbarLeftSide {
+  @include xs {
+    padding: 0;
+  }
+}
+
+.ril__builtinButton {
+  @include xs {
+    vertical-align: top;
+    @include size(40px, 40px);
+  }
+}
+
+.ril__toolbar,
+.ril__toolbarSide  {
+  @include xs {
+    height: 40px;
+  }
+}
+
+.ril__toolbarItem {
+  @include xs {
+    line-height: 40px;
+  }
+}
+
+.ril__closeButton {
+  @include xs {
+    padding: 0;
+  }
+}
