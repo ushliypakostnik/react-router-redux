@@ -14,9 +14,15 @@
 
 .ril__navButtonPrev,
 .ril__navButtonNext {
+  opacity: 0.5;
+
   @include xs {
     display: none;
   }
+}
+
+.ril__closeButton {
+  display: none;
 }
 
 .ril__toolbarRightSide,
@@ -43,11 +49,5 @@
 .ril__toolbarItem {
   @include xs {
     line-height: 40px;
-  }
-}
-
-.ril__closeButton {
-  @include xs {
-    padding: 0;
   }
 }

@@ -60,7 +60,7 @@
   }
 }
 
-
+// Size )
 @mixin size($width, $height) {
   width: $width;
   height: $height;
@@ -79,28 +79,6 @@
 
   &:hover, &:active {
     background-color: darken($background, $fade );
-    color: $color;
-  }
-
-  @include sm-and-xs {
-    &, &:hover, &:focus {
-      background-color: $background;
-      color: $color;
-    }
-    &:active {
-      background-color: darken($background, $fade);
-      color: $color;
-    }
-  }
-}
-
-@mixin btn-color-permanent($color, $background) {
-  background-color: $background;
-  color: $color;
-  @include transition(background $transition-duration $transition-timing-function $transition-delay);
-
-  &:hover, &:active {
-    background-color: $background;
     color: $color;
   }
 
@@ -177,44 +155,6 @@
 @mixin border-radius($border-radius...) {
   border-radius: $border-radius;
 }
-
-// Поворот
-@mixin rotate($degrees) {
-  transform: rotate($degrees);
-}
-
-// User-select
-@mixin user-select($value) {
-  transform: user-select($value);
-}
-
-@mixin box-shadow-custom($shadow-coords-x, $shadow-coords-y, $shadow-size, $shadow-stretch, $shadow-color) {
-  box-shadow: $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
-}
-
-@mixin box-shadow-inset-custom($shadow-coords-x, $shadow-coords-y, $shadow-size, $shadow-stretch, $shadow-color) {
-  box-shadow: inset $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
-}
-
-// Linear-gradients
-@mixin gradient-vertical-three-colors($start-color, $mid-color, $color-stop, $end-color) {
-  background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
-}
-
-@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
-  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent);
-}
-
-@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
-  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent);
-}
-
-@mixin selection($color) {
-  ::selection {background: $color;}
-    ::-moz-selection {background: $color;}
-      ::-webkit-selection {background: $color;}
-}
-
 
 // Flexbox mixins
 

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
+import App from './components/app';
 import Header from './components/header';
 import Page from './components/page';
 
@@ -33,8 +34,7 @@ const ARR = Object.values(PAGES).sort((a,b)=>a>b);
 
 ReactDOM.render((
   <Router history={history}>
-    <div className="app">
-      <Header items={ARR} />
+    <App items={ARR}>
       <Switch>
         {ARR.map((item, index) => {
           return <Route
@@ -45,7 +45,7 @@ ReactDOM.render((
           />
         })}
       </Switch>
-    </div>
+    </App>
   </Router>
 ), document.getElementById('root'));
 

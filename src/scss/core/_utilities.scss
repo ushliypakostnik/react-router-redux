@@ -1,11 +1,13 @@
 // Utilities
 //////////////////////////////////////////////////////
 
+// Animation class example
 //.pulse {
 //    $duration: $transition_duration * 2;
 //    @include animation('pulse #{$transition_duration} infinite', 'fadeOn #{$duration} forwards');
 //}
 
+// Rubber Container
 .container-fluid {
   padding-left: $indent-size;
   padding-right: $indent-size;

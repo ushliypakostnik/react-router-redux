@@ -1,14 +1,12 @@
+// Project placeholders
+//////////////////////////////////////////////////////
+
+// Examples
+
 %plus {
   color: $color_success;
 }
 
 %minus {
   color: $color_danger;
-}
-
-// Для кнопок без тени при нажатии
-%no-shadow-active-btn {
-    &:active {
-        @include box-shadow-inset-custom(0, 0, 0, 0, transparent);
-    }
 }

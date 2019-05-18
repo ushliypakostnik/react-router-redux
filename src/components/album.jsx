@@ -60,7 +60,7 @@ class Album extends Component {
     ++this.overlayKey;
 
     return (
-      <div>
+      <div className={this.state.lightboxIsOpen ? "lightbox-is-open" : null}>
         <Gallery
           photos={this.props.photos}
           margin={0}

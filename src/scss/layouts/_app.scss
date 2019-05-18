@@ -7,11 +7,13 @@ $header-height-mobile: 40px;
 
 .app {
   &__header {
-    position: relative;
+    padding-top: 50px;
     height: $header-height;
     width: 100%;
-    position: fixed;
+    position: sticky;
+    top: -50px;
     background: $color_black;
+    z-index: $header-layout;
 
     @include xs {
       height: $header-height-mobile;
@@ -29,6 +31,7 @@ $header-height-mobile: 40px;
       padding-top: 12px;
 
       a {
+        opacity: 0.5;
         @include link-style($color_white, $color_white);
         @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
       }
@@ -56,13 +59,120 @@ $header-height-mobile: 40px;
     }
   }
 
+  &__panel {
+    width: 60%;
+    background: rgb(124, 124, 124);
+    position: fixed;
+    top: 0;
+    right: -60%;
+    bottom: 0;
+    z-index: $panel-layout;
+    @include transition(right $transition-duration $transition-timing-function $transition-delay);
+
+    @include not-xs {
+      display: none;
+    }
+
+    @include min {
+      width: 54%;
+    }
+
+    .app__menu {
+      display: block;
+      padding-top: 30px;
+      padding-left: 30px;
+
+      > li {
+        margin-bottom: 20px;
+        display: block;
+
+        a {
+          opacity: 0.75;
+          @include link-style($color_black, $color_black);
+          @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
+        }
+      }
+    }
+  }
+
+  &__panel-close {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    line-height: $header-height-mobile;
+    text-align: center;
+    z-index: $panel-layout + 100;
+    @include link-style($color_white, $color_white);
+    @include size($header-height-mobile, $header-height-mobile);
+    @include transition(opasity $transition-duration $transition-timing-function $transition-delay);
+
+    @include not-xs {
+      display: none;
+    }
+  }
+
+  &__no-panel {
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $overlay-layout;
+    @include transition(opasity $transition-duration $transition-timing-function $transition-delay);
+
+    @include not-xs {
+      display: none;
+    }
+  }
+
   &__page {
     font-size: 50px;
     font-weight: bold;
-    padding-top: $header-height;
+  }
+
+  &__lightbox-close {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    line-height: $header-height;
+    text-align: center;
+    z-index: $overlay-layout + 2000;
+    @include link-style($color_white, $color_white);
+    @include size($header-height, $header-height);
+    @include transition(opasity $transition-duration $transition-timing-function $transition-delay);
 
     @include xs {
-      padding-top: $header-height-mobile;
+      line-height: $header-height-mobile;
+      @include size($header-height-mobile, $header-height-mobile);
+    }
+
+    .lightbox-is-open & {
+      display: block;
+      opacity: 0.5;
+    }
+  }
+
+  &--panel-open {
+    .app__panel,
+    .app__no-panel {
+      display: block;
+      opacity: 1;
+    }
+    .app__panel-close {
+      display: block;
+      opacity: 0.75;
+    }
+    .app__panel {
+      right: 0;
     }
   }
 }
@@ -74,49 +184,63 @@ $header-height-mobile: 40px;
     color: $color_white;
     float: right;
     white-space: nowrap;
+    padding-right: 40px;
 
     @include sm {
       padding-top: 7px;
     }
 
     @include xs {
+      float: none;
       padding-top: 6px;
+      padding-right: 0;
     }
   }
 
   &__logo {
+    opacity: 0.5;
     @include link-style($color_white, $color_white);
     @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
 
     @include sm {
-        @include text($font-family_sans, round($font-size_normal * 1.25), $font-weight_sans_light);
+      @include text($font-family_sans, round($font-size_normal * 1.25), $font-weight_sans_light);
     }
 
     @include xs {
-        @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
+      display: none;
+      @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
+    }
+
+    &--xs {
+      display: inline-block;
+      margin-right: $indent-size * 1.5;
+
+      @include not-xs {
+        display: none;
+      }
     }
   }
 
   &__social {
-      margin-right: $indent-size * 2;
-      @include link-style($color_white, $color_white);
-      @include text($font-family_sans, round($font-size_normal * 1.5), $font-weight_sans_light);
+    opacity: 0.5;
+    margin-right: $indent-size * 2;
+    @include link-style($color_white, $color_white);
+    @include text($font-family_sans, round($font-size_normal * 1.5), $font-weight_sans_light);
 
-      @include sm {
-        margin-right: $indent-size * 1.5;
-        @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
-      }
+    @include sm {
+      margin-right: $indent-size * 1.5;
+      @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
+    }
 
-      @include xs {
-        position: relative;
-        top: -2px;
-        margin-right: $indent-size;
-        @include text($font-family_sans, $font-size_small, $font-weight_sans_light);
-      }
+    @include xs {
+      margin-right: $indent-size;
+      @include text($font-family_sans, $font-size_small, $font-weight_sans_light);
+    }
   }
 
   &__navbar {
-    position: absolute;
+    opacity: 0.5;
+    position: fixed;
     left: 0;
     top: 0;
     display: block;
@@ -128,6 +252,11 @@ $header-height-mobile: 40px;
 
     @include not-xs {
       display: none;
+    }
+
+    @include xs {
+      right: 0;
+      left: auto;
     }
   }
 }
