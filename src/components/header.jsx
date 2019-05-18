@@ -9,16 +9,13 @@ import { Icon } from 'antd';
 
 import { faVk } from "@fortawesome/free-brands-svg-icons";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false,
-      placement: 'right'
+      visible: false
     };
   }
 
@@ -31,12 +28,6 @@ class Header extends Component {
   onClose = () => {
     this.setState({
       visible: false,
-    });
-  };
-
-  onChange = e => {
-    this.setState({
-      placement: e.target.value,
     });
   };
 
@@ -67,7 +58,7 @@ class Header extends Component {
           ><Icon type="menu" /></a>
           <Drawer
             title={null}
-            placement={this.state.placement}
+            placement={'right'}
             closable={true}
             onClose={this.onClose}
             visible={this.state.visible}
