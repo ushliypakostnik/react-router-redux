@@ -44,7 +44,7 @@ class Page extends Component {
           this.setState({
             isLoaded: true,
             error
-          })
+          });
         }
       );
   }
@@ -53,14 +53,13 @@ class Page extends Component {
     const { error, isLoaded, images, minHeight } = this.state;
 
     if (error) {
-
       return <div className="app__page" style={{minHeight: this.state.minHeight}}>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div className="app__page" style={{minHeight: this.state.minHeight}}></div>;
     } else {
       return (
         <section className="app__page" style={{minHeight: this.state.minHeight}}>
-          <Album photos={images} />
+          <Album photos={this.state.images} />
         </section>
       );
     }

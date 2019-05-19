@@ -15,27 +15,10 @@ import './normalize.css';
 import { StyleBase } from './scss/_stylebase.scss';
 import './scss/layouts/_app.scss';
 
-const PAGES = {
-  page1: {
-    path: "/",
-    link: "pinhole"
-  },
-  page2: {
-    path: "/album2",
-    link: "wedding"
-  },
-  page3: {
-    path: "/album3",
-    link: "concert"
-  }
-};
-
-const ARR = Object.values(PAGES).sort((a,b)=>a>b);
-
 ReactDOM.render((
   <Provider store={store}>
     <Router history={history}>
-      <App items={ARR} />
+      <App />
     </Router>
   </Provider>
 ), document.getElementById('root'));

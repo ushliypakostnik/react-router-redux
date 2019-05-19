@@ -39,7 +39,7 @@ class Header extends Component {
             {this.props.items.map((item, index) => {
               return <MenuItem
                 key={index}
-                text={item.link}
+                text={item.text}
                 path={item.path}
               />
             })}
@@ -69,7 +69,7 @@ class Header extends Component {
               {this.props.items.map((item, index) => {
                 return <MenuItem
                   key={index}
-                  text={item.link}
+                  text={item.text}
                   path={item.path}
                 />
               })}

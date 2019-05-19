@@ -10,18 +10,45 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      albums: [],
       panelOpen: false
     };
+    this.fetchUrl = "http://127.0.0.1:8082/albums/";
+  }
+
+  componentDidMount() {
+    fetch(this.fetchUrl)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          let resultArr = [];
+          result.map((item, index) => {
+            if (index === 0) {
+              resultArr.push({text: item, path: "/"});
+            } else {
+              resultArr.push({text: item, path: "/album" + (index + 1)});
+            }
+          })
+          this.setState({
+            isLoaded: true,
+            albums: resultArr
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
   }
 
   render() {
-    console.log(this.props.page);
-
     return (
       <div className="app">
-        <Header items={this.props.items} />
+        <Header items={this.state.albums} />
         <Switch>
-          {this.props.items.map((item, index) => {
+          {this.state.albums.map((item, index) => {
             return <Route
               exact={index > 0 ? false : true}
               key={index}
