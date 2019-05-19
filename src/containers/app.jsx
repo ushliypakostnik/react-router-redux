@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import Header from './header';
 import Page from './page';
+
+import Header from '../components/header';
 
 class App extends Component {
   constructor(props) {

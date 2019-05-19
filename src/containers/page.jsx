@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { fetch } from 'whatwg-fetch';
 
-import Album from './album';
+import Album from '../components/album';
 
 class Page extends Component {
   constructor(props) {

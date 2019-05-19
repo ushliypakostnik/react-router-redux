@@ -1,5 +1,5 @@
 const initialState = {
-  page: null
+  page: {path: "/", link: "pinhole"}
 };
 
 const reducer = (state = initialState, action) => {
