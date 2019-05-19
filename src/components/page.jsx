@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import { fetch } from 'whatwg-fetch';
 
 import Album from './album';
@@ -11,7 +12,8 @@ class Page extends Component {
       isLoaded: false,
       images: [],
       windowHeight: props.windowHeight,
-      minHeight: window.innerHeight + 1 + 'px'
+      minHeight: window.innerHeight + 1 + 'px',
+      test: null
     };
     this.fetchUrl = "http://127.0.0.1:8082/albums/album" + this.props.id;
   }
@@ -51,6 +53,7 @@ class Page extends Component {
     const { error, isLoaded, images, minHeight } = this.state;
 
     if (error) {
+
       return <div className="app__page" style={{minHeight: this.state.minHeight}}>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div className="app__page" style={{minHeight: this.state.minHeight}}></div>;

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 
 import Header from './header';
 
@@ -12,7 +13,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className={this.state.panelOpen ? "app app--panel-open" : "app"}>
+      <div className="app">
         <Header items={this.props.items} />
         {this.props.children}
       </div>
@@ -20,4 +21,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = function(state, ownProps) {
+  console.log("State: ", state.reducer, "ownProps: ", ownProps.items[0]);
+  return {
+  }
+}
+
+export default connect(mapStateToProps)(App);

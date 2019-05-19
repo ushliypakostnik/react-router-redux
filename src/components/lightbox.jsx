@@ -28,7 +28,7 @@ class LightboxContainer extends Component {
               mainSrc={this.props.images[photoIndex]}
               nextSrc={this.props.images[(photoIndex + 1) % this.props.images.length]}
               prevSrc={this.props.images[(photoIndex + this.props.images.length - 1) % this.props.images.length]}
-              onCloseRequest={() => 
+              onCloseRequest={() =>
                 {
                   this.setState({ isOpen: false });
                   this.props.lightboxUpdate(this.state.isOpen);
@@ -51,15 +51,6 @@ class LightboxContainer extends Component {
                 }
               }}
             />
-            <a
-              href="#"
-              className="app__lightbox-close"
-              onClick={(e) => {
-                e.preventDefault();
-                this.setState({ isOpen: false });
-                this.props.lightboxUpdate(this.state.isOpen);
-              }}
-            ><Icon type="close" /></a>
           </Fragment>
         )}
       </Fragment>
