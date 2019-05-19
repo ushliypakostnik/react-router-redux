@@ -54,8 +54,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 //history.listen(location => console.info('-> location:', location));
 
 store.dispatch({type: "PAGEACTIVE", page: ARR[0]});
-//store.dispatch(pageActive(ARR[1]));
-//store.dispatch(pageActive(ARR[2]));
+store.dispatch(pageActive(ARR[1]));
 
 ReactDOM.render((
   <Provider store={store}>
