@@ -57,7 +57,7 @@ $color_dark_alfa: rgba($color_dark, 0.66);
 
 // Text
 
-$color_text: #575757;
+$color_text: $color_black;
 $color_text_light: lighten($color_text, ($fade * 2)); // #a0a0a0
 $color_text_alfa: rgba($color_black, 0.75);
 

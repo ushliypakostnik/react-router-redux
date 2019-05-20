@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+
+import { APIUrl } from '../constants.js';
 import { fetch } from 'whatwg-fetch';
 
 import Album from '../components/album';
@@ -15,7 +17,7 @@ class Page extends Component {
       minHeight: window.innerHeight + 1 + 'px',
       test: null
     };
-    this.fetchUrl = "http://127.0.0.1:8082/albums/album" + this.props.id;
+    this.fetchUrl = APIUrl + "albums/album" + this.props.id;
   }
 
   componentWillMount() {
