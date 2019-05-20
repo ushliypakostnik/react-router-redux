@@ -20,7 +20,7 @@ class App extends Component {
       albums: [],
       panelOpen: false
     };
-    this.fetchUrl = process.env.REACT_APP_API_URL + "albums/";
+    this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/";
   }
 
   componentDidMount() {

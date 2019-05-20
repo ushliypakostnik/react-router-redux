@@ -16,7 +16,7 @@ class Page extends Component {
       minHeight: window.innerHeight + 1 + 'px',
       test: null
     };
-    this.fetchUrl = process.env.REACT_APP_API_URL + "albums/album" + this.props.id;
+    this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/album" + this.props.id;
   }
 
   componentWillMount() {
