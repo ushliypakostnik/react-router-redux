@@ -10,6 +10,8 @@ import * as serviceWorker from './serviceWorker';
 
 import store, { history } from './store/store.js'
 
+console.log("Тест:", process.env.NODE_ENV, process.env.REACT_APP_API_URL);
+
 ReactDOM.render((
   <Provider store={store}>
     <Router history={history}>
