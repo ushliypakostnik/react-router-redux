@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { APIUrl } from '../constants.js';
 import { fetch } from 'whatwg-fetch';
 
 import Page from './page';
@@ -21,7 +20,7 @@ class App extends Component {
       albums: [],
       panelOpen: false
     };
-    this.fetchUrl = APIUrl + "albums/";
+    this.fetchUrl = process.env.REACT_APP_API_URL + "albums/";
   }
 
   componentDidMount() {
