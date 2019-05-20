@@ -20,7 +20,7 @@ history.listen(location => console.info('-> location:', location));
 
 let lastUrl = "";
 if (store.getState().routing.locationBeforeTransitions != null) {
-  lastUrl = store.getState().routing.locationBeforeTransitions.pathname
+  lastUrl = store.getState().routing.locationBeforeTransitions.pathname;
 } else {
   lastUrl = "/";
 }
