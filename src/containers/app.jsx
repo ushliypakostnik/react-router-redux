@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { connect } from 'react-redux';
 
 import Page from './page';
 
 import Header from '../components/header';
+import Menu, { MenuItem } from '../components/menu';
+
+// Styles
+import '../normalize.css';
+import { StyleBase } from '../scss/_stylebase.scss';
+import '../scss/layouts/_app.scss';
 
 class App extends Component {
   constructor(props) {
@@ -62,11 +67,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = function(state, ownProps) {
-  console.log("State: ", state.reducer.page.path, "ownProps: ", ownProps.items);
-  return {
-    page: state.reducer.page.path
-  }
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

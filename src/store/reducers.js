@@ -1,5 +1,5 @@
 const initialState = {
-  page: {path: "/", link: "pinhole"}
+  activePage: "/"
 };
 
 const reducer = (state = initialState, action) => {
@@ -8,9 +8,9 @@ const reducer = (state = initialState, action) => {
   }
 
   switch (action.type) {
-    case "PAGEACTIVE":
+    case "PAGETOACTIVE":
       return Object.assign({}, state, {
-        page: action.page
+        activePage: action.activePage
       });
       break;
     default:

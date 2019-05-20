@@ -10,11 +10,6 @@ import * as serviceWorker from './serviceWorker';
 
 import store, { history } from './store/store.js'
 
-// Styles
-import './normalize.css';
-import { StyleBase } from './scss/_stylebase.scss';
-import './scss/layouts/_app.scss';
-
 ReactDOM.render((
   <Provider store={store}>
     <Router history={history}>

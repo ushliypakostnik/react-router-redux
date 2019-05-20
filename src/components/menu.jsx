@@ -10,11 +10,12 @@ const Menu = props => (
   </ul>
 );
 
-export const MenuItem = ({ text, path, className }) => (
+export const MenuItem = ({ text, path, className, onClick }) => (
   <li>
     <Link
       to={path}
       className={className}
+      onClick={onClick}
     >{text}</Link>
   </li>
 );

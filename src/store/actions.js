@@ -1,6 +1,4 @@
-export const pageActive = (page) => {
-  return {
-    type: "PAGEACTIVE",
-    page: page
-  }
-}
+export const pageToActive = (page) => ({
+  type: "PAGETOACTIVE",
+  activePage: page
+});

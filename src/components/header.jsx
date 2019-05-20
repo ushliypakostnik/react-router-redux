@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { connect } from 'react-redux';
+
+import { pageToActive } from '../store/actions.js';
 
 import Menu, { MenuItem } from './menu';
 
@@ -15,23 +18,30 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false
+      visible: false,
+      pageIsActive: ""
     };
   }
 
   showDrawer = () => {
     this.setState({
-      visible: true,
+      visible: true
     });
   };
 
   onClose = () => {
     this.setState({
-      visible: false,
+      visible: false
     });
   };
 
+  static getDerivedStateFromProps = (nextProps, prevState) => ({
+    pageIsActive: nextProps.pageIsActive
+  });
+
   render () {
+    console.log("HEADER: Props:", this.props.pageIsActive, "State:", this.state.pageIsActive);
+
     return (
       <div className="app__header">
         <div className="container-fluid">
@@ -41,6 +51,8 @@ class Header extends Component {
                 key={index}
                 text={item.text}
                 path={item.path}
+                className={(this.state.pageIsActive == item.path) ? "app__menu--active" : ""}
+                onClick={() => {this.props.pageToActive(item.path)}}
               />
             })}
           </Menu>
@@ -71,15 +83,29 @@ class Header extends Component {
                   key={index}
                   text={item.text}
                   path={item.path}
+                  className={(this.state.pageIsActive == item.path) ? "app__menu--active" : ""}
+                  onClick={() => {this.props.pageToActive(item.path)}}
                 />
               })}
             </Menu>
           </Drawer>
           <div className="header__right">
-            <Link to="/" className="header__logo header__logo--xs">Ivan Samovarov</Link>
-            <a href="https://vk.com/samovaru" className="header__social" target="_blank"><FontAwesomeIcon icon={faVk} /></a>
-            <a href="https://www.facebook.com/samovaru" className="header__social" target="_blank"><FontAwesomeIcon icon={faFacebookF} /></a>
-            <Link to="/" className="header__logo">Ivan Samovarov</Link>
+            <span
+              className="header__logo header__logo--xs"
+            >Ivan Samovarov</span>
+            <a
+              href="https://vk.com/samovaru"
+              className="header__social"
+              target="_blank"><FontAwesomeIcon icon={faVk} /></a>
+            <a
+              href="https://www.facebook.com/samovaru"
+              className="header__social"
+              target="_blank"><FontAwesomeIcon icon={faFacebookF} /></a>
+            <Link
+              to="/"
+              className="header__logo"
+              onClick={() => {this.props.pageToActive(this.props.items[0].path)}}
+            >Ivan Samovarov</Link>
           </div>
         </div>
       </div>
@@ -87,4 +113,12 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+  pageIsActive: state.reducer.activePage
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  pageToActive: (page) => dispatch(pageToActive(page))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

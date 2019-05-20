@@ -11,10 +11,6 @@ $header-height-mobile: 40px;
     padding: 0;
     list-style-type: none;
 
-    &--active {
-      color: $color_white;
-    }
-
     > li {
         a {
           @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
@@ -36,6 +32,11 @@ $header-height-mobile: 40px;
 
           @include sm {
             @include text($font-family_sans, $font-size_xsmall, $font-weight_sans_semibold);
+          }
+
+          // Active class
+          &.app__menu--active {
+            opacity: 1;
           }
         }
 
@@ -69,6 +70,11 @@ $header-height-mobile: 40px;
           opacity: 0.75;
           @include link-style($color_black, $color_black);
           @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
+
+          // Active class
+          &.app__menu--active {
+            @include link-style($color_white, $color_white);
+          }
         }
       }
     }

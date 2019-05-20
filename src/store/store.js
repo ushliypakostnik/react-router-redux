@@ -4,7 +4,7 @@ import { browserHistory } from "react-router";
 //import { createBrowserHistory } from "history";
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
-import { pageActive } from './actions'
+import { pageToActive } from './actions'
 import reducer from './reducers'
 
 const store = createStore(
@@ -13,10 +13,9 @@ const store = createStore(
     routing: routerReducer
   })
 );
-console.log("Store", store.getState().reducer);
 
 store.subscribe(() => {
-  console.info("State has changed: "  + store.getState().reducer);
+  console.log("Store: ", store.getState().reducer);
 });
 
 //const history = createBrowserHistory();
