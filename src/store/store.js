@@ -16,7 +16,7 @@ const store = createStore(
 
 //const history = createBrowserHistory();
 export const history = syncHistoryWithStore(browserHistory, store);
-history.listen(location => console.info('-> location:', location));
+//history.listen(location => console.info('-> location:', location));
 
 let lastUrl = "";
 if (store.getState().routing.locationBeforeTransitions != null) {
