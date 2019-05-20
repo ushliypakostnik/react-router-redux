@@ -40,8 +40,6 @@ class Header extends Component {
   });
 
   render () {
-    console.log("HEADER: Props:", this.props.pageIsActive, "State:", this.state.pageIsActive);
-
     return (
       <div className="app__header">
         <div className="container-fluid">

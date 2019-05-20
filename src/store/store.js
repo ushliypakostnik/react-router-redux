@@ -14,12 +14,22 @@ const store = createStore(
   })
 );
 
-store.subscribe(() => {
-  console.log("Store: ", store.getState().reducer);
-});
-
 //const history = createBrowserHistory();
 export const history = syncHistoryWithStore(browserHistory, store);
-//history.listen(location => console.info('-> location:', location));
+history.listen(location => console.info('-> location:', location));
+
+let lastUrl = "";
+if (store.getState().routing.locationBeforeTransitions != null) {
+  lastUrl = store.getState().routing.locationBeforeTransitions.pathname
+} else {
+  lastUrl = "/";
+}
+
+store.subscribe(() => {
+  console.log("Store: ", store.getState().reducer);
+  console.log("last Url: ", lastUrl);
+});
+
+store.dispatch(pageToActive(lastUrl));
 
 export default store;
