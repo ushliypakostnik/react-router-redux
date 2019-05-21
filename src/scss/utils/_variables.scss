@@ -29,15 +29,6 @@ $transition_duration: 0.2s;
 $transition_timing-function: ease-out;
 $transition_delay: 0s;
 
-$shadow_coords-x: 0;
-$shadow_coords-y: 1px;
-$shadow_size: 4px;
-$shadow_stretch: 0;
-
-$text-shadow_coords-x: 0;
-$text-shadow_coords-y: 1px;
-$text-shadow_size: 4px;
-
 
 // Layouts
 //////////////////////////////////////////////////////
@@ -93,4 +84,3 @@ $breackpoint_sm_max:              ($breackpoint_md_min - 1) !global;
 $breackpoint_md_max:              ($breackpoint_lg_min - 1) !global;
 $breackpoint_lg_max:              ($breackpoint_xl_min - 1) !global;
 $breackpoint_md_max:              ($breackpoint_mg_min - 1) !global;
-

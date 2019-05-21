@@ -43,12 +43,6 @@
   }
 }
 
-@mixin min {
-  @media (max-width: $breackpoint-min) {
-    @content;
-  }
-}
-
 // Size )
 @mixin size($width, $height) {
   width: $width;
