@@ -71,16 +71,7 @@ $breackpoint_md_min:              $breackpoint_md !global;
 $breackpoint_lg:                  1200px !global;
 $breackpoint_lg_min:              $breackpoint_lg !global;
 
-// Large screen / XL desktop / средние экраны
-$breackpoint_xl:                  $breackpoint_xl !global;
-$breackpoint_xl_min:              $breackpoint_xl !global;
-
-// Large screen / MG desktop / большие экраны
-$breackpoint_mg:                  $breackpoint_mg !global;
-$breackpoint_mg_min:              $breackpoint_lg !global;
-
 $breackpoint_xs_max:              ($breackpoint_sm_min - 1) !global;
 $breackpoint_sm_max:              ($breackpoint_md_min - 1) !global;
 $breackpoint_md_max:              ($breackpoint_lg_min - 1) !global;
 $breackpoint_lg_max:              ($breackpoint_xl_min - 1) !global;
-$breackpoint_md_max:              ($breackpoint_mg_min - 1) !global;
