@@ -25,10 +25,10 @@ if (store.getState().routing.locationBeforeTransitions != null) {
   lastUrl = "/";
 }
 
-store.subscribe(() => {
+/*store.subscribe(() => {
   console.log("Store: ", store.getState().reducer);
   console.log("last Url: ", lastUrl);
-});
+});*/
 
 store.dispatch(pageToActive(lastUrl));
 
