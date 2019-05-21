@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { fetch } from 'whatwg-fetch';
 
 import Gallery from 'react-photo-gallery';
 import LightboxContainer from './lightbox';

@@ -6,7 +6,6 @@ import { fetch } from 'whatwg-fetch';
 import Page from './page';
 
 import Header from '../components/header';
-import Menu, { MenuItem } from '../components/menu';
 
 // Styles
 import '../normalize.css';

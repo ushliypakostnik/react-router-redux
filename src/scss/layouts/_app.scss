@@ -147,6 +147,7 @@ $header-height-mobile: 40px;
   }
 
   &__logo {
+    display: inline-block;
     opacity: 0.5;
     @include link-style($color_white, $color_white);
     @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
