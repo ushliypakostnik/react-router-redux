@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 
 import { fetch } from 'whatwg-fetch';
 
@@ -54,13 +53,13 @@ class Page extends Component {
     const { error, isLoaded, images, minHeight } = this.state;
 
     if (error) {
-      return <div className="app__page" style={{minHeight: this.state.minHeight}}>Error: {error.message}</div>;
+      return <div className="app__page" style={{minHeight: minHeight}}>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div className="app__page" style={{minHeight: this.state.minHeight}}></div>;
+      return <div className="app__page" style={{minHeight: minHeight}}></div>;
     } else {
       return (
-        <section className="app__page" style={{minHeight: this.state.minHeight}}>
-          <Album photos={this.state.images} />
+        <section className="app__page" style={{minHeight: minHeight}}>
+          <Album photos={images} />
         </section>
       );
     }

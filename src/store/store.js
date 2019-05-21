@@ -1,5 +1,4 @@
 import { createStore, combineReducers } from 'redux';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { browserHistory } from "react-router";
 //import { createBrowserHistory } from "history";
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';

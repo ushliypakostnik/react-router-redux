@@ -49,7 +49,7 @@ class Header extends Component {
                 key={index}
                 text={item.text}
                 path={item.path}
-                className={(this.state.pageIsActive == item.path) ? "app__menu--active" : ""}
+                className={(this.state.pageIsActive === item.path) ? "app__menu--active" : ""}
                 onClick={() => {this.props.pageToActive(item.path)}}
               />
             })}
@@ -81,7 +81,7 @@ class Header extends Component {
                   key={index}
                   text={item.text}
                   path={item.path}
-                  className={(this.state.pageIsActive == item.path) ? "app__menu--active" : ""}
+                  className={(this.state.pageIsActive === item.path) ? "app__menu--active" : ""}
                   onClick={() => {this.props.pageToActive(item.path)}}
                 />
               })}

@@ -5,8 +5,6 @@ import 'react-image-lightbox/style.css';
 
 import '../scss/widgets/_lightbox.scss';
 
-import { Icon } from 'antd';
-
 class LightboxContainer extends Component {
   constructor(props) {
     super(props);
