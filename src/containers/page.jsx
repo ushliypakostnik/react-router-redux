@@ -12,8 +12,7 @@ class Page extends Component {
       isLoaded: false,
       images: [],
       windowHeight: props.windowHeight,
-      minHeight: window.innerHeight + 1 + 'px',
-      test: null
+      minHeight: window.innerHeight + 1 + 'px'
     };
     this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/album" + this.props.id;
   }
