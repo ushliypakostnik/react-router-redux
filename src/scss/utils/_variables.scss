@@ -48,13 +48,6 @@ $indent-size: 20px;
 // Breackpoints and containers
 //////////////////////////////////////////////////////
 
-// Брекпоинты между мониторами и большими мониторами
-$breackpoint_xl: 1499px;
-// Брекпоинты между большими мониторами и очень большими мониторами
-$breackpoint_mg: 1700px;
-
-$breackpoint-min: 360px; // для отслеживания устройств с совсем маленькими экранами
-
 // Extra small screen / XS / phone
 $breackpoint_xs:                  480px !global;
 $breackpoint_xs_min:              $breackpoint_xs !global;
@@ -74,4 +67,3 @@ $breackpoint_lg_min:              $breackpoint_lg !global;
 $breackpoint_xs_max:              ($breackpoint_sm_min - 1) !global;
 $breackpoint_sm_max:              ($breackpoint_md_min - 1) !global;
 $breackpoint_md_max:              ($breackpoint_lg_min - 1) !global;
-$breackpoint_lg_max:              ($breackpoint_xl_min - 1) !global;
