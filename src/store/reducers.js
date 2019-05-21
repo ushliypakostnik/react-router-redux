@@ -12,10 +12,8 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         activePage: action.activePage
       });
-      break;
     default:
       return state;
-      break;
   }
 }
 

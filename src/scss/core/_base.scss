@@ -20,19 +20,6 @@ body {
   backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
       -moz-backface-visibility: hidden;
-
-  &.night-theme {
-    background: $color_dark_darken-02;
-  }
-}
-
-// Кнопки
-button, a {
-  outline: none !important;
-
-  &:hover, &:active, &:focus {
-    outline: none !important;
-  }
 }
 
 // Ccылки
@@ -48,14 +35,4 @@ a {
     outline: none !important;
     text-decoration: none;
   }
-
-  .night-theme & {
-    &:hover {
-      color: lighten($color_link, $fade);
-    }
-  }
-}
-
-iframe {
-  border-width: 0;
 }
