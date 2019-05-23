@@ -1,6 +1,27 @@
-cd F:/projects/react/proj05/front
+Samovarov.pro frontend project
+==============================
 
-http://localhost:3000/
+Deploy
+------
+
+Установка зависимостей npm packages
+
+    $ npm install
+
+Запуск сервера для разработки
+-----------------------------
+
+    $ npm start
+
+    http://localhost:3000/
+
+Cборка
+------
+
+Сборка проекта в продакшен
+
+    $ npm run build
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
