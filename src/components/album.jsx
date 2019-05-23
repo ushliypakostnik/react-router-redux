@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
 import Gallery from 'react-photo-gallery';
 import LightboxContainer from './lightbox';
@@ -18,28 +18,33 @@ class Album extends Component {
     this.lightboxUpdate = this.lightboxUpdate.bind(this);
     this.overlayKey = 0;
   }
+
   openLightbox(event, obj) {
     this.setState({
       currentImage: obj.index,
       lightboxIsOpen: true
     });
   }
+
   closeLightbox() {
     this.setState({
       currentImage: 0,
       lightboxIsOpen: false
     });
   }
+
   gotoPrevious() {
     this.setState({
       currentImage: this.state.currentImage - 1
     });
   }
+
   gotoNext() {
     this.setState({
       currentImage: this.state.currentImage + 1
     });
   }
+
   componentWillMount() {
     let lightboxDataArr = Object.values(this.props.photos);
     let result = [];
@@ -50,16 +55,18 @@ class Album extends Component {
       lightboxData: result
     });
   }
+
   lightboxUpdate(data) {
     if (!data) {
       this.closeLightbox();
     }
   }
+
   render() {
     ++this.overlayKey;
 
     return (
-      <Fragment>
+      <div className="app__gallery">
         <Gallery
           photos={this.props.photos}
           margin={0}
@@ -74,7 +81,7 @@ class Album extends Component {
             lightboxUpdate={this.lightboxUpdate}
           />
         )}
-      </Fragment>
+      </div>
     );
   }
 }

@@ -11,25 +11,12 @@ class Page extends Component {
       error: null,
       isLoaded: false,
       images: [],
-      windowHeight: props.windowHeight,
-      minHeight: window.innerHeight + 1 + 'px'
+      minHeight: this.props.minHeight - 49 + 'px'
     };
     this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/album" + this.props.id;
   }
 
-  componentWillMount() {
-    this.setState({
-      windowHeight: window.innerHeight + 'px'
-    });
-  }
-
   componentDidMount() {
-    const string = parseInt(this.state.windowHeight.replace('px', '')) + 1 + 'px';
-    if (typeof(string) != undefined) {
-      this.setState({
-        minHeight: string
-      });
-    }
     fetch(this.fetchUrl)
       .then(res => res.json())
       .then(

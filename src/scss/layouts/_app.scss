@@ -100,29 +100,28 @@ $header-height-mobile: 40px;
     }
   }
 
-  &__lightbox-close {
-    display: none;
-    opacity: 0;
+  &__resize {
     position: fixed;
+    left: 0;
     right: 0;
+    bottom: 0;
     top: 0;
-    font-size: 24px;
-    line-height: $header-height;
-    text-align: center;
-    z-index: $overlay-layout + 2000;
-    @include link-style($color_white, $color_white);
-    @include size($header-height, $header-height);
-    @include transition(opasity $transition-duration $transition-timing-function $transition-delay);
+    z-index: 0;
+    @include size(100%, 100%);
 
-    @include xs {
-      line-height: $header-height-mobile;
-      @include size($header-height-mobile, $header-height-mobile);
+    > div {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 0;
+      @include size(100%, 100%);
     }
+  }
 
-    .lightbox-is-open & {
-      display: block;
-      opacity: 0.5;
-    }
+  &__gallery {
+    position: relative;
   }
 }
 

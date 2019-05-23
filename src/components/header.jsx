@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+/* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
 
@@ -54,6 +55,7 @@ class Header extends Component {
               />
             })}
           </Menu>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
             href="#"
             className="header__navbar"
@@ -94,10 +96,12 @@ class Header extends Component {
             <a
               href="https://vk.com/samovaru"
               className="header__social"
+              /* eslint-disable-next-line react/jsx-no-target-blank */
               target="_blank"><FontAwesomeIcon icon={faVk} /></a>
             <a
               href="https://www.facebook.com/samovaru"
               className="header__social"
+              /* eslint-disable-next-line react/jsx-no-target-blank */
               target="_blank"><FontAwesomeIcon icon={faFacebookF} /></a>
             <Link
               to="/"

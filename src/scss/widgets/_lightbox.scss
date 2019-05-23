@@ -16,6 +16,10 @@
 .ril__navButtonNext {
   opacity: 0.5;
 
+  &:active, &:focus {
+    outline: none;
+  }
+
   @include xs {
     display: none;
   }
@@ -23,6 +27,10 @@
 
 .ril__closeButton {
   opacity: 0.5;
+
+  &:active, &:focus {
+    outline: none;
+  }
 }
 
 .ril__toolbarRightSide,

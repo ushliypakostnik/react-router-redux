@@ -1,4 +1,5 @@
 import React from "react";
+/* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Menu = props => (
