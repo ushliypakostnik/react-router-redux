@@ -43,13 +43,11 @@ class App extends Component {
             }
           })
           this.setState({
-            isLoaded: true,
             albums: resultArr
           });
         },
         (error) => {
           this.setState({
-            isLoaded: true,
             error
           });
         }
