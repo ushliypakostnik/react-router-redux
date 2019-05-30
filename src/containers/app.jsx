@@ -7,9 +7,9 @@ import { render } from 'react-dom';
 import ReactResizeDetector from 'react-resize-detector';
 import { fetch } from 'whatwg-fetch';
 
+import Header from './header';
 import Page from './page';
 
-import Header from '../components/header';
 import Resize from '../components/resize';
 
 // Styles

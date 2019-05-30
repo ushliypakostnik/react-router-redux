@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { pageToActive } from '../store/actions.js';
 
-import Menu, { MenuItem } from './menu';
+import Menu, { MenuItem } from '../components/menu';
 
 import { Drawer } from 'antd';
 import '../scss/widgets/_drawer.scss';
