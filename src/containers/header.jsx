@@ -42,6 +42,8 @@ class Header extends Component {
   });
 
   render () {
+    const { visible, pageIsActive } = this.state;
+
     return (
       <div className="app__header">
         <div className="container-fluid">
@@ -51,7 +53,7 @@ class Header extends Component {
                 key={index}
                 text={item.text}
                 path={item.path}
-                className={(this.state.pageIsActive === item.path) ? "app__menu--active" : ""}
+                className={(pageIsActive === item.path) ? "app__menu--active" : ""}
                 onClick={() => {this.props.pageToActive(item.path)}}
               />
             })}
@@ -62,7 +64,7 @@ class Header extends Component {
             className="header__navbar"
             onClick={(e) => {
               e.preventDefault();
-              if (this.state.visible) {
+              if (visible) {
                 this.setState({ visible: false });
               } else {
                 this.setState({ visible: true });
@@ -74,7 +76,7 @@ class Header extends Component {
             placement={'right'}
             closable={true}
             onClose={this.onClose}
-            visible={this.state.visible}
+            visible={visible}
             className={'app__panel'}
             width={"60%"}
           >
@@ -84,7 +86,7 @@ class Header extends Component {
                   key={index}
                   text={item.text}
                   path={item.path}
-                  className={(this.state.pageIsActive === item.path) ? "app__menu--active" : ""}
+                  className={(pageIsActive === item.path) ? "app__menu--active" : ""}
                   onClick={() => {this.props.pageToActive(item.path)}}
                 />
               })}

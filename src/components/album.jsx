@@ -67,6 +67,7 @@ class Album extends Component {
   }
 
   render() {
+    const { currentImage, lightboxData, lightboxIsOpen } = this.state;
     ++this.overlayKey;
 
     return (
@@ -79,9 +80,9 @@ class Album extends Component {
         {this.state.lightboxIsOpen && (
           <LightboxContainer
             key={this.overlayKey}
-            images={this.state.lightboxData}
-            index={this.state.currentImage}
-            isOpen={this.state.lightboxIsOpen}
+            images={lightboxData}
+            index={currentImage}
+            isOpen={lightboxIsOpen}
             lightboxUpdate={this.lightboxUpdate}
           />
         )}
