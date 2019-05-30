@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 import { fetch } from 'whatwg-fetch';
 
@@ -13,7 +14,7 @@ class Page extends Component {
       images: [],
       minHeight: this.props.minHeight - 49 + 'px'
     };
-    this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/album" + this.props.id;
+    this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/" + this.props.path;
   }
 
   componentDidMount() {
@@ -51,5 +52,10 @@ class Page extends Component {
     }
   }
 }
+
+Page.propTypes = {
+  path: PropTypes.string.isRequired,
+  minHeight: PropTypes.number.isRequired
+};
 
 export default Page;

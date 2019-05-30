@@ -22,7 +22,6 @@ class App extends Component {
     super(props);
     this.state = {
       albums: [],
-      panelOpen: false,
       minHeight: window.innerHeight - 50 + 'px'
     };
     this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/";
@@ -37,9 +36,9 @@ class App extends Component {
           let resultArr = [];
           result.map((item, index) => {
             if (index === 0) {
-              resultArr.push({text: item, path: "/"});
+              resultArr.push({text: item.name, path: "/"});
             } else {
-              resultArr.push({text: item, path: "/album" + (index + 1)});
+              resultArr.push({text: item.name, path: "/" + item.id});
             }
           })
           this.setState({
@@ -55,19 +54,21 @@ class App extends Component {
   }
 
   render() {
+    const { albums, minHeight } = this.state;
+
     return (
       <div className="app">
         <Resize>
           <ReactResizeDetector handleHeight onResize={this.onResize} />
         </Resize>
-        <Header items={this.state.albums} />
+        <Header items={albums} />
         <Switch>
-          {this.state.albums.map((item, index) => {
+          {albums.map((item, index) => {
             return <Route
               exact={index > 0 ? false : true}
               key={index}
               path={item.path}
-              component={props => <Page {...props} id={(index + 1)} minHeight={this.state.minHeight} />}
+              component={props => <Page {...props} path={item.text} minHeight={minHeight} />}
             />
           })}
         </Switch>

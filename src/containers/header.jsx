@@ -2,6 +2,7 @@ import React, { Component } from "react";
 /* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { pageToActive } from '../store/actions.js';
 
@@ -114,6 +115,10 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  items: PropTypes.array.isRequired
+};
 
 const mapStateToProps = (state) => ({
   pageIsActive: state.reducer.activePage

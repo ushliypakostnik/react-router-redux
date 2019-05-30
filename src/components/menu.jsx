@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 /* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -17,5 +18,16 @@ export const MenuItem = ({ text, path, className, onClick }) => (
     >{text}</Link>
   </li>
 );
+
+Menu.propTypes = {
+  children: PropTypes.array.isRequired
+};
+
+MenuItem.propTypes = {
+  text: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  onClick: PropTypes.func
+};
 
 export default Menu;

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
@@ -55,5 +56,9 @@ class LightboxContainer extends Component {
     );
   }
 }
+
+LightboxContainer.propTypes = {
+  images: PropTypes.array.isRequired
+};
 
 export default LightboxContainer;

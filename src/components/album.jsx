@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 import Gallery from 'react-photo-gallery';
 import LightboxContainer from './lightbox';
 
 class Album extends Component {
+  static defaultProps = {
+    name: 'stranger'
+  }
   constructor(props) {
     super(props);
     this.state = { 
@@ -85,5 +89,9 @@ class Album extends Component {
     );
   }
 }
+
+Album.propTypes = {
+  photos: PropTypes.array.isRequired
+};
 
 export default Album;
