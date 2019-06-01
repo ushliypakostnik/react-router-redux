@@ -1,8 +1,6 @@
 Samovarov.pro frontend project
 ==============================
 
-test
-
 Deploy
 ------
 
