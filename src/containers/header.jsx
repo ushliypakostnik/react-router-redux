@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 
 import { pageToActive } from '../store/actions.js';
 
+import ScreenHelper from '../js/screen-helper';
+
 import Menu, { MenuItem } from '../components/menu';
 
 import { Drawer } from 'antd';
@@ -87,7 +89,11 @@ class Header extends Component {
                   text={item.text}
                   path={item.path}
                   className={(pageIsActive === item.path) ? "app__menu--active" : ""}
-                  onClick={() => {this.props.pageToActive(item.path)}}
+                  onClick={() => {
+                    window.scrollTo( 0, 0 );
+                    this.onClose();
+                    this.props.pageToActive(item.path);
+                  }}
                 />
               })}
             </Menu>

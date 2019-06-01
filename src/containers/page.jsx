@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from 'prop-types';
 
 import { fetch } from 'whatwg-fetch';
@@ -11,8 +11,7 @@ class Page extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      images: [],
-      minHeight: this.props.minHeight - 49 + 'px'
+      images: []
     };
     this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/" + this.props.path;
   }
@@ -37,7 +36,8 @@ class Page extends Component {
   }
 
   render() {
-    const { error, isLoaded, images, minHeight } = this.state;
+    const { minHeight } = this.props;
+    const { error, isLoaded, images } = this.state;
 
     if (error) {
       return <div className="app__page" style={{minHeight: minHeight}}>Error: {error.message}</div>;
@@ -55,7 +55,7 @@ class Page extends Component {
 
 Page.propTypes = {
   path: PropTypes.string.isRequired,
-  minHeight: PropTypes.number.isRequired
+  minHeight: PropTypes.string.isRequired
 };
 
 export default Page;

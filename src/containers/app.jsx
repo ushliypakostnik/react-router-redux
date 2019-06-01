@@ -11,6 +11,7 @@ import Header from './header';
 import Page from './page';
 
 import Resize from '../components/resize';
+import ScreenHelper from '../js/screen-helper';
 
 // Styles
 import '../normalize.css';
@@ -22,9 +23,17 @@ class App extends Component {
     super(props);
     this.state = {
       albums: [],
-      minHeight: window.innerHeight - 50 + 'px'
+      minHeight: this.getMinHeight()
     };
     this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/";
+  }
+
+  getMinHeight = () => {
+    if (ScreenHelper.getScrollbarWidth() > 0) {
+      return window.innerHeight - 50 + 'px';
+    } else {
+      return 'auto';
+    }
   }
 
   componentDidMount() {
@@ -53,6 +62,10 @@ class App extends Component {
       );
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.minHeight === nextState.minHeight;
+  }
+
   render() {
     const { albums, minHeight } = this.state;
 
@@ -77,7 +90,7 @@ class App extends Component {
   }
 
   onResize = () => {
-    this.setState({ minHeight: window.innerHeight });
+    this.setState({ minHeight: this.getMinHeight() });
   }
 }
 

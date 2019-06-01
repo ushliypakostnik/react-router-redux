@@ -5,12 +5,9 @@ import Gallery from 'react-photo-gallery';
 import LightboxContainer from './lightbox';
 
 class Album extends Component {
-  static defaultProps = {
-    name: 'stranger'
-  }
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       currentImage: 0,
       lightboxData: [],
       lightboxIsOpen: false

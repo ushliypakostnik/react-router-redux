@@ -6,6 +6,8 @@ $header-height-mobile: 40px;
 // Main Layout
 
 .app {
+  min-height: calc(100vh + 1px);
+
   &__menu {
     margin: 0;
     padding: 0;
