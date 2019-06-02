@@ -44,19 +44,20 @@ class Header extends Component {
   });
 
   render () {
+    const { items, pageToActive } = this.props;
     const { visible, pageIsActive } = this.state;
 
     return (
       <div className="app__header">
         <div className="container-fluid">
           <Menu>
-            {this.props.items.map((item, index) => {
+            {items.map((item, index) => {
               return <MenuItem
                 key={index}
                 text={item.text}
                 path={item.path}
                 className={(pageIsActive === item.path) ? "app__menu--active" : ""}
-                onClick={() => {this.props.pageToActive(item.path)}}
+                onClick={() => {pageToActive(item.path)}}
               />
             })}
           </Menu>
@@ -83,7 +84,7 @@ class Header extends Component {
             width={"60%"}
           >
             <Menu>
-              {this.props.items.map((item, index) => {
+              {items.map((item, index) => {
                 return <MenuItem
                   key={index}
                   text={item.text}
@@ -92,7 +93,7 @@ class Header extends Component {
                   onClick={() => {
                     window.scrollTo( 0, 0 );
                     this.onClose();
-                    this.props.pageToActive(item.path);
+                    pageToActive(item.path);
                   }}
                 />
               })}
@@ -115,7 +116,7 @@ class Header extends Component {
             <Link
               to="/"
               className="header__logo"
-              onClick={() => {this.props.pageToActive(this.props.items[0].path)}}
+              onClick={() => {pageToActive(items[0].path)}}
             >Ivan Samovarov</Link>
           </div>
         </div>
@@ -129,7 +130,7 @@ Header.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  pageIsActive: state.reducer.activePage
+  pageIsActive: state.page.activePage
 });
 
 const mapDispatchToProps = (dispatch) => ({

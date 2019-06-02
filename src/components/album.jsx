@@ -64,17 +64,18 @@ class Album extends Component {
   }
 
   render() {
+    const { photos } = this.props;
     const { currentImage, lightboxData, lightboxIsOpen } = this.state;
     ++this.overlayKey;
 
     return (
       <div className="app__gallery">
         <Gallery
-          photos={this.props.photos}
+          photos={photos}
           margin={0}
           targetRowHeight={350}
           onClick={this.openLightbox} />
-        {this.state.lightboxIsOpen && (
+        {lightboxIsOpen && (
           <LightboxContainer
             key={this.overlayKey}
             images={lightboxData}

@@ -1,20 +1,38 @@
-const initialState = {
-  activePage: "/"
+export const initialState = {
+  activePage: "/",
+  theme: "dark",
+  minHeight: 'auto',
+  albums: [],
+  images: []
 };
 
-const reducer = (state = initialState, action) => {
+export const theme = (state = initialState.theme, action) => {
   if (typeof state === 'undefined') {
     return initialState;
   }
 
   switch (action.type) {
-    case "PAGETOACTIVE":
+    case "TOGGLE_THEME":
       return Object.assign({}, state, {
-        activePage: action.activePage
+        theme: action.theme
       });
     default:
       return state;
   }
 }
 
-export default reducer;
+export const page = (state = { }, action) => {
+  if (typeof state === 'undefined') {
+    return initialState;
+  }
+
+  switch (action.type) {
+    case "PAGE_TO_ACTIVE":
+      return Object.assign({}, state, {
+        activePage: action.activePage,
+        minHeight: action.minHeight
+      });
+    default:
+      return state;
+  }
+}
