@@ -4,9 +4,9 @@ const ScreenHelper = (() => {
   const NAME = 'BootstrapHelper';
 
   const XS = 480;
-  const SM = 768;
-  const MD = 992;
-  const LG = 1200;
+  const SM = 1000;
+  const MD = 1100;
+  const LG = 1600;
 
   function isXS() {
     return window.matchMedia(`(max-width: ${SM - 1}px)`).matches;

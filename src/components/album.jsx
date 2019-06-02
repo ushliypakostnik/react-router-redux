@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
 import Gallery from 'react-photo-gallery';
-import LightboxContainer from './lightbox';
+import LightboxContainer from '../containers/lightbox';
 
 class Album extends Component {
   constructor(props) {

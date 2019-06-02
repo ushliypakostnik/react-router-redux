@@ -3,11 +3,11 @@
 
 // Rubber Container
 .container-fluid {
-  padding-left: $indent-size;
-  padding-right: $indent-size;
+  padding-left: $size;
+  padding-right: $size;
 
   @include xs {
-    padding-left: $indent-size / 2;
-    padding-right: $indent-size / 2;
+    padding-left: $size / 2;
+    padding-right: $size / 2;
   }
 }

@@ -24,7 +24,7 @@ $header-height-mobile: 40px;
 
       > li {
         display: inline-block;
-        margin-right: $indent-size * 3;
+        margin-right: $size * 3;
         padding-top: 12px;
 
         a {
@@ -32,7 +32,7 @@ $header-height-mobile: 40px;
           @include link-style($color_white, $color_white);
           @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
 
-          @include sm {
+          @include md-and-sm {
             @include text($font-family_sans, $font-size_xsmall, $font-weight_sans_semibold);
           }
 
@@ -43,12 +43,12 @@ $header-height-mobile: 40px;
         }
 
         a svg {
-          margin-right: $indent-size / 2;
+          margin-right: $size / 2;
         }
 
-        @include sm {
+        @include md-and-sm {
           padding-top: 15px;
-          margin-right: $indent-size * 2;
+          margin-right: $size * 2;
         }
       }
 
@@ -84,15 +84,14 @@ $header-height-mobile: 40px;
 
   &__header {
     padding-top: 50px;
-    height: $header-height;
+    height: $header-height-mobile;
     width: 100%;
     position: sticky;
     top: -50px;
-    background: $color_black;
     z-index: $header-layout;
 
-    @include xs {
-      height: $header-height-mobile;
+    @include not-xs {
+      height: $header-height;
     }
   }
 
@@ -125,36 +124,65 @@ $header-height-mobile: 40px;
   &__gallery {
     position: relative;
   }
+
+  &__theme-switch {
+    display: inline-block;
+    margin-right: 20vw;
+    opacity: 0.5;
+
+    @include md-and-sm {
+      margin-right: 5vw;
+      position: relative;
+      top: 3px;
+    }
+
+    @include sm {
+      margin-right: 10vw;
+    }
+  }
 }
 
 // Witgets
 
 .header {
+  background: $color_black;
+
   &__right {
     color: $color_white;
-    float: right;
+    float: none;
     white-space: nowrap;
     padding-right: 40px;
 
+    @include md-and-sm {
+      padding-top: 9px;
+    }
+
     @include sm {
       padding-top: 7px;
+      padding-right: 0;
+    }
+
+    @include not-xs {
+      float: right;
     }
 
     @include xs {
-      float: none;
-      padding-top: 6px;
+      padding-top: 8px;
       padding-right: 0;
     }
   }
 
   &__logo {
-    display: inline-block;
     opacity: 0.5;
     @include link-style($color_white, $color_white);
     @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
 
-    @include sm {
+    @include not-lg {
       @include text($font-family_sans, round($font-size_normal * 1.25), $font-weight_sans_light);
+    }
+
+    @onclude not-xs {
+      display: inline-block;
     }
 
     @include xs {
@@ -163,28 +191,28 @@ $header-height-mobile: 40px;
     }
 
     &--xs {
-      display: inline-block;
-      margin-right: $indent-size * 1.5;
+      display: none;
+      margin-right: $size * 1.5;
 
-      @include not-xs {
-        display: none;
+      @include xs {
+        display: inline-block;
       }
     }
   }
 
   &__social {
     opacity: 0.5;
-    margin-right: $indent-size * 2;
+    margin-right: $size * 2;
     @include link-style($color_white, $color_white);
     @include text($font-family_sans, round($font-size_normal * 1.5), $font-weight_sans_light);
 
-    @include sm {
-      margin-right: $indent-size * 1.5;
+    @include not-lg {
+      margin-right: $size * 1.5;
       @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
     }
 
     @include xs {
-      margin-right: $indent-size;
+      margin-right: $size;
       @include text($font-family_sans, $font-size_small, $font-weight_sans_light);
     }
   }
@@ -217,9 +245,68 @@ $header-height-mobile: 40px;
       display: none;
     }
 
-    @include xs {
+    @include sm-and-xs {
       right: 0;
       left: auto;
+    }
+  }
+
+  &--light-theme {
+    background: $color_white;
+
+    .header__logo,
+    .header__social,
+    .header__navbar {
+      @include link-style($color_text_light-theme, $color_text_light-theme);
+      @include link-style($color_text_light-theme, $color_text_light-theme);
+    }
+
+    .app__menu {
+      > li a {
+        @include link-style($color_text-light-theme, $color_text-light-theme);
+      }
+    }
+  }
+}
+
+.theme-switch {
+  white-space: nowrap;
+  &__ico {
+    display: inline-block;
+    border-radius: 50%;
+    background: $color_white;
+    margin-right: $size / 2;
+    @include size($size, $size);
+  }
+
+  &__label {
+    vertical-align: top;
+    @include link-style($color_white, $color_white);
+    @include text($font-family_sans, $font-size_small, $font-weight_sans_light);
+    line-height: $size;
+  }
+
+  .header__right & {
+    display: none;
+
+    @include not-xs {
+      display: inline-block;
+    }
+  }
+
+  .app__panel & {
+    @include xs {
+      margin-top: $size * 1.5;
+      display: inline-block;
+    }
+  }
+
+  .header--light-theme & {
+    .theme-switch__ico {
+      background: $color_text_light-theme;
+    }
+    .theme-switch__label {
+      @include link-style($color_text_light-theme, $color_text_light-theme);
     }
   }
 }

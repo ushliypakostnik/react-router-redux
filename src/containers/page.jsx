@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetch } from 'whatwg-fetch';
+import { fetchData } from '../store/actions.js';
 
 import Album from '../components/album';
 
@@ -11,29 +12,20 @@ class Page extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      images: []
+      images: [],
     };
-    this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/" + this.props.path;
   }
 
   componentDidMount() {
-    fetch(this.fetchUrl)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            images: result
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
+    this.props.fetchData(this.props.path);
   }
+
+  static getDerivedStateFromProps = (nextProps, prevState) => ({
+    error: nextProps.error,
+    isLoaded: nextProps.isLoaded,
+    images: nextProps.images,
+    theme: nextProps.theme
+  });
 
   render() {
     const { minHeight } = this.props;
@@ -58,4 +50,14 @@ Page.propTypes = {
   minHeight: PropTypes.string.isRequired
 };
 
-export default Page;
+const mapStateToProps = (state) => ({
+  isLoaded: !state.reducer.isFetching,
+  error: state.reducer.error,
+  images: state.reducer.data,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchData: (path) => dispatch(fetchData(path)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Page);

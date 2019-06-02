@@ -19,6 +19,12 @@
   }
 }
 
+@mixin md-and-sm {
+  @media (min-width: $breackpoint_sm) and (max-width: $breackpoint_md_max) {
+    @content;
+  }
+}
+
 @mixin sm {
   @media (min-width: $breackpoint_sm) and (max-width: $breackpoint_sm_max) {
     @content;

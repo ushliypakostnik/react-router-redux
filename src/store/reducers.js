@@ -1,17 +1,41 @@
-export const initialState = {
-  activePage: "/",
-  theme: "dark",
-  minHeight: 'auto',
-  albums: [],
-  images: []
-};
-
-export const theme = (state = initialState.theme, action) => {
-  if (typeof state === 'undefined') {
-    return initialState;
-  }
-
+const reducer = (state = { }, action) => {
   switch (action.type) {
+    case "REQUEST_ALBUMS":
+      return Object.assign({}, state, {
+        isFetching: true
+      });
+    case "RECEIVE_ALBUMS":
+      return Object.assign({}, state, {
+        isFetching: false,
+        albums: action.albums
+      });
+    case "REQUEST_ALBUMS_FAILED":
+      return Object.assign({}, state, {
+        isFetching: false,
+        error: action.error
+      });
+    case "REQUEST_DATA":
+      return Object.assign({}, state, {
+        isFetching: true
+      });
+    case "RECEIVE_DATA":
+      return Object.assign({}, state, {
+        isFetching: false,
+        data: action.data
+      });
+    case "REQUEST_DATA_FAILED":
+      return Object.assign({}, state, {
+        isFetching: false,
+        error: action.error
+      });
+    case "PAGE_TO_ACTIVE":
+      return Object.assign({}, state, {
+        activePage: action.activePage
+      });
+    case "SET_MIN_HEIGHT":
+      return Object.assign({}, state, {
+        minHeight: action.minHeight
+      });
     case "TOGGLE_THEME":
       return Object.assign({}, state, {
         theme: action.theme
@@ -21,18 +45,4 @@ export const theme = (state = initialState.theme, action) => {
   }
 }
 
-export const page = (state = { }, action) => {
-  if (typeof state === 'undefined') {
-    return initialState;
-  }
-
-  switch (action.type) {
-    case "PAGE_TO_ACTIVE":
-      return Object.assign({}, state, {
-        activePage: action.activePage,
-        minHeight: action.minHeight
-      });
-    default:
-      return state;
-  }
-}
+export default reducer;
