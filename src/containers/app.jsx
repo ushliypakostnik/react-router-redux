@@ -63,7 +63,12 @@ class App extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.minHeight === nextState.minHeight;
+    if ((this.state.minHeight === 'auto' && nextState.minHeight != 'auto') ||
+        (nextState.minHeight === 'auto' && this.state.minHeight != 'auto')) {
+      return true;
+    } else {
+      return this.state.minHeight === nextState.minHeight;
+    }
   }
 
   render() {
