@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 /* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from 'react-redux';
 
 /* eslint-disable no-unused-vars */
 import { render } from 'react-dom';
 import ReactResizeDetector from 'react-resize-detector';
-import { fetch } from 'whatwg-fetch';
-
 import Header from './header';
 import Page from './page';
+
+import { fetchAlbums, setMinHeight } from '../store/actions.js';
 
 import Resize from '../components/resize';
 import ScreenHelper from '../js/screen-helper';
@@ -25,7 +26,6 @@ class App extends Component {
       albums: [],
       minHeight: this.getMinHeight()
     };
-    this.fetchUrl = process.env.REACT_APP_API_URL + "/albums/";
   }
 
   getMinHeight = () => {
@@ -37,32 +37,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(this.fetchUrl)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          /* eslint-disable array-callback-return */
-          let resultArr = [];
-          result.map((item, index) => {
-            if (index === 0) {
-              resultArr.push({text: item.name, path: "/"});
-            } else {
-              resultArr.push({text: item.name, path: "/" + item.id});
-            }
-          })
-          this.setState({
-            albums: resultArr
-          });
-        },
-        (error) => {
-          this.setState({
-            error
-          });
-        }
-      );
+    this.props.fetchAlbums();
   }
 
   shouldComponentUpdate(nextProps, nextState) {
+    /*eslint eqeqeq:0*/
     if ((this.state.minHeight === 'auto' && nextState.minHeight != 'auto') ||
         (nextState.minHeight === 'auto' && this.state.minHeight != 'auto')) {
       return true;
@@ -70,6 +49,11 @@ class App extends Component {
       return this.state.minHeight === nextState.minHeight;
     }
   }
+
+  static getDerivedStateFromProps = (nextProps, prevState) => ({
+    albums: nextProps.albums,
+    minHeight: nextProps.minHeight
+  });
 
   render() {
     const { albums, minHeight } = this.state;
@@ -86,7 +70,10 @@ class App extends Component {
               exact={index > 0 ? false : true}
               key={index}
               path={item.path}
-              component={props => <Page {...props} path={item.text} minHeight={minHeight} />}
+              component={props => <Page {...props}
+                                    path={item.text}
+                                    minHeight={minHeight}
+                                  />}
             />
           })}
         </Switch>
@@ -95,8 +82,18 @@ class App extends Component {
   }
 
   onResize = () => {
-    this.setState({ minHeight: this.getMinHeight() });
+    this.props.setMinHeight(this.getMinHeight());
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  albums: state.reducer.albums,
+  minHeight: state.reducer.minHeight,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchAlbums: () => dispatch(fetchAlbums()),
+  setMinHeight: (minHeight) => dispatch(setMinHeight(minHeight))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
@@ -9,37 +10,42 @@ import '../scss/widgets/_lightbox.scss';
 class LightboxContainer extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       photoIndex: this.props.index,
       isOpen: this.props.isOpen,
+      theme: ''
     };
   }
 
+  static getDerivedStateFromProps = (nextProps, prevState) => ({
+    theme: nextProps.theme
+  });
+
   render() {
-    const { photoIndex, isOpen } = this.state;
+    const { images, lightboxUpdate } = this.props;
+    const { photoIndex, isOpen, theme } = this.state;
 
     return (
       <Fragment>
         {isOpen && (
           <Fragment>
             <Lightbox
-              mainSrc={this.props.images[photoIndex]}
-              nextSrc={this.props.images[(photoIndex + 1) % this.props.images.length]}
-              prevSrc={this.props.images[(photoIndex + this.props.images.length - 1) % this.props.images.length]}
+              mainSrc={images[photoIndex]}
+              nextSrc={images[(photoIndex + 1) % images.length]}
+              prevSrc={images[(photoIndex + images.length - 1) % images.length]}
               onCloseRequest={() =>
                 {
                   this.setState({ isOpen: false });
-                  this.props.lightboxUpdate(this.state.isOpen);
+                  lightboxUpdate(isOpen);
                 }}
               onMovePrevRequest={() =>
                 this.setState({
-                  photoIndex: (photoIndex + this.props.images.length - 1) % this.props.images.length,
+                  photoIndex: (photoIndex + images.length - 1) % images.length,
                 })
               }
               onMoveNextRequest={() =>
                 this.setState({
-                  photoIndex: (photoIndex + 1) % this.props.images.length,
+                  photoIndex: (photoIndex + 1) % images.length,
                 })
               }
               animationDuration={200}
@@ -49,6 +55,7 @@ class LightboxContainer extends Component {
                   zIndex: 2000
                 }
               }}
+              wrapperClassName={theme === 'light' ? "light-theme" : ""}
             />
           </Fragment>
         )}
@@ -61,4 +68,8 @@ LightboxContainer.propTypes = {
   images: PropTypes.array.isRequired
 };
 
-export default LightboxContainer;
+const mapStateToProps = (state) => ({
+  theme: state.reducer.theme
+});
+
+export default connect(mapStateToProps)(LightboxContainer);

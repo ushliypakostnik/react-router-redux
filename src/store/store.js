@@ -1,4 +1,6 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 import { browserHistory } from "react-router";
 //import { createBrowserHistory } from "history";
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
@@ -6,12 +8,36 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { pageToActive } from './actions'
 import reducer from './reducers'
 
-const store = createStore(
-  combineReducers({
-    reducer,
-    routing: routerReducer
-  })
-);
+const initialState = {
+  reducer: {
+    activePage: "/",
+    theme: "dark",
+    minHeight: 'auto',
+    isFetching: false,
+    albums: [],
+    data: [],
+    error: null
+  },
+  routing: {}
+};
+
+const loggerMiddleware = createLogger();
+
+function configureStore(state) {
+  return createStore(
+    combineReducers({
+      reducer,
+      routing: routerReducer
+    }),
+    initialState,
+    applyMiddleware(
+      thunkMiddleware,
+      loggerMiddleware
+    )
+  );
+}
+
+const store = configureStore(initialState);
 
 //const history = createBrowserHistory();
 export const history = syncHistoryWithStore(browserHistory, store);
@@ -24,10 +50,10 @@ if (store.getState().routing.locationBeforeTransitions != null) {
   lastUrl = "/";
 }
 
-/*store.subscribe(() => {
-  console.log("Store: ", store.getState().reducer);
-  console.log("last Url: ", lastUrl);
-});*/
+//store.subscribe(() => {
+//  console.log("Store, pages: ", store.getState());
+//  console.log("last Url: ", lastUrl);
+//});
 
 store.dispatch(pageToActive(lastUrl));
 

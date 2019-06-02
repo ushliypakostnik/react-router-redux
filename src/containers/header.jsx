@@ -9,6 +9,7 @@ import { pageToActive } from '../store/actions.js';
 import ScreenHelper from '../js/screen-helper';
 
 import Menu, { MenuItem } from '../components/menu';
+import ThemeSwitch from './theme-switch';
 
 import { Drawer } from 'antd';
 import '../scss/widgets/_drawer.scss';
@@ -23,7 +24,8 @@ class Header extends Component {
     super(props);
     this.state = {
       visible: false,
-      pageIsActive: ""
+      pageIsActive: '',
+      theme: ''
     };
   }
 
@@ -40,23 +42,25 @@ class Header extends Component {
   };
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
-    pageIsActive: nextProps.pageIsActive
+    pageIsActive: nextProps.pageIsActive,
+    theme: nextProps.theme
   });
 
   render () {
-    const { visible, pageIsActive } = this.state;
+    const { items, pageToActive } = this.props;
+    const { visible, pageIsActive, theme } = this.state;
 
     return (
-      <div className="app__header">
+      <div className={theme === 'light' ? "app__header header header--light-theme" : "app__header header"}>
         <div className="container-fluid">
           <Menu>
-            {this.props.items.map((item, index) => {
+            {items.map((item, index) => {
               return <MenuItem
                 key={index}
                 text={item.text}
                 path={item.path}
                 className={(pageIsActive === item.path) ? "app__menu--active" : ""}
-                onClick={() => {this.props.pageToActive(item.path)}}
+                onClick={() => {pageToActive(item.path)}}
               />
             })}
           </Menu>
@@ -83,7 +87,7 @@ class Header extends Component {
             width={"60%"}
           >
             <Menu>
-              {this.props.items.map((item, index) => {
+              {items.map((item, index) => {
                 return <MenuItem
                   key={index}
                   text={item.text}
@@ -92,13 +96,15 @@ class Header extends Component {
                   onClick={() => {
                     window.scrollTo( 0, 0 );
                     this.onClose();
-                    this.props.pageToActive(item.path);
+                    pageToActive(item.path);
                   }}
                 />
               })}
+              <ThemeSwitch />
             </Menu>
           </Drawer>
           <div className="header__right">
+            <ThemeSwitch />
             <span
               className="header__logo header__logo--xs"
             >Ivan Samovarov</span>
@@ -115,7 +121,7 @@ class Header extends Component {
             <Link
               to="/"
               className="header__logo"
-              onClick={() => {this.props.pageToActive(this.props.items[0].path)}}
+              onClick={() => {pageToActive(items[0].path)}}
             >Ivan Samovarov</Link>
           </div>
         </div>
@@ -129,7 +135,8 @@ Header.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  pageIsActive: state.reducer.activePage
+  pageIsActive: state.reducer.activePage,
+  theme: state.reducer.theme
 });
 
 const mapDispatchToProps = (dispatch) => ({

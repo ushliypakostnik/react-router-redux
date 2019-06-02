@@ -15,6 +15,8 @@
 .ril__navButtonPrev,
 .ril__navButtonNext {
   opacity: 0.5;
+  padding: 0;
+  @include size(35px, 35px);
 
   &:active, &:focus {
     outline: none;
@@ -25,8 +27,22 @@
   }
 }
 
+.ril__navButtonPrev {
+  left: 20px;
+  background: url("#{$image-path}prev_dark.svg") 50% 50% no-repeat;
+  background-size: cover;
+}
+.ril__navButtonNext {
+  right: 20px;
+  background: url("#{$image-path}next_dark.svg") 50% 50% no-repeat;
+  background-size: cover;
+}
+
 .ril__closeButton {
   opacity: 0.5;
+  background: url("#{$image-path}close_dark.svg") 50% 50% no-repeat;
+  background-size: cover;
+  @include size(35px, 35px);
 
   &:active, &:focus {
     outline: none;
@@ -57,5 +73,25 @@
 .ril__toolbarItem {
   @include xs {
     line-height: 40px;
+  }
+}
+
+.light-theme {
+  &.ril__outer {
+    background: $color_white;
+  }
+
+  .ril__navButtonPrev {
+    background: url("#{$image-path}prev_light.svg") 50% 50% no-repeat;
+    background-size: cover;
+  }
+  .ril__navButtonNext {
+    background: url("#{$image-path}next_light.svg") 50% 50% no-repeat;
+    background-size: cover;
+  }
+
+  .ril__closeButton {
+    background: url("#{$image-path}close_light.svg") 50% 50% no-repeat;
+    background-size: cover;
   }
 }
