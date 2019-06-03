@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
 import Gallery from 'react-photo-gallery';
-import LightboxContainer from '../containers/lightbox';
+import LightboxContainer from './lightbox';
 
 class Album extends Component {
   constructor(props) {
@@ -12,38 +12,39 @@ class Album extends Component {
       lightboxData: [],
       lightboxIsOpen: false
     };
-    this.closeLightbox = this.closeLightbox.bind(this);
-    this.openLightbox = this.openLightbox.bind(this);
-    this.gotoNext = this.gotoNext.bind(this);
-    this.gotoPrevious = this.gotoPrevious.bind(this);
-    this.lightboxUpdate = this.lightboxUpdate.bind(this);
     this.overlayKey = 0;
   }
 
-  openLightbox(event, obj) {
+  openLightbox = (event, obj) => {
     this.setState({
       currentImage: obj.index,
       lightboxIsOpen: true
     });
   }
 
-  closeLightbox() {
+  closeLightbox = () => {
     this.setState({
       currentImage: 0,
       lightboxIsOpen: false
     });
   }
 
-  gotoPrevious() {
+  gotoPrevious = () => {
     this.setState({
       currentImage: this.state.currentImage - 1
     });
   }
 
-  gotoNext() {
+  gotoNext = () => {
     this.setState({
       currentImage: this.state.currentImage + 1
     });
+  }
+
+  lightboxUpdate = (data) => {
+    if (!data) {
+      this.closeLightbox();
+    }
   }
 
   componentWillMount() {
@@ -55,12 +56,6 @@ class Album extends Component {
     this.setState({
       lightboxData: result
     });
-  }
-
-  lightboxUpdate(data) {
-    if (!data) {
-      this.closeLightbox();
-    }
   }
 
   render() {

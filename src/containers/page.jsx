@@ -24,7 +24,6 @@ class Page extends Component {
     error: nextProps.error,
     isLoaded: nextProps.isLoaded,
     images: nextProps.images,
-    theme: nextProps.theme
   });
 
   render() {

@@ -9,7 +9,7 @@ import { pageToActive } from '../store/actions.js';
 import ScreenHelper from '../js/screen-helper';
 
 import Menu, { MenuItem } from '../components/menu';
-import ThemeSwitch from './theme-switch';
+import ThemeSwitch from '../components/theme-switch';
 
 import { Drawer } from 'antd';
 import '../scss/widgets/_drawer.scss';
@@ -100,11 +100,11 @@ class Header extends Component {
                   }}
                 />
               })}
-              <ThemeSwitch />
+              <ThemeSwitch theme={theme} />
             </Menu>
           </Drawer>
           <div className="header__right">
-            <ThemeSwitch />
+            <ThemeSwitch theme={theme} />
             <span
               className="header__logo header__logo--xs"
             >Ivan Samovarov</span>

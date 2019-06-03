@@ -28,13 +28,10 @@ class App extends Component {
     };
   }
 
-  getMinHeight = () => {
-    if (ScreenHelper.getScrollbarWidth() > 0) {
-      return window.innerHeight - 50 + 'px';
-    } else {
-      return 'auto';
-    }
-  }
+  static getDerivedStateFromProps = (nextProps, prevState) => ({
+    albums: nextProps.albums,
+    minHeight: nextProps.minHeight
+  });
 
   componentDidMount() {
     this.props.fetchAlbums();
@@ -49,11 +46,6 @@ class App extends Component {
       return this.state.minHeight === nextState.minHeight;
     }
   }
-
-  static getDerivedStateFromProps = (nextProps, prevState) => ({
-    albums: nextProps.albums,
-    minHeight: nextProps.minHeight
-  });
 
   render() {
     const { albums, minHeight } = this.state;
@@ -79,6 +71,14 @@ class App extends Component {
         </Switch>
       </div>
     );
+  }
+
+  getMinHeight = () => {
+    if (ScreenHelper.getScrollbarWidth() > 0) {
+      return window.innerHeight - 50 + 'px';
+    } else {
+      return 'auto';
+    }
   }
 
   onResize = () => {

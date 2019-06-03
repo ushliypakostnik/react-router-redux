@@ -1,3 +1,8 @@
+export const THEME = {
+  DARK: "dark",
+  LIGHT: "light"
+};
+
 const fetchUrl = process.env.REACT_APP_API_URL;
 
 export const pageToActive = (page) => ({

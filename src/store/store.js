@@ -5,13 +5,13 @@ import { browserHistory } from "react-router";
 //import { createBrowserHistory } from "history";
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
-import { pageToActive } from './actions'
+import { THEME, pageToActive } from './actions'
 import reducer from './reducers'
 
 const initialState = {
   reducer: {
     activePage: "/",
-    theme: "dark",
+    theme: THEME.DARK,
     minHeight: 'auto',
     isFetching: false,
     albums: [],
@@ -51,7 +51,7 @@ if (store.getState().routing.locationBeforeTransitions != null) {
 }
 
 //store.subscribe(() => {
-//  console.log("Store, pages: ", store.getState());
+//  console.log("Store: ", store.getState());
 //  console.log("last Url: ", lastUrl);
 //});
 
