@@ -1,13 +1,22 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from 'react-cookie';
 
-import { THEME, toogleTheme } from '../store/actions.js';
+import { THEME } from '../store/constants';
+import { toogleTheme } from '../store/actions.js';
 
 class ThemeSwitch extends Component {
 
+  themeChange = (theme) => {
+    const { cookies } = this.props;
+    cookies.set('theme', theme, { path: '/' });
+  }
+
   render() {
-    const { toogleTheme, theme } = this.props;
-    const text = theme === THEME.DARK ? THEME.LIGHT :THEME.DARK;
+    const { toogleTheme } = this.props;
+    let { theme } = this.props;
+    const text = theme === THEME.DARK ? THEME.LIGHT : THEME.DARK;
 
     return (
       /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
@@ -15,9 +24,9 @@ class ThemeSwitch extends Component {
          className="app__theme-switch theme-switch"
          onClick={(e) => {
            e.preventDefault();
-           theme === THEME.DARK ?
-             toogleTheme(THEME.LIGHT) :
-             toogleTheme(THEME.DARK);
+           theme === THEME.DARK ? theme = THEME.LIGHT: theme = THEME.DARK;
+           toogleTheme(theme);
+           this.themeChange(theme);
          }}
       >
         <span className="theme-switch__ico"></span>
@@ -27,8 +36,12 @@ class ThemeSwitch extends Component {
   }
 }
 
+ThemeSwitch.propTypes = {
+  cookies: instanceOf(Cookies).isRequired
+};
+
 const mapDispatchToProps = (dispatch) => ({
   toogleTheme: (theme) => dispatch(toogleTheme(theme))
 });
 
-export default connect(null, mapDispatchToProps)(ThemeSwitch);
+export default connect(null, mapDispatchToProps)(withCookies(ThemeSwitch));

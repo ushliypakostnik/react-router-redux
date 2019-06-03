@@ -5,8 +5,10 @@ import { browserHistory } from "react-router";
 //import { createBrowserHistory } from "history";
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
-import { THEME, pageToActive } from './actions'
-import reducer from './reducers'
+import { THEME } from './constants';
+
+import { pageToActive } from './actions';
+import reducer from './reducers';
 
 const initialState = {
   reducer: {

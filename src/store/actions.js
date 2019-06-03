@@ -1,9 +1,4 @@
-export const THEME = {
-  DARK: "dark",
-  LIGHT: "light"
-};
-
-const fetchUrl = process.env.REACT_APP_API_URL;
+import { fetchUrl } from './constants';
 
 export const pageToActive = (page) => ({
   type: "PAGE_TO_ACTIVE",

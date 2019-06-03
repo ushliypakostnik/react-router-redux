@@ -2,9 +2,11 @@ import React, { Component } from "react";
 /* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import PropTypes, { instanceOf } from 'prop-types';
 
-import { pageToActive } from '../store/actions.js';
+import { withCookies, Cookies } from 'react-cookie';
+
+import { pageToActive, toogleTheme } from '../store/actions.js';
 
 import ScreenHelper from '../js/screen-helper';
 
@@ -22,6 +24,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class Header extends Component {
   constructor(props) {
     super(props);
+
+    const { cookies } = props;
     this.state = {
       visible: false,
       pageIsActive: '',
@@ -45,6 +49,15 @@ class Header extends Component {
     pageIsActive: nextProps.pageIsActive,
     theme: nextProps.theme
   });
+
+  componentDidMount() {
+    const { cookies } = this.props;
+    const theme = cookies.get('theme') ? cookies.get('theme') : this.props.theme;
+    theme !== this.props.theme && this.props.toogleTheme(theme);
+    this.setState({
+      theme: theme
+    });
+  }
 
   render () {
     const { items, pageToActive } = this.props;
@@ -131,6 +144,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
+  cookies: instanceOf(Cookies).isRequired,
   items: PropTypes.array.isRequired
 };
 
@@ -140,7 +154,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  pageToActive: (page) => dispatch(pageToActive(page))
+  pageToActive: (page) => dispatch(pageToActive(page)),
+  toogleTheme: (theme) => dispatch(toogleTheme(theme))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(withCookies(Header));
