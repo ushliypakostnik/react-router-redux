@@ -31,6 +31,12 @@ const ScreenHelper = (() => {
       `(min-width: ${LG}px)`).matches;
   }
 
+  function getOrientation() {
+    if (window.matchMedia("(orientation: portrait)").matches) {
+      return 'portrait';
+    } else return 'landscape';
+  }
+
   function getScrollbarWidth() {
     const body = document.body;
     const bw1 = body.clientWidth;
@@ -40,20 +46,14 @@ const ScreenHelper = (() => {
     return bw2 - bw1;
   }
 
-  function getOrientation() {
-    if (window.matchMedia("(orientation: portrait)").matches) {
-      return 'portrait';
-    } else return 'landscape';
-  }
-
   return {
     isMin,
     isXS,
     isSM,
     isMD,
     isLG,
-    getScrollbarWidth,
-    getOrientation
+    getOrientation,
+    getScrollbarWidth
   };
 })();
 
