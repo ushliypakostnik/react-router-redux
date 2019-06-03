@@ -32,10 +32,6 @@ const reducer = (state = { }, action) => {
       return Object.assign({}, state, {
         activePage: action.activePage
       });
-    case "SET_MIN_HEIGHT":
-      return Object.assign({}, state, {
-        minHeight: action.minHeight
-      });
     case "TOGGLE_THEME":
       return Object.assign({}, state, {
         theme: action.theme

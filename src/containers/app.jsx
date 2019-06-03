@@ -24,14 +24,13 @@ class App extends Component {
     super(props);
     this.state = {
       albums: [],
-      minHeight: this.getMinHeight(),
+      minHeight: '',
       deviceType: ''
     };
   }
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
-    albums: nextProps.albums,
-    minHeight: nextProps.minHeight
+    albums: nextProps.albums
   });
 
   componentDidMount() {
@@ -83,7 +82,9 @@ class App extends Component {
   }
 
   onResize = () => {
-    this.props.setMinHeight(this.getMinHeight());
+    this.setState({
+      minHeight: this.getMinHeight()
+    });
     if (ScreenHelper.isMin() && ScreenHelper.getOrientation() === 'portrait') {
       this.setState({
         deviceType: "small"
@@ -93,8 +94,6 @@ class App extends Component {
         deviceType: "large"
       });
     }
-    console.log("App: ", this.state.deviceType);
-
   }
 }
 
@@ -104,8 +103,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAlbums: () => dispatch(fetchAlbums()),
-  setMinHeight: (minHeight) => dispatch(setMinHeight(minHeight))
+  fetchAlbums: () => dispatch(fetchAlbums())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

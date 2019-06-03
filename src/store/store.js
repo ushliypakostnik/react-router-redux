@@ -14,7 +14,6 @@ const initialState = {
   reducer: {
     activePage: "/",
     theme: THEME.DARK,
-    minHeight: 'auto',
     isFetching: false,
     albums: [],
     data: [],

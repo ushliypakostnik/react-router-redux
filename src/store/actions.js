@@ -5,11 +5,6 @@ export const pageToActive = (page) => ({
   activePage: page
 });
 
-export const setMinHeight = (minHeight) => ({
-  type: "SET_MIN_HEIGHT",
-  minHeight: minHeight
-});
-
 export const toogleTheme = (theme) => ({
   type: "TOGGLE_THEME",
   theme: theme
