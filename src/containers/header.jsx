@@ -6,6 +6,7 @@ import PropTypes, { instanceOf } from 'prop-types';
 
 import { withCookies, Cookies } from 'react-cookie';
 
+import { COOKIES } from '../store/constants';
 import { pageToActive, toogleTheme } from '../store/actions.js';
 
 import ScreenHelper from '../js/screen-helper';
@@ -52,7 +53,7 @@ class Header extends Component {
 
   componentDidMount() {
     const { cookies } = this.props;
-    const theme = cookies.get('theme') ? cookies.get('theme') : this.props.theme;
+    const theme = cookies.get(COOKIES.THEME) ? cookies.get(COOKIES.THEME) : this.props.theme;
     theme !== this.props.theme && this.props.toogleTheme(theme);
     this.setState({
       theme: theme
