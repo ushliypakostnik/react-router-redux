@@ -30,7 +30,8 @@ class Header extends Component {
     this.state = {
       visible: false,
       pageIsActive: '',
-      theme: ''
+      theme: '',
+      deviceType: this.props.deviceType
     };
   }
 
@@ -48,7 +49,8 @@ class Header extends Component {
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
     pageIsActive: nextProps.pageIsActive,
-    theme: nextProps.theme
+    theme: nextProps.theme,
+    deviceType: nextProps.deviceType
   });
 
   componentDidMount() {
@@ -62,7 +64,7 @@ class Header extends Component {
 
   render () {
     const { items, pageToActive } = this.props;
-    const { visible, pageIsActive, theme } = this.state;
+    const { visible, pageIsActive, theme, deviceType } = this.state;
 
     return (
       <div className={theme === 'light' ? "app__header header header--light-theme" : "app__header header"}>
@@ -98,7 +100,7 @@ class Header extends Component {
             onClose={this.onClose}
             visible={visible}
             className={'app__panel'}
-            width={"60%"}
+            width={deviceType === "small" ? "60%" : "40%"}
           >
             <Menu>
               {items.map((item, index) => {
@@ -146,7 +148,8 @@ class Header extends Component {
 
 Header.propTypes = {
   cookies: instanceOf(Cookies).isRequired,
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
+  deviceType: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => ({

@@ -24,7 +24,8 @@ class App extends Component {
     super(props);
     this.state = {
       albums: [],
-      minHeight: this.getMinHeight()
+      minHeight: this.getMinHeight(),
+      deviceType: ''
     };
   }
 
@@ -48,14 +49,14 @@ class App extends Component {
   }
 
   render() {
-    const { albums, minHeight } = this.state;
+    const { albums, minHeight, deviceType } = this.state;
 
     return (
       <div className="app">
         <Resize>
           <ReactResizeDetector handleHeight onResize={this.onResize} />
         </Resize>
-        <Header items={albums} />
+        <Header items={albums} deviceType={deviceType} />
         <Switch>
           {albums.map((item, index) => {
             return <Route
@@ -83,6 +84,17 @@ class App extends Component {
 
   onResize = () => {
     this.props.setMinHeight(this.getMinHeight());
+    if (ScreenHelper.isMin() && ScreenHelper.getOrientation() === 'portrait') {
+      this.setState({
+        deviceType: "small"
+      });
+    }  else {
+      this.setState({
+        deviceType: "large"
+      });
+    }
+    console.log("App: ", this.state.deviceType);
+
   }
 }
 

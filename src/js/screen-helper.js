@@ -8,6 +8,10 @@ const ScreenHelper = (() => {
   const MD = 1100;
   const LG = 1600;
 
+  function isMin() {
+    return window.matchMedia(`(max-width: ${XS - 1}px)`).matches;
+  }
+
   function isXS() {
     return window.matchMedia(`(max-width: ${SM - 1}px)`).matches;
   }
@@ -36,12 +40,20 @@ const ScreenHelper = (() => {
     return bw2 - bw1;
   }
 
+  function getOrientation() {
+    if (window.matchMedia("(orientation: portrait)").matches) {
+      return 'portrait';
+    } else return 'landscape';
+  }
+
   return {
+    isMin,
     isXS,
     isSM,
     isMD,
     isLG,
-    getScrollbarWidth
+    getScrollbarWidth,
+    getOrientation
   };
 })();
 
