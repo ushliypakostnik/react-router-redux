@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
 
-import { THEME } from '../store/constants';
+import { THEME, COOKIES } from '../store/constants';
 import { toogleTheme } from '../store/actions.js';
 
 class ThemeSwitch extends Component {
 
   themeChange = (theme) => {
     const { cookies } = this.props;
-    cookies.set('theme', theme, { path: '/' });
+    cookies.set(COOKIES.THEME, theme, { path: '/' });
   }
 
   render() {
@@ -24,7 +24,7 @@ class ThemeSwitch extends Component {
          className="app__theme-switch theme-switch"
          onClick={(e) => {
            e.preventDefault();
-           theme === THEME.DARK ? theme = THEME.LIGHT: theme = THEME.DARK;
+           theme === THEME.DARK ? theme = THEME.LIGHT : theme = THEME.DARK;
            toogleTheme(theme);
            this.themeChange(theme);
          }}
