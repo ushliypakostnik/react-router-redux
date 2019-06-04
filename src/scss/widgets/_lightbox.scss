@@ -2,75 +2,77 @@
 
 // Lightbox customization
 
-.ril__outer {
-  background: $color_black;
-}
-
-.ril__toolbar,
-.ril__navButtonPrev,
-.ril__navButtonNext {
-  background-color: transparent;
-}
-
-.ril__navButtonPrev,
-.ril__navButtonNext {
-  opacity: 0.5;
-  padding: 0;
-  @include size(25px, 25px);
-
-  &:active, &:focus {
-    outline: none;
+.ril {
+  &__outer {
+    background: $color_black;
   }
 
-  @include xs {
-    display: none;
+  &__toolbar,
+  &__navButtonPrev,
+  &__navButtonNext {
+    background-color: transparent;
   }
-}
 
-.ril__navButtonPrev {
-  left: 20px;
-  background: url("#{$image-path}prev_dark.svg") 50% 50% no-repeat;
-  background-size: cover;
-}
-.ril__navButtonNext {
-  right: 20px;
-  background: url("#{$image-path}next_dark.svg") 50% 50% no-repeat;
-  background-size: cover;
-}
-
-.ril__closeButton {
-  opacity: 0.5;
-  background: url("#{$image-path}close_dark.svg") 50% 50% no-repeat;
-  background-size: cover;
-  @include size(25px, 25px);
-
-  &:active, &:focus {
-    outline: none;
-  }
-}
-
-.ril__toolbarRightSide,
-.ril__toolbarLeftSide {
-  @include xs {
+  &__navButtonPrev,
+  &__navButtonNext {
+    opacity: 0.5;
     padding: 0;
-  }
-}
+    @include size(25px, 25px);
 
-.ril__closeButton {
-  @include xs {
-    vertical-align: top;
-  }
-}
+    &:active, &:focus {
+      outline: none;
+    }
 
-.ril__toolbar,
-.ril__toolbarSide  {
-  @include xs {
-    height: 30px;
+    @include xs {
+      display: none;
+    }
   }
-}
 
-.ril__toolbarItem {
-  @include xs {
-    line-height: 30px;
+  &__navButtonPrev {
+    left: 20px;
+    background: url("#{$image-path}prev_dark.svg") 50% 50% no-repeat;
+    background-size: cover;
+  }
+  &__navButtonNext {
+    right: 20px;
+    background: url("#{$image-path}next_dark.svg") 50% 50% no-repeat;
+    background-size: cover;
+  }
+
+  &__closeButton {
+    opacity: 0.5;
+    background: url("#{$image-path}close_dark.svg") 50% 50% no-repeat;
+    background-size: cover;
+    @include size(25px, 25px);
+
+    &:active, &:focus {
+      outline: none;
+    }
+  }
+
+  &__toolbarRightSide,
+  &__toolbarLeftSide {
+    @include xs {
+      padding: 0;
+    }
+  }
+
+  &__closeButton {
+    @include xs {
+      margin-right: 7px;
+    }
+  }
+
+  &__toolbar,
+  &__toolbarSide  {
+    @include xs {
+      height: 30px;
+    }
+  }
+
+  &__toolbarItem {
+    @include xs {
+      line-height: 30px;
+    }
   }
 }

@@ -35,6 +35,10 @@ $header-height-mobile: 40px;
           @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
 
           @include md-and-sm {
+            @include text($font-family_sans, $font-size_small, $font-weight_sans_semibold);
+          }
+
+          @include sm {
             @include text($font-family_sans, $font-size_xsmall, $font-weight_sans_semibold);
           }
 
@@ -70,6 +74,10 @@ $header-height-mobile: 40px;
         margin-bottom: 20px;
         display: block;
         margin-bottom: 30px;
+
+        @media (max-height: 400px) {
+          margin-bottom: 15px;
+        }
 
         a {
           opacity: 0.75;
@@ -326,21 +334,24 @@ $header-height-mobile: 40px;
     }
   }
 
-  .ril__outer {
-    background: $color_white;
-  }
+  // Lightbox
+  .ril {
+    &__outer {
+      background: $color_white;
+    }
 
-  .ril__navButtonPrev {
-    background: url("#{$image-path}prev_light.svg") 50% 50% no-repeat;
-    background-size: cover;
-  }
-  .ril__navButtonNext {
-    background: url("#{$image-path}next_light.svg") 50% 50% no-repeat;
-    background-size: cover;
-  }
+    &__navButtonPrev {
+      background: url("#{$image-path}prev_light.svg") 50% 50% no-repeat;
+      background-size: cover;
+    }
+    &__navButtonNext {
+      background: url("#{$image-path}next_light.svg") 50% 50% no-repeat;
+      background-size: cover;
+    }
 
-  .ril__closeButton {
-    background: url("#{$image-path}close_light.svg") 50% 50% no-repeat;
-    background-size: cover;
+    &__closeButton {
+      background: url("#{$image-path}close_light.svg") 50% 50% no-repeat;
+      background-size: cover;
+    }
   }
 }
