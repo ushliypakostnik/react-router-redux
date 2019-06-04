@@ -5,7 +5,6 @@ import { withCookies, Cookies } from 'react-cookie';
 
 import { THEME, COOKIES } from '../store/constants';
 import { toogleTheme } from '../store/actions.js';
-import Theme from '../js/theme';
 
 class ThemeSwitch extends Component {
   constructor(props) {
@@ -20,10 +19,18 @@ class ThemeSwitch extends Component {
     theme: nextProps.theme,
   });
 
+  setTheme = (theme) => {
+    if (theme === THEME.LIGHT) {
+      document.body.classList.add("light-theme");
+    } else {
+      document.body.classList.remove("light-theme");
+    }
+  }
+
   themeChange = (theme) => {
     const { cookies } = this.props;
     cookies.set(COOKIES.THEME, theme, { path: '/' });
-    Theme.setTheme(theme);
+    this.setTheme(theme);
   }
 
   componentDidMount() {
@@ -31,7 +38,7 @@ class ThemeSwitch extends Component {
     const theme = cookies.get(COOKIES.THEME) ? cookies.get(COOKIES.THEME) : this.props.theme;
     if (theme !== this.props.theme) {
       this.props.toogleTheme(theme);
-      Theme.setTheme(theme);
+      this.setTheme(theme);
     }
   }
 

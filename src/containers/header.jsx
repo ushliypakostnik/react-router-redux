@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import { pageToActive } from '../store/actions.js';
 
 import ScreenHelper from '../js/screen-helper';
-import Theme from '../js/theme';
 
 import ThemeSwitch from './theme-switch';
 import Menu, { MenuItem } from '../components/menu';
