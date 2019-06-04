@@ -10,6 +10,16 @@ export const toogleTheme = (theme) => ({
   theme: theme
 });
 
+export const setMinHeight = (minHeight) => ({
+  type: "SET_MIN_HEIGHT",
+  minHeight: minHeight
+});
+
+export const setDeviceType = (deviceType) => ({
+  type: "SET_DEVICE_TYPE",
+  deviceType: deviceType
+});
+
 export const requestAlbums = () => ({
   type: "REQUEST_ALBUMS"
 });

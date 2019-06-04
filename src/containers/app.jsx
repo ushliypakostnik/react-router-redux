@@ -3,17 +3,12 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import { fetchAlbums, setMinHeight } from '../store/actions.js';
-
-/* eslint-disable no-unused-vars */
-import { render } from 'react-dom';
-import ReactResizeDetector from 'react-resize-detector';
+import { fetchAlbums } from '../store/actions.js';
 
 import Header from './header';
 import Page from './page';
 
-import Resize from '../components/resize';
-import ScreenHelper from '../js/screen-helper';
+import Resize from './resize';
 
 // Styles
 import '../normalize.css';
@@ -25,14 +20,15 @@ class App extends Component {
     super(props);
     this.state = {
       albums: [],
-      minHeight: '',
-      deviceType: ''
+      minHeight: 'auto',
+      deviceType: 'large'
     };
   }
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
     albums: nextProps.albums,
-    minHeight: prevState.minHeight
+    minHeight: nextProps.minHeight,
+    deviceType: nextProps.deviceType
   });
 
   componentDidMount() {
@@ -40,23 +36,16 @@ class App extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    /*eslint eqeqeq:0*/
-    if ((this.state.minHeight === 'auto' && nextState.minHeight != 'auto') ||
-        (nextState.minHeight === 'auto' && this.state.minHeight != 'auto')) {
-      return true;
-    } else {
-      return this.state.minHeight === nextState.minHeight;
-    }
+    return this.state.minHeight === nextProps.minHeight
+           && this.state.deviceType === nextProps.deviceType;
   }
 
   render() {
-    const { albums, minHeight, deviceType } = this.state;
+    const { minHeight, deviceType, albums } = this.state;
 
     return (
       <div className="app">
-        <Resize>
-          <ReactResizeDetector handleHeight onResize={this.onResize} />
-        </Resize>
+        <Resize />
         <Header items={albums} deviceType={deviceType} />
         <Switch>
           {albums.map((item, index) => {
@@ -74,33 +63,12 @@ class App extends Component {
       </div>
     );
   }
-
-  getMinHeight = () => {
-    if (ScreenHelper.getScrollbarWidth() > 0) {
-      return window.innerHeight - 50 + 'px';
-    } else {
-      return 'auto';
-    }
-  }
-
-  getDeviceType = () => {
-    if (ScreenHelper.isMin() && ScreenHelper.getOrientation() === 'portrait') {
-      return 'small'
-    }  else {
-      return 'large';
-    }
-  }
-
-  onResize = () => {
-    this.setState({
-      minHeight: this.getMinHeight(),
-      deviceType: this.getDeviceType()
-    });
-  }
 }
 
 const mapStateToProps = (state) => ({
-  albums: state.reducer.albums
+  albums: state.reducer.albums,
+  //minHeight: state.reducer.minHeight,
+  deviceType: state.reducer.deviceType
 });
 
 const mapDispatchToProps = (dispatch) => ({

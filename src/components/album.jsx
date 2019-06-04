@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Gallery from 'react-photo-gallery';
@@ -47,6 +48,11 @@ class Album extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps, nextState);
+    return true;
+  }
+
   componentWillMount() {
     let lightboxDataArr = Object.values(this.props.photos);
     let result = [];
@@ -88,4 +94,4 @@ Album.propTypes = {
   photos: PropTypes.array.isRequired
 };
 
-export default Album;
+export default connect()(Album);

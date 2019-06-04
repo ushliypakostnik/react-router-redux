@@ -107,6 +107,10 @@ $header-height-mobile: 40px;
   }
 
   &__panel {
+    &:focus {
+      outline: none;
+    }
+
     @include not-xs {
       display: none;
     }

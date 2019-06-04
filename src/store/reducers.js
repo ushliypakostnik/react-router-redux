@@ -36,6 +36,14 @@ const reducer = (state = { }, action) => {
       return Object.assign({}, state, {
         theme: action.theme
       });
+    case "SET_MIN_HEIGHT":
+      return Object.assign({}, state, {
+        minHeight: action.minHeight
+      });
+    case "SET_DEVICE_TYPE":
+      return Object.assign({}, state, {
+        deviceType: action.deviceType
+      });
     default:
       return state;
   }
