@@ -67,7 +67,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   albums: state.reducer.albums,
-  //minHeight: state.reducer.minHeight,
+  minHeight: state.reducer.minHeight,
   deviceType: state.reducer.deviceType
 });
 
