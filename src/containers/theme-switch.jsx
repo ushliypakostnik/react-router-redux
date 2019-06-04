@@ -8,11 +8,31 @@ import { toogleTheme } from '../store/actions.js';
 import Theme from '../js/theme';
 
 class ThemeSwitch extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      theme: ''
+    };
+  }
+
+  static getDerivedStateFromProps = (nextProps, prevState) => ({
+    theme: nextProps.theme,
+  });
 
   themeChange = (theme) => {
     const { cookies } = this.props;
     cookies.set(COOKIES.THEME, theme, { path: '/' });
     Theme.setTheme(theme);
+  }
+
+  componentDidMount() {
+    const { cookies } = this.props;
+    const theme = cookies.get(COOKIES.THEME) ? cookies.get(COOKIES.THEME) : this.props.theme;
+    if (theme !== this.props.theme) {
+      this.props.toogleTheme(theme);
+      Theme.setTheme(theme);
+    }
   }
 
   render() {
@@ -42,8 +62,12 @@ ThemeSwitch.propTypes = {
   cookies: instanceOf(Cookies).isRequired
 };
 
+const mapStateToProps = (state) => ({
+  theme: state.reducer.theme
+});
+
 const mapDispatchToProps = (dispatch) => ({
   toogleTheme: (theme) => dispatch(toogleTheme(theme))
 });
 
-export default connect(null, mapDispatchToProps)(withCookies(ThemeSwitch));
+export default connect(mapStateToProps, mapDispatchToProps)(withCookies(ThemeSwitch));

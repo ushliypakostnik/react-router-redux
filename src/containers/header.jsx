@@ -2,12 +2,9 @@ import React, { Component } from "react";
 /* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import PropTypes, { instanceOf } from 'prop-types';
+import PropTypes from 'prop-types';
 
-import { withCookies, Cookies } from 'react-cookie';
-
-import { THEME, COOKIES } from '../store/constants';
-import { pageToActive, toogleTheme } from '../store/actions.js';
+import { pageToActive } from '../store/actions.js';
 
 import ScreenHelper from '../js/screen-helper';
 import Theme from '../js/theme';
@@ -27,12 +24,10 @@ class Header extends Component {
   constructor(props) {
     super(props);
 
-    const { cookies } = props;
     this.state = {
       visible: false,
       pageIsActive: '',
       deviceType: this.props.deviceType,
-      theme: ''
     };
   }
 
@@ -50,21 +45,11 @@ class Header extends Component {
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
     pageIsActive: nextProps.pageIsActive,
-    theme: nextProps.theme,
     deviceType: nextProps.deviceType
   });
 
-  componentDidMount() {
-    const { cookies } = this.props;
-    const theme = cookies.get(COOKIES.THEME) ? cookies.get(COOKIES.THEME) : this.props.theme;
-    if (theme !== this.props.theme) {
-      this.props.toogleTheme(theme);
-      Theme.setTheme(theme);
-    }
-  }
-
   render () {
-    const { items, pageToActive, theme } = this.props;
+    const { items, pageToActive } = this.props;
     const { visible, pageIsActive, deviceType } = this.state;
 
     return (
@@ -117,11 +102,11 @@ class Header extends Component {
                   }}
                 />
               })}
-              <ThemeSwitch theme={theme} />
+              <ThemeSwitch />
             </Menu>
           </Drawer>
           <div className="header__right">
-            <ThemeSwitch theme={theme} />
+            <ThemeSwitch />
             <span
               className="header__logo header__logo--xs"
             >Ivan Samovarov</span>
@@ -148,19 +133,16 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  cookies: instanceOf(Cookies).isRequired,
   items: PropTypes.array.isRequired,
   deviceType: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  pageIsActive: state.reducer.activePage,
-  theme: state.reducer.theme
+  pageIsActive: state.reducer.activePage
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  pageToActive: (page) => dispatch(pageToActive(page)),
-  toogleTheme: (theme) => dispatch(toogleTheme(theme))
+  pageToActive: (page) => dispatch(pageToActive(page))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withCookies(Header));
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
