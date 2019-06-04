@@ -55,6 +55,7 @@ class Header extends Component {
 
   componentDidMount() {
     const { cookies } = this.props;
+    console.log(this.props.theme);
     const theme = cookies.get(COOKIES.THEME) ? cookies.get(COOKIES.THEME) : this.props.theme;
     theme !== this.props.theme && this.props.toogleTheme(theme);
     this.setState({

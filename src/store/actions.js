@@ -1,4 +1,4 @@
-import { fetchUrl } from './constants';
+import { FETCH_URL } from './constants';
 
 export const pageToActive = (page) => ({
   type: "PAGE_TO_ACTIVE",
@@ -27,7 +27,7 @@ export const requestAlbumFailed = (error) => ({
 export const fetchAlbums = () => {
   return dispatch => {
     dispatch(requestAlbums());
-    return fetch(fetchUrl + "/albums")
+    return fetch(FETCH_URL + "/albums")
       .then(res => res.json())
       .then(
         (result) => {
@@ -66,7 +66,7 @@ export const requestDataFailed = (error) => ({
 export const fetchData = (album) => {
   return dispatch => {
     dispatch(requestData());
-    return fetch(fetchUrl + "/albums/" + album)
+    return fetch(FETCH_URL + "/albums/" + album)
       .then(res => res.json())
       .then(
         (result) => {
