@@ -1,6 +1,6 @@
 import { THEME } from '../store/constants';
 
-const Theme = ((theme) => {
+const Theme = (() => {
   function setTheme(theme) {
     if (theme === THEME.LIGHT) {
       document.body.classList.add("light-theme");
