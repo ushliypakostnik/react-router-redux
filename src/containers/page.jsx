@@ -16,15 +16,15 @@ class Page extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.fetchData(this.props.path);
-  }
-
   static getDerivedStateFromProps = (nextProps, prevState) => ({
     error: nextProps.error,
     isLoaded: nextProps.isLoaded,
     images: nextProps.images
   });
+
+  componentDidMount() {
+    this.props.fetchData(this.props.path);
+  }
 
   render() {
     const { minHeight } = this.props;

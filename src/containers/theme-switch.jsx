@@ -7,17 +7,6 @@ import { THEME, COOKIES } from '../store/constants';
 import { toogleTheme } from '../store/actions.js';
 
 class ThemeSwitch extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      theme: ''
-    };
-  }
-
-  static getDerivedStateFromProps = (nextProps, prevState) => ({
-    theme: nextProps.theme,
-  });
 
   setTheme = (theme) => {
     if (theme === THEME.LIGHT) {

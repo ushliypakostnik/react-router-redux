@@ -83,7 +83,7 @@ class App extends Component {
     }
   }
 
-  setDeviceType = () => {
+  getDeviceType = () => {
     if (ScreenHelper.isMin() && ScreenHelper.getOrientation() === 'portrait') {
       return 'small'
     }  else {
@@ -94,7 +94,7 @@ class App extends Component {
   onResize = () => {
     this.setState({
       minHeight: this.getMinHeight(),
-      deviceType: this.setDeviceType()
+      deviceType: this.getDeviceType()
     });
   }
 }

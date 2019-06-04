@@ -30,6 +30,11 @@ class Header extends Component {
     };
   }
 
+  static getDerivedStateFromProps = (nextProps, prevState) => ({
+    pageIsActive: nextProps.pageIsActive,
+    deviceType: nextProps.deviceType
+  });
+
   showDrawer = () => {
     this.setState({
       visible: true
@@ -41,11 +46,6 @@ class Header extends Component {
       visible: false
     });
   };
-
-  static getDerivedStateFromProps = (nextProps, prevState) => ({
-    pageIsActive: nextProps.pageIsActive,
-    deviceType: nextProps.deviceType
-  });
 
   render () {
     const { items, pageToActive } = this.props;
