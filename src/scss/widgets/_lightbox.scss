@@ -16,7 +16,7 @@
 .ril__navButtonNext {
   opacity: 0.5;
   padding: 0;
-  @include size(35px, 35px);
+  @include size(25px, 25px);
 
   &:active, &:focus {
     outline: none;
@@ -42,7 +42,7 @@
   opacity: 0.5;
   background: url("#{$image-path}close_dark.svg") 50% 50% no-repeat;
   background-size: cover;
-  @include size(35px, 35px);
+  @include size(25px, 25px);
 
   &:active, &:focus {
     outline: none;
@@ -56,23 +56,22 @@
   }
 }
 
-.ril__builtinButton {
+.ril__closeButton {
   @include xs {
     vertical-align: top;
-    @include size(40px, 40px);
   }
 }
 
 .ril__toolbar,
 .ril__toolbarSide  {
   @include xs {
-    height: 40px;
+    height: 30px;
   }
 }
 
 .ril__toolbarItem {
   @include xs {
-    line-height: 40px;
+    line-height: 30px;
   }
 }
 

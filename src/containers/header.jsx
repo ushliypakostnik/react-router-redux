@@ -6,7 +6,7 @@ import PropTypes, { instanceOf } from 'prop-types';
 
 import { withCookies, Cookies } from 'react-cookie';
 
-import { COOKIES } from '../store/constants';
+import { THEME, COOKIES } from '../store/constants';
 import { pageToActive, toogleTheme } from '../store/actions.js';
 
 import ScreenHelper from '../js/screen-helper';
@@ -30,7 +30,8 @@ class Header extends Component {
     this.state = {
       visible: false,
       pageIsActive: '',
-      deviceType: this.props.deviceType
+      deviceType: this.props.deviceType,
+      theme: ''
     };
   }
 
@@ -48,6 +49,7 @@ class Header extends Component {
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
     pageIsActive: nextProps.pageIsActive,
+    theme: nextProps.theme,
     deviceType: nextProps.deviceType
   });
 
@@ -62,7 +64,7 @@ class Header extends Component {
     const { visible, pageIsActive, deviceType } = this.state;
 
     return (
-      <div className="app__header header">
+      <div className={theme === THEME.LIGHT ? "app__header header light-theme" : "app__header header"}>
         <div className="container-fluid">
           <Menu>
             {items.map((item, index) => {
@@ -149,6 +151,7 @@ Header.propTypes = {
 
 const mapStateToProps = (state) => ({
   pageIsActive: state.reducer.activePage,
+  theme: state.reducer.theme
 });
 
 const mapDispatchToProps = (dispatch) => ({

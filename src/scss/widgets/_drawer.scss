@@ -208,3 +208,16 @@
     opacity: 0.3;
   }
 }
+
+.ant-drawer-close {
+  background: url("#{$image-path}close_dark.svg") 50% 50% no-repeat;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  top: 8px;
+  right: 10px;
+
+  .anticon.anticon-close {
+    display: none;
+  }
+}

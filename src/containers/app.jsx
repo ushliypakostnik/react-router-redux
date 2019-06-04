@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import { THEME } from '../store/constants';
 import { fetchAlbums, setMinHeight } from '../store/actions.js';
 
 /* eslint-disable no-unused-vars */
@@ -27,14 +26,12 @@ class App extends Component {
     this.state = {
       albums: [],
       minHeight: '',
-      deviceType: '',
-      theme: ''
+      deviceType: ''
     };
   }
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
-    albums: nextProps.albums,
-    theme: nextProps.theme
+    albums: nextProps.albums
   });
 
   componentDidMount() {
@@ -52,14 +49,14 @@ class App extends Component {
   }
 
   render() {
-    const { albums, minHeight, deviceType, theme } = this.state;
+    const { albums, minHeight, deviceType } = this.state;
 
     return (
-      <div className={theme === THEME.LIGHT ? "app app--light-theme" : "app"}>
+      <div className="app">
         <Resize>
           <ReactResizeDetector handleHeight onResize={this.onResize} />
         </Resize>
-        <Header items={albums} theme={theme} deviceType={deviceType} />
+        <Header items={albums} deviceType={deviceType} />
         <Switch>
           {albums.map((item, index) => {
             return <Route
@@ -103,8 +100,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   albums: state.reducer.albums,
-  minHeight: state.reducer.minHeight,
-  theme: state.reducer.theme
+  minHeight: state.reducer.minHeight
 });
 
 const mapDispatchToProps = (dispatch) => ({

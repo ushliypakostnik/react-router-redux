@@ -147,37 +147,6 @@ $header-height-mobile: 40px;
       margin-right: 10vw;
     }
   }
-
-  // Light theme
-  &--light-theme {
-    .header {
-      background: $color_white;
-    }
-
-    .header__logo,
-    .header__social,
-    .header__navbar {
-      @include link-style($color_text_light-theme, $color_text_light-theme);
-      @include link-style($color_text_light-theme, $color_text_light-theme);
-    }
-
-    .app__menu {
-      > li a {
-        @include link-style($color_text-light-theme, $color_text-light-theme);
-      }
-    }
-
-    .theme-switch__ico {
-      background: $color_text_light-theme;
-    }
-    .theme-switch__label {
-      @include link-style($color_text_light-theme, $color_text_light-theme);
-    }
-
-    .app__page {
-      background: $color_white;
-    }
-  }
 }
 
 // Witgets
@@ -322,5 +291,36 @@ $header-height-mobile: 40px;
       margin-top: $size * 1.5;
       display: inline-block;
     }
+  }
+}
+
+// Light theme
+//////////////////////////////////////////////////////
+.light-theme {
+  &.header {
+    background: $color_white;
+  }
+  &.app__page {
+    background: $color_white;
+  }
+
+  .header__logo,
+  .header__social,
+  .header__navbar {
+    @include link-style($color_text_light-theme, $color_text_light-theme);
+    @include link-style($color_text_light-theme, $color_text_light-theme);
+  }
+
+  .app__menu {
+    > li a {
+      @include link-style($color_text-light-theme, $color_text-light-theme);
+    }
+  }
+
+  .theme-switch__ico {
+    background: $color_text_light-theme;
+  }
+  .theme-switch__label {
+    @include link-style($color_text_light-theme, $color_text_light-theme);
   }
 }
