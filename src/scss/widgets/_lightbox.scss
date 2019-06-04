@@ -74,23 +74,3 @@
     line-height: 30px;
   }
 }
-
-.light-theme {
-  &.ril__outer {
-    background: $color_white;
-  }
-
-  .ril__navButtonPrev {
-    background: url("#{$image-path}prev_light.svg") 50% 50% no-repeat;
-    background-size: cover;
-  }
-  .ril__navButtonNext {
-    background: url("#{$image-path}next_light.svg") 50% 50% no-repeat;
-    background-size: cover;
-  }
-
-  .ril__closeButton {
-    background: url("#{$image-path}close_light.svg") 50% 50% no-repeat;
-    background-size: cover;
-  }
-}

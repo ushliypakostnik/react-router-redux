@@ -10,8 +10,9 @@ import { THEME, COOKIES } from '../store/constants';
 import { pageToActive, toogleTheme } from '../store/actions.js';
 
 import ScreenHelper from '../js/screen-helper';
+import Theme from '../js/theme';
 
-import ThemeSwitch from '../components/theme-switch';
+import ThemeSwitch from './theme-switch';
 import Menu, { MenuItem } from '../components/menu';
 
 import { Drawer } from 'antd';
@@ -56,7 +57,10 @@ class Header extends Component {
   componentDidMount() {
     const { cookies } = this.props;
     const theme = cookies.get(COOKIES.THEME) ? cookies.get(COOKIES.THEME) : this.props.theme;
-    theme !== this.props.theme && this.props.toogleTheme(theme);
+    if (theme !== this.props.theme) {
+      this.props.toogleTheme(theme);
+      Theme.setTheme(theme);
+    }
   }
 
   render () {
@@ -64,7 +68,7 @@ class Header extends Component {
     const { visible, pageIsActive, deviceType } = this.state;
 
     return (
-      <div className={theme === THEME.LIGHT ? "app__header header light-theme" : "app__header header"}>
+      <div className="app__header header">
         <div className="container-fluid">
           <Menu>
             {items.map((item, index) => {

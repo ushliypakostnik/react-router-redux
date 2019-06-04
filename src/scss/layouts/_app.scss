@@ -297,10 +297,10 @@ $header-height-mobile: 40px;
 // Light theme
 //////////////////////////////////////////////////////
 .light-theme {
-  &.header {
+  .header {
     background: $color_white;
   }
-  &.app__page {
+  .app__page {
     background: $color_white;
   }
 
@@ -311,16 +311,36 @@ $header-height-mobile: 40px;
     @include link-style($color_text_light-theme, $color_text_light-theme);
   }
 
-  .app__menu {
-    > li a {
-      @include link-style($color_text-light-theme, $color_text-light-theme);
+  .app__header {
+    .app__menu {
+      > li a {
+        @include link-style($color_text-light-theme, $color_text-light-theme);
+      }
+    }
+
+    .theme-switch__ico {
+      background: $color_text_light-theme;
+    }
+    .theme-switch__label {
+      @include link-style($color_text_light-theme, $color_text_light-theme);
     }
   }
 
-  .theme-switch__ico {
-    background: $color_text_light-theme;
+  .ril__outer {
+    background: $color_white;
   }
-  .theme-switch__label {
-    @include link-style($color_text_light-theme, $color_text_light-theme);
+
+  .ril__navButtonPrev {
+    background: url("#{$image-path}prev_light.svg") 50% 50% no-repeat;
+    background-size: cover;
+  }
+  .ril__navButtonNext {
+    background: url("#{$image-path}next_light.svg") 50% 50% no-repeat;
+    background-size: cover;
+  }
+
+  .ril__closeButton {
+    background: url("#{$image-path}close_light.svg") 50% 50% no-repeat;
+    background-size: cover;
   }
 }

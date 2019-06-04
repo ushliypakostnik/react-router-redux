@@ -1,8 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
-import { THEME } from '../store/constants';
 
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
@@ -14,18 +11,13 @@ class LightboxContainer extends Component {
     super(props);
     this.state = {
       photoIndex: this.props.index,
-      isOpen: this.props.isOpen,
-      theme: ''
+      isOpen: this.props.isOpen
     };
   }
 
-  static getDerivedStateFromProps = (nextProps, prevState) => ({
-    theme: nextProps.theme
-  });
-
   render() {
     const { images, lightboxUpdate } = this.props;
-    const { photoIndex, isOpen, theme } = this.state;
+    const { photoIndex, isOpen } = this.state;
 
     return (
       <Fragment>
@@ -57,7 +49,6 @@ class LightboxContainer extends Component {
                   zIndex: 2000
                 }
               }}
-              wrapperClassName={theme === THEME.LIGHT ? "light-theme" : ""}
             />
           </Fragment>
         )}
@@ -70,8 +61,4 @@ LightboxContainer.propTypes = {
   images: PropTypes.array.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  theme: state.reducer.theme
-});
-
-export default connect(mapStateToProps)(LightboxContainer);
+export default LightboxContainer;

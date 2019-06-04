@@ -5,12 +5,14 @@ import { withCookies, Cookies } from 'react-cookie';
 
 import { THEME, COOKIES } from '../store/constants';
 import { toogleTheme } from '../store/actions.js';
+import Theme from '../js/theme';
 
 class ThemeSwitch extends Component {
 
   themeChange = (theme) => {
     const { cookies } = this.props;
     cookies.set(COOKIES.THEME, theme, { path: '/' });
+    Theme.setTheme(theme);
   }
 
   render() {

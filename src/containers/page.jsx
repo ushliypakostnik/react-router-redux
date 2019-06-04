@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { THEME } from '../store/constants';
 import { fetchData } from '../store/actions.js';
 
 import Album from '../components/album';
@@ -14,7 +13,6 @@ class Page extends Component {
       error: null,
       isLoaded: false,
       images: [],
-      theme: ''
     };
   }
 
@@ -25,13 +23,12 @@ class Page extends Component {
   static getDerivedStateFromProps = (nextProps, prevState) => ({
     error: nextProps.error,
     isLoaded: nextProps.isLoaded,
-    images: nextProps.images,
-    theme: nextProps.theme
+    images: nextProps.images
   });
 
   render() {
     const { minHeight } = this.props;
-    const { error, isLoaded, images, theme } = this.state;
+    const { error, isLoaded, images } = this.state;
 
     if (error) {
       return <div className="app__page" style={{minHeight: minHeight}}>Error: {error.message}</div>;
@@ -39,7 +36,7 @@ class Page extends Component {
       return <div className="app__page" style={{minHeight: minHeight}}></div>;
     } else {
       return (
-        <section className={theme === THEME.LIGHT ? "app__page light-theme" : "app__page"} style={{minHeight: minHeight}}>
+        <section className="app__page" style={{minHeight: minHeight}}>
           <Album photos={images} />
         </section>
       );
@@ -56,8 +53,7 @@ Page.propTypes = {
 const mapStateToProps = (state) => ({
   isLoaded: !state.reducer.isFetching,
   error: state.reducer.error,
-  images: state.reducer.data,
-  theme: state.reducer.theme
+  images: state.reducer.data
 });
 
 const mapDispatchToProps = (dispatch) => ({

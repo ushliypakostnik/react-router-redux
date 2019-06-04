@@ -31,7 +31,8 @@ class App extends Component {
   }
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
-    albums: nextProps.albums
+    albums: nextProps.albums,
+    minHeight: prevState.minHeight
   });
 
   componentDidMount() {
@@ -82,25 +83,24 @@ class App extends Component {
     }
   }
 
+  setDeviceType = () => {
+    if (ScreenHelper.isMin() && ScreenHelper.getOrientation() === 'portrait') {
+      return 'small'
+    }  else {
+      return 'large';
+    }
+  }
+
   onResize = () => {
     this.setState({
-      minHeight: this.getMinHeight()
+      minHeight: this.getMinHeight(),
+      deviceType: this.setDeviceType()
     });
-    if (ScreenHelper.isMin() && ScreenHelper.getOrientation() === 'portrait') {
-      this.setState({
-        deviceType: "small"
-      });
-    }  else {
-      this.setState({
-        deviceType: "large"
-      });
-    }
   }
 }
 
 const mapStateToProps = (state) => ({
-  albums: state.reducer.albums,
-  minHeight: state.reducer.minHeight
+  albums: state.reducer.albums
 });
 
 const mapDispatchToProps = (dispatch) => ({
