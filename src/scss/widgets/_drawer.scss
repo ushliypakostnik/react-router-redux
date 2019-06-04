@@ -11,10 +11,10 @@
   height: 100%;
 }
 .ant-drawer > * {
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.9, 0, 0.3, 0.7), -webkit-box-shadow 0.3s cubic-bezier(0.9, 0, 0.3, 0.7);
-  transition: -webkit-transform 0.3s cubic-bezier(0.9, 0, 0.3, 0.7), -webkit-box-shadow 0.3s cubic-bezier(0.9, 0, 0.3, 0.7);
-  transition: transform 0.3s cubic-bezier(0.9, 0, 0.3, 0.7), box-shadow 0.3s cubic-bezier(0.9, 0, 0.3, 0.7);
-  transition: transform 0.3s cubic-bezier(0.9, 0, 0.3, 0.7), box-shadow 0.3s cubic-bezier(0.9, 0, 0.3, 0.7), -webkit-transform 0.3s cubic-bezier(0.9, 0, 0.3, 0.7), -webkit-box-shadow 0.3s cubic-bezier(0.9, 0, 0.3, 0.7);
+  -webkit-transition: -webkit-transform $transition_duration cubic-bezier(0.9, 0, 0.3, 0.7), -webkit-box-shadow $transition_duration cubic-bezier(0.9, 0, 0.3, 0.7);
+  transition: -webkit-transform $transition_duration cubic-bezier(0.9, 0, 0.3, 0.7), -webkit-box-shadow $transition_duration cubic-bezier(0.9, 0, 0.3, 0.7);
+  transition: transform $transition_duration cubic-bezier(0.9, 0, 0.3, 0.7), box-shadow $transition_duration cubic-bezier(0.9, 0, 0.3, 0.7);
+  transition: transform $transition_duration cubic-bezier(0.9, 0, 0.3, 0.7), box-shadow $transition_duration cubic-bezier(0.9, 0, 0.3, 0.7), -webkit-transform $transition_duration cubic-bezier(0.9, 0, 0.3, 0.7), -webkit-box-shadow $transition_duration cubic-bezier(0.9, 0, 0.3, 0.7);
 }
 .ant-drawer-content-wrapper {
   position: fixed;
@@ -95,8 +95,8 @@
   opacity: 0.3;
   -webkit-transition: none;
   transition: none;
-  -webkit-animation: antdDrawerFadeIn 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
-          animation: antdDrawerFadeIn 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
+  -webkit-animation: antdDrawerFadeIn $transition_duration cubic-bezier(0.7, 0.3, 0.1, 1);
+          animation: antdDrawerFadeIn $transition_duration cubic-bezier(0.7, 0.3, 0.1, 1);
 }
 .ant-drawer-title {
   margin: 0;
@@ -133,8 +133,8 @@
   border: 0;
   outline: 0;
   cursor: pointer;
-  -webkit-transition: color 0.3s;
-  transition: color 0.3s;
+  -webkit-transition: color $transition_duration;
+  transition: color $transition_duration;
   text-rendering: auto;
 
   .anticon.anticon-close {
@@ -179,14 +179,14 @@
   background-color: rgba(0, 0, 0, 0.65);
   opacity: 0;
   filter: alpha(opacity=50);
-  -webkit-transition: opacity 0.3s linear, height 0s ease 0.3s;
-  transition: opacity 0.3s linear, height 0s ease 0.3s;
+  -webkit-transition: opacity $transition_duration linear, height 0s ease $transition_duration;
+  transition: opacity $transition_duration linear, height 0s ease $transition_duration;
 }
 .ant-drawer-open {
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
-  transition: -webkit-transform 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
-  transition: transform 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
-  transition: transform 0.3s cubic-bezier(0.7, 0.3, 0.1, 1), -webkit-transform 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
+  -webkit-transition: -webkit-transform $transition_duration cubic-bezier(0.7, 0.3, 0.1, 1);
+  transition: -webkit-transform $transition_duration cubic-bezier(0.7, 0.3, 0.1, 1);
+  transition: transform $transition_duration cubic-bezier(0.7, 0.3, 0.1, 1);
+  transition: transform $transition_duration cubic-bezier(0.7, 0.3, 0.1, 1), -webkit-transform $transition_duration cubic-bezier(0.7, 0.3, 0.1, 1);
 }
 .ant-drawer-open-content {
   -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);

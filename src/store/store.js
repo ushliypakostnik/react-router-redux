@@ -17,6 +17,8 @@ const initialState = {
     isFetching: false,
     albums: [],
     data: [],
+    minHeight: 'auto',
+    deviceType: 'large',
     error: null
   },
   routing: {}

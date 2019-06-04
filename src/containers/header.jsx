@@ -26,7 +26,6 @@ class Header extends Component {
     this.state = {
       visible: false,
       pageIsActive: '',
-      deviceType: this.props.deviceType,
     };
   }
 
@@ -48,8 +47,8 @@ class Header extends Component {
   };
 
   render () {
-    const { items, pageToActive } = this.props;
-    const { visible, pageIsActive, deviceType } = this.state;
+    const { items, pageToActive, deviceType } = this.props;
+    const { visible, pageIsActive } = this.state;
 
     return (
       <div className="app__header header">

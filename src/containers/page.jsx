@@ -19,7 +19,8 @@ class Page extends Component {
   static getDerivedStateFromProps = (nextProps, prevState) => ({
     error: nextProps.error,
     isLoaded: nextProps.isLoaded,
-    images: nextProps.images
+    images: nextProps.images,
+    minHeight: nextProps.images
   });
 
   componentDidMount() {
@@ -46,14 +47,14 @@ class Page extends Component {
 
 Page.propTypes = {
   path: PropTypes.string.isRequired,
-  minHeight: PropTypes.string.isRequired,
-  images: PropTypes.array.isRequired
+  minHeight: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => ({
   isLoaded: !state.reducer.isFetching,
   error: state.reducer.error,
-  images: state.reducer.data
+  images: state.reducer.data,
+  minHeight: state.reducer.minHeight
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -18,6 +18,7 @@ class LightboxContainer extends Component {
   render() {
     const { images, lightboxUpdate } = this.props;
     const { photoIndex, isOpen } = this.state;
+    console.log("Lightbox: ", isOpen);
 
     return (
       <Fragment>
@@ -30,7 +31,7 @@ class LightboxContainer extends Component {
               onCloseRequest={() =>
                 {
                   this.setState({ isOpen: false });
-                  lightboxUpdate(isOpen);
+                  lightboxUpdate(this.state.isOpen);
                 }}
               onMovePrevRequest={() =>
                 this.setState({
@@ -42,7 +43,7 @@ class LightboxContainer extends Component {
                   photoIndex: (photoIndex + 1) % images.length,
                 })
               }
-              animationDuration={200}
+              animationDuration={100}
               enableZoom={false}
               reactModalStyle={{
                 overlay: {
