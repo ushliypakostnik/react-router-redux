@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { THEME } from '../store/constants';
+
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 
@@ -55,7 +57,7 @@ class LightboxContainer extends Component {
                   zIndex: 2000
                 }
               }}
-              wrapperClassName={theme === 'light' ? "light-theme" : ""}
+              wrapperClassName={theme === THEME.LIGHT ? "light-theme" : ""}
             />
           </Fragment>
         )}

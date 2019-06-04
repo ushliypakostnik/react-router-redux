@@ -3,13 +3,15 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 
+import { THEME } from '../store/constants';
+import { fetchAlbums, setMinHeight } from '../store/actions.js';
+
 /* eslint-disable no-unused-vars */
 import { render } from 'react-dom';
 import ReactResizeDetector from 'react-resize-detector';
+
 import Header from './header';
 import Page from './page';
-
-import { fetchAlbums, setMinHeight } from '../store/actions.js';
 
 import Resize from '../components/resize';
 import ScreenHelper from '../js/screen-helper';
@@ -25,12 +27,14 @@ class App extends Component {
     this.state = {
       albums: [],
       minHeight: '',
-      deviceType: ''
+      deviceType: '',
+      theme: ''
     };
   }
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
-    albums: nextProps.albums
+    albums: nextProps.albums,
+    theme: nextProps.theme
   });
 
   componentDidMount() {
@@ -48,14 +52,14 @@ class App extends Component {
   }
 
   render() {
-    const { albums, minHeight, deviceType } = this.state;
+    const { albums, minHeight, deviceType, theme } = this.state;
 
     return (
-      <div className="app">
+      <div className={theme === THEME.LIGHT ? "app app--light-theme" : "app"}>
         <Resize>
           <ReactResizeDetector handleHeight onResize={this.onResize} />
         </Resize>
-        <Header items={albums} deviceType={deviceType} />
+        <Header items={albums} theme={theme} deviceType={deviceType} />
         <Switch>
           {albums.map((item, index) => {
             return <Route
@@ -100,6 +104,7 @@ class App extends Component {
 const mapStateToProps = (state) => ({
   albums: state.reducer.albums,
   minHeight: state.reducer.minHeight,
+  theme: state.reducer.theme
 });
 
 const mapDispatchToProps = (dispatch) => ({

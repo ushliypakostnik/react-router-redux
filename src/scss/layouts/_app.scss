@@ -4,6 +4,7 @@ $header-height: 50px;
 $header-height-mobile: 40px;
 
 // Main Layout
+//////////////////////////////////////////////////////
 
 .app {
   min-height: calc(100vh + 1px);
@@ -19,6 +20,7 @@ $header-height-mobile: 40px;
         }
     }
 
+    // Menu on desktop
     .app__header & {
       display: inline-block;
 
@@ -57,6 +59,7 @@ $header-height-mobile: 40px;
       }
     }
 
+    // Menu on mobile
     .app__panel & {
       display: block;
       padding-top: 25px;
@@ -125,6 +128,10 @@ $header-height-mobile: 40px;
     position: relative;
   }
 
+  &__page {
+    background: $color_black;
+  }
+
   &__theme-switch {
     display: inline-block;
     margin-right: 20vw;
@@ -140,9 +147,41 @@ $header-height-mobile: 40px;
       margin-right: 10vw;
     }
   }
+
+  // Light theme
+  &--light-theme {
+    .header {
+      background: $color_white;
+    }
+
+    .header__logo,
+    .header__social,
+    .header__navbar {
+      @include link-style($color_text_light-theme, $color_text_light-theme);
+      @include link-style($color_text_light-theme, $color_text_light-theme);
+    }
+
+    .app__menu {
+      > li a {
+        @include link-style($color_text-light-theme, $color_text-light-theme);
+      }
+    }
+
+    .theme-switch__ico {
+      background: $color_text_light-theme;
+    }
+    .theme-switch__label {
+      @include link-style($color_text_light-theme, $color_text_light-theme);
+    }
+
+    .app__page {
+      background: $color_white;
+    }
+  }
 }
 
 // Witgets
+//////////////////////////////////////////////////////
 
 .header {
   background: $color_black;
@@ -250,27 +289,11 @@ $header-height-mobile: 40px;
       left: auto;
     }
   }
-
-  &--light-theme {
-    background: $color_white;
-
-    .header__logo,
-    .header__social,
-    .header__navbar {
-      @include link-style($color_text_light-theme, $color_text_light-theme);
-      @include link-style($color_text_light-theme, $color_text_light-theme);
-    }
-
-    .app__menu {
-      > li a {
-        @include link-style($color_text-light-theme, $color_text-light-theme);
-      }
-    }
-  }
 }
 
 .theme-switch {
   white-space: nowrap;
+
   &__ico {
     display: inline-block;
     border-radius: 50%;
@@ -298,15 +321,6 @@ $header-height-mobile: 40px;
     @include xs {
       margin-top: $size * 1.5;
       display: inline-block;
-    }
-  }
-
-  .header--light-theme & {
-    .theme-switch__ico {
-      background: $color_text_light-theme;
-    }
-    .theme-switch__label {
-      @include link-style($color_text_light-theme, $color_text_light-theme);
     }
   }
 }

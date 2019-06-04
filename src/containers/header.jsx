@@ -11,8 +11,8 @@ import { pageToActive, toogleTheme } from '../store/actions.js';
 
 import ScreenHelper from '../js/screen-helper';
 
-import Menu, { MenuItem } from '../components/menu';
 import ThemeSwitch from '../components/theme-switch';
+import Menu, { MenuItem } from '../components/menu';
 
 import { Drawer } from 'antd';
 import '../scss/widgets/_drawer.scss';
@@ -30,7 +30,6 @@ class Header extends Component {
     this.state = {
       visible: false,
       pageIsActive: '',
-      theme: '',
       deviceType: this.props.deviceType
     };
   }
@@ -49,26 +48,21 @@ class Header extends Component {
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
     pageIsActive: nextProps.pageIsActive,
-    theme: nextProps.theme,
     deviceType: nextProps.deviceType
   });
 
   componentDidMount() {
     const { cookies } = this.props;
-    console.log(this.props.theme);
     const theme = cookies.get(COOKIES.THEME) ? cookies.get(COOKIES.THEME) : this.props.theme;
     theme !== this.props.theme && this.props.toogleTheme(theme);
-    this.setState({
-      theme: theme
-    });
   }
 
   render () {
-    const { items, pageToActive } = this.props;
-    const { visible, pageIsActive, theme, deviceType } = this.state;
+    const { items, pageToActive, theme } = this.props;
+    const { visible, pageIsActive, deviceType } = this.state;
 
     return (
-      <div className={theme === 'light' ? "app__header header header--light-theme" : "app__header header"}>
+      <div className="app__header header">
         <div className="container-fluid">
           <Menu>
             {items.map((item, index) => {
@@ -155,7 +149,6 @@ Header.propTypes = {
 
 const mapStateToProps = (state) => ({
   pageIsActive: state.reducer.activePage,
-  theme: state.reducer.theme
 });
 
 const mapDispatchToProps = (dispatch) => ({
