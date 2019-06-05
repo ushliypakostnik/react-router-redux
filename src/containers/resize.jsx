@@ -10,12 +10,12 @@ import { setMinHeight, resize } from '../store/actions.js';
 import ScreenHelper from '../js/screen-helper';
 
 class Resize extends Component {
-  constructor(props) {
-    super(props);
-    //this.scrollbarWidth = null;
-  }
-
   // more reliably
+  //constructor(props) {
+  //  super(props);
+  //  this.scrollbarWidth = null;
+  //}
+
   //componentDidMount() {
   //  this.scrollbarWidth = ScreenHelper.getScrollbarWidth();
   //}
