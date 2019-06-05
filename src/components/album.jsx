@@ -94,5 +94,5 @@ Album.propTypes = {
   photos: PropTypes.array.isRequired
 };
 
-// "empty" connect for fix lightbox resize bug
+// "empty connect" for fix lightbox resize bug
 export default connect()(Album);

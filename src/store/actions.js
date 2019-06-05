@@ -10,13 +10,9 @@ export const toogleTheme = (theme) => ({
   theme: theme
 });
 
-export const setMinHeight = (minHeight) => ({
-  type: "SET_MIN_HEIGHT",
-  minHeight: minHeight
-});
-
-export const setDeviceType = (deviceType) => ({
-  type: "SET_DEVICE_TYPE",
+export const resize = (minHeight, deviceType) => ({
+  type: "RESIZE",
+  minHeight: minHeight,
   deviceType: deviceType
 });
 

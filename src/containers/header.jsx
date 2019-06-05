@@ -136,7 +136,8 @@ Header.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  pageIsActive: state.reducer.activePage
+  pageIsActive: state.reducer.activePage,
+  deviceType: state.reducer.resize.deviceType
 });
 
 const mapDispatchToProps = (dispatch) => ({

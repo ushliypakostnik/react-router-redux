@@ -54,7 +54,7 @@ const mapStateToProps = (state) => ({
   isLoaded: !state.reducer.isFetching,
   error: state.reducer.error,
   images: state.reducer.data,
-  minHeight: state.reducer.minHeight
+  minHeight: state.reducer.resize.minHeight
 });
 
 const mapDispatchToProps = (dispatch) => ({

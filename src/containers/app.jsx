@@ -19,44 +19,32 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      albums: [],
-      minHeight: 'auto',
-      deviceType: 'large'
+      albums: []
     };
   }
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
-    albums: nextProps.albums,
-    minHeight: nextProps.minHeight,
-    deviceType: nextProps.deviceType
+    albums: nextProps.albums
   });
 
   componentDidMount() {
     this.props.fetchAlbums();
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.minHeight === nextProps.minHeight
-           && this.state.deviceType === nextProps.deviceType;
-  }
-
   render() {
-    const { minHeight, deviceType, albums } = this.state;
+    const { albums } = this.state;
 
     return (
       <div className="app">
         <Resize />
-        <Header items={albums} deviceType={deviceType} />
+        <Header items={albums} />
         <Switch>
           {albums.map((item, index) => {
             return <Route
               exact={index > 0 ? false : true}
               key={index}
               path={item.path}
-              component={props => <Page {...props}
-                                    path={item.text}
-                                    minHeight={minHeight}
-                                  />}
+              component={props => <Page {...props}path={item.text} />}
             />
           })}
         </Switch>
@@ -66,9 +54,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  albums: state.reducer.albums,
-  minHeight: state.reducer.minHeight,
-  deviceType: state.reducer.deviceType
+  albums: state.reducer.albums
 });
 
 const mapDispatchToProps = (dispatch) => ({
