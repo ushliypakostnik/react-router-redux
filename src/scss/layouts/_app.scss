@@ -152,13 +152,16 @@ $header-height-mobile: 40px;
     opacity: 0.5;
 
     @include md-and-sm {
-      margin-right: 5vw;
       position: relative;
       top: 3px;
     }
 
+    @include md {
+      margin-right: 13vw;
+    }
+
     @include sm {
-      margin-right: 10vw;
+      margin-right: 11vw;
     }
   }
 }
