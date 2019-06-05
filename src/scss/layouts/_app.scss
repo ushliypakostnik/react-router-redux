@@ -95,10 +95,12 @@ $header-height-mobile: 40px;
 
   &__header {
     padding-top: 50px;
+    padding-top: 10vh;
     height: $header-height-mobile;
     width: 100%;
     position: sticky;
     top: -50px;
+    top: -10vh;
     z-index: $header-layout;
 
     @include not-xs {
