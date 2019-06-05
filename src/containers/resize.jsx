@@ -5,21 +5,17 @@ import { connect } from 'react-redux';
 import { render } from 'react-dom';
 import ReactResizeDetector from 'react-resize-detector';
 
-import { setMinHeight, setDeviceType } from '../store/actions.js';
+import { setMinHeight, resize } from '../store/actions.js';
 
 import ScreenHelper from '../js/screen-helper';
 
 class Resize extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      minHeight: 'auto',
-      deviceType: 'large'
-    };
     //this.scrollbarWidth = null;
   }
 
+  // more reliably
   //componentDidMount() {
   //  this.scrollbarWidth = ScreenHelper.getScrollbarWidth();
   //}
@@ -49,20 +45,12 @@ class Resize extends Component {
   }
 
   onResize = () => {
-    const minHeight = this.getMinHeight();
-    const deviceType = this.getDeviceType();
-    this.setState({
-      minHeight: minHeight,
-      deviceType: deviceType
-    });
-    this.props.setMinHeight(minHeight);
-    this.props.setDeviceType(deviceType);
+    this.props.resize(this.getMinHeight(), this.getDeviceType());
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setMinHeight: (minHeight) => dispatch(setMinHeight(minHeight)),
-  setDeviceType: (deviceType) => dispatch(setDeviceType(deviceType))
+  resize: (minHeight, deviceType) => dispatch(resize(minHeight, deviceType))
 });
 
 export default connect(null, mapDispatchToProps)(Resize);
