@@ -45,7 +45,7 @@ class App extends Component {
               exact={index > 0 ? false : true}
               key={index}
               path={item.path}
-              component={props => <Page {...props}path={item.text} />}
+              component={props => <Page {...props} path={item.text} />}
             />
           })}
         </Switch>
