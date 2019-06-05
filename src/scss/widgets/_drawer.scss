@@ -223,3 +223,9 @@
     display: none;
   }
 }
+
+// fix panel wrapper overflow inline styles
+.ant-drawer-wrapper-body {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}

@@ -10,9 +10,9 @@ class ThemeSwitch extends Component {
 
   setTheme = (theme) => {
     if (theme === THEME.LIGHT) {
-      document.body.classList.add("light-theme");
+      document.body.classList.add("--light-theme");
     } else {
-      document.body.classList.remove("light-theme");
+      document.body.classList.remove("--light-theme");
     }
   }
 
