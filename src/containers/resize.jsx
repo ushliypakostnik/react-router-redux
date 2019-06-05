@@ -29,11 +29,7 @@ class Resize extends Component {
   }
 
   getMinHeight = () => {
-    if (ScreenHelper.getScrollbarWidth() > 0) {
-      return window.innerHeight - 50 + 'px';
-    } else {
-      return 'auto';
-    }
+    return window.innerHeight - 50 + 'px';
   }
 
   getDeviceType = () => {

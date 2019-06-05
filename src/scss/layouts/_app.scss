@@ -309,6 +309,10 @@ $header-height-mobile: 40px;
 // Light theme
 //////////////////////////////////////////////////////
 .light-theme {
+  & {
+    background: $color_white;
+  }
+
   .header {
     background: $color_white;
   }
