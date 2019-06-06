@@ -5,7 +5,7 @@ const ScreenHelper = (() => {
 
   const XS = 480;
   const SM = 1000;
-  const MD = 1100;
+  const MD = 1200;
   const LG = 1600;
 
   function isMin() {

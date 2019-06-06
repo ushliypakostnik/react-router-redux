@@ -9,7 +9,7 @@ import { pageToActive } from '../store/actions.js';
 import ScreenHelper from '../js/screen-helper';
 
 import ThemeSwitch from './theme-switch';
-import Menu, { MenuItem } from '../components/menu';
+import Menu, { MenuItem, LjIcon } from '../components/menu';
 
 import { Drawer } from 'antd';
 import '../scss/widgets/_drawer.scss';
@@ -109,12 +109,12 @@ class Header extends Component {
             <span
               className="header__logo header__logo--xs"
             >Ivan Samovarov</span>
-            {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
             <a
               href="https://sambus.livejournal.com"
               className="header__social header__social--lj"
               /* eslint-disable-next-line react/jsx-no-target-blank */
-              target="_blank"></a>
+              target="_blank">
+              <LjIcon /></a>
             <a
               href="https://www.instagram.com/samovarov_ivan"
               className="header__social"
@@ -127,7 +127,7 @@ class Header extends Component {
               target="_blank"><FontAwesomeIcon icon={faFacebookF} /></a>
             <a
               href="https://vk.com/samovaru"
-              className="header__social"
+              className="header__social header__social--vk"
               /* eslint-disable-next-line react/jsx-no-target-blank */
               target="_blank"><FontAwesomeIcon icon={faVk} /></a>
             <span className="header__logo">Ivan Samovarov</span>

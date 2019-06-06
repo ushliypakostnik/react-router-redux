@@ -161,7 +161,7 @@ $header-height-mobile: 40px;
     }
 
     @include sm {
-      margin-right: 9vw;
+      margin-right: 8vw;
     }
   }
 }
@@ -234,41 +234,54 @@ $header-height-mobile: 40px;
   }
 
   &__social {
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    height: 27px;
     opacity: 0.5;
     margin-right: $size * 2;
     @include link-style($color_white, $color_white);
     @include text($font-family_sans, round($font-size_normal * 1.5), $font-weight_sans_light);
 
-    &--lj {
-      position: relative;
-      top: 2px;
-      display: inline-block;
-      vertical-align: baseline;
-      background: url("#{$image-path}lj_dark.svg") 50% 50% no-repeat;
-      background-size: contain;
-      @include size (27px, 27px);
-
-      @include not-lg {
-        @include size (19px, 19px);
-      }
-
-      @include xs {
-        position: static;
-        vertical-align: top;
-        @include size (19px, 27px);
-      }
-    }
-
     @include not-lg {
+      height: 24px;
       margin-right: $size * 1.5;
-      @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
+      @include text($font-family_sans, round($font-size_normal * 1.1), $font-weight_sans_light);
     }
 
     @include xs {
-      position: relative;
-      top: 1px;
+      height: 27px;
       margin-right: $size;
       @include text($font-family_sans, round($font-size_small * 1.4), $font-weight_sans_light);
+    }
+
+    svg {
+      vertical-align: top;
+    }
+
+    &--lj {
+      @include size (27px, 27px);
+
+      @include not-lg {
+        @include size (19px, 24px);
+      }
+
+      @include xs {
+        @include size (19px, 27px);
+      }
+
+      svg {
+        fill: $color_white;
+      }
+    }
+
+    &--vk svg {
+      position: relative;
+      top: 2px;
+
+      @include not-lg {
+        top: 1px;
+      }
     }
   }
 
@@ -364,9 +377,8 @@ $header-height-mobile: 40px;
     @include link-style($color_text_light-theme, $color_text_light-theme);
   }
 
-  .header__social--lj {
-    background: url("#{$image-path}lj_light.svg") 50% 50% no-repeat;
-    background-size: contain;
+  .header__social--lj svg {
+    fill: $color_text_light-theme;
   }
 
   .app__header {
