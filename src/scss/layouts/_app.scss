@@ -153,7 +153,7 @@ $header-height-mobile: 40px;
 
     @include md-and-sm {
       position: relative;
-      top: 3px;
+      top: 2px;
     }
 
     @include md {
@@ -236,7 +236,7 @@ $header-height-mobile: 40px;
   &__social {
     display: inline-block;
     position: relative;
-    top: 3px;
+    top: 4px;
     height: 27px;
     opacity: 0.5;
     margin-right: $size * 2;
@@ -245,6 +245,7 @@ $header-height-mobile: 40px;
 
     @include not-lg {
       height: 24px;
+      top: 3px;
       margin-right: $size * 1.5;
       @include text($font-family_sans, round($font-size_normal * 1.1), $font-weight_sans_light);
     }
