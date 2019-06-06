@@ -48,11 +48,6 @@ class Album extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps, nextState);
-    return true;
-  }
-
   componentWillMount() {
     let lightboxDataArr = Object.values(this.props.photos);
     let result = [];

@@ -26,7 +26,14 @@ const initialState = {
   routing: {}
 };
 
-const loggerMiddleware = createLogger();
+const middlewares = [];
+middlewares.push(thunkMiddleware)
+
+if (process.env.NODE_ENV !== 'production') {
+  const loggerMiddleware = createLogger();
+
+  middlewares.push(loggerMiddleware);
+}
 
 function configureStore(state) {
   return createStore(
@@ -35,10 +42,7 @@ function configureStore(state) {
       routing: routerReducer
     }),
     initialState,
-    applyMiddleware(
-      thunkMiddleware,
-      loggerMiddleware
-    )
+    applyMiddleware(...middlewares)
   );
 }
 

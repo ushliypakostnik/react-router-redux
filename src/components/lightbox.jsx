@@ -18,7 +18,6 @@ class LightboxContainer extends Component {
   render() {
     const { images, lightboxUpdate } = this.props;
     const { photoIndex, isOpen } = this.state;
-    console.log("Lightbox: ", isOpen);
 
     return (
       <Fragment>

@@ -17,6 +17,7 @@ import { Icon } from 'antd';
 
 import { faVk } from "@fortawesome/free-brands-svg-icons";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Header extends Component {
@@ -109,15 +110,25 @@ class Header extends Component {
               className="header__logo header__logo--xs"
             >Ivan Samovarov</span>
             <a
-              href="https://vk.com/samovaru"
+              href="https://sambus.livejournal.com"
+              className="header__social header__social--lj"
+              /* eslint-disable-next-line react/jsx-no-target-blank */
+              target="_blank"></a>
+            <a
+              href="https://www.instagram.com/samovarov_ivan"
               className="header__social"
               /* eslint-disable-next-line react/jsx-no-target-blank */
-              target="_blank"><FontAwesomeIcon icon={faVk} /></a>
+              target="_blank"><FontAwesomeIcon icon={faInstagram} /></a>
             <a
               href="https://www.facebook.com/samovaru"
               className="header__social"
               /* eslint-disable-next-line react/jsx-no-target-blank */
               target="_blank"><FontAwesomeIcon icon={faFacebookF} /></a>
+            <a
+              href="https://vk.com/samovaru"
+              className="header__social"
+              /* eslint-disable-next-line react/jsx-no-target-blank */
+              target="_blank"><FontAwesomeIcon icon={faVk} /></a>
             <Link
               to="/"
               className="header__logo"

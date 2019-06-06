@@ -148,7 +148,7 @@ $header-height-mobile: 40px;
 
   &__theme-switch {
     display: inline-block;
-    margin-right: 20vw;
+    margin-right: 17vw;
     opacity: 0.5;
 
     @include md-and-sm {
@@ -157,11 +157,11 @@ $header-height-mobile: 40px;
     }
 
     @include md {
-      margin-right: 13vw;
+      margin-right: 12vw;
     }
 
     @include sm {
-      margin-right: 11vw;
+      margin-right: 9vw;
     }
   }
 }
@@ -192,12 +192,13 @@ $header-height-mobile: 40px;
     }
 
     @include xs {
-      padding-top: 8px;
+      padding-top: 6px;
       padding-right: 0;
     }
   }
 
   &__logo {
+    display: inline-block;
     opacity: 0.5;
     @include link-style($color_white, $color_white);
     @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
@@ -206,13 +207,12 @@ $header-height-mobile: 40px;
       @include text($font-family_sans, round($font-size_normal * 1.25), $font-weight_sans_light);
     }
 
-    @onclude not-xs {
-      display: inline-block;
+    @include not-xs {
+      margin-left: $size;
     }
 
     @include xs {
       display: none;
-      @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
     }
 
     &--xs {
@@ -221,6 +221,14 @@ $header-height-mobile: 40px;
 
       @include xs {
         display: inline-block;
+        @include text($font-family_sans, round($font-size_normal * 1.1), $font-weight_sans_light);
+      }
+
+      @include min {
+        position: relative;
+        top: -1px;
+        margin-right: $size * 1.25;
+        @include text($font-family_sans, round($font-size_normal * 0.8), $font-weight_sans_light);
       }
     }
   }
@@ -231,14 +239,36 @@ $header-height-mobile: 40px;
     @include link-style($color_white, $color_white);
     @include text($font-family_sans, round($font-size_normal * 1.5), $font-weight_sans_light);
 
+    &--lj {
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      vertical-align: baseline;
+      background: url("#{$image-path}lj_dark.svg") 50% 50% no-repeat;
+      background-size: contain;
+      @include size (27px, 27px);
+
+      @include not-lg {
+        @include size (19px, 19px);
+      }
+
+      @include xs {
+        position: static;
+        vertical-align: top;
+        @include size (19px, 27px);
+      }
+    }
+
     @include not-lg {
       margin-right: $size * 1.5;
       @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
     }
 
     @include xs {
+      position: relative;
+      top: 1px;
       margin-right: $size;
-      @include text($font-family_sans, $font-size_small, $font-weight_sans_light);
+      @include text($font-family_sans, round($font-size_small * 1.4), $font-weight_sans_light);
     }
   }
 
@@ -256,7 +286,7 @@ $header-height-mobile: 40px;
 
     .anticon.anticon-menu {
       position: relative;
-      top: -2px;
+      top: -3px;
       display: inline-block;
       vertical-align: middle;
       height: 20px;
@@ -332,6 +362,11 @@ $header-height-mobile: 40px;
   .header__navbar {
     @include link-style($color_text_light-theme, $color_text_light-theme);
     @include link-style($color_text_light-theme, $color_text_light-theme);
+  }
+
+  .header__social--lj {
+    background: url("#{$image-path}lj_light.svg") 50% 50% no-repeat;
+    background-size: contain;
   }
 
   .app__header {
