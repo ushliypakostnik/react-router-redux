@@ -129,11 +129,7 @@ class Header extends Component {
               className="header__social"
               /* eslint-disable-next-line react/jsx-no-target-blank */
               target="_blank"><FontAwesomeIcon icon={faVk} /></a>
-            <Link
-              to="/"
-              className="header__logo"
-              onClick={() => {pageToActive(items[0].path)}}
-            >Ivan Samovarov</Link>
+            <span className="header__logo">Ivan Samovarov</span>
           </div>
         </div>
       </div>
