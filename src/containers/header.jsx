@@ -109,6 +109,7 @@ class Header extends Component {
             <span
               className="header__logo header__logo--xs"
             >Ivan Samovarov</span>
+            {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
             <a
               href="https://sambus.livejournal.com"
               className="header__social header__social--lj"
