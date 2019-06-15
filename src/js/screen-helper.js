@@ -3,7 +3,7 @@ const ScreenHelper = (() => {
   /* eslint-disable no-unused-vars */
   const NAME = 'BootstrapHelper';
 
-  const XS = 480;
+  const XS = 421;
   const SM = 1000;
   const MD = 1200;
   const LG = 1600;
@@ -37,6 +37,11 @@ const ScreenHelper = (() => {
     } else return 'landscape';
   }
 
+  function getPixelRatio() {
+    return window.devicePixelRatio ||
+           window.screen.deviceXDPI / window.screen.logicalXDPI;
+  }
+
   function getScrollbarWidth() {
     const body = document.body;
     const bw1 = body.clientWidth;
@@ -53,6 +58,7 @@ const ScreenHelper = (() => {
     isMD,
     isLG,
     getOrientation,
+    getPixelRatio,
     getScrollbarWidth
   };
 })();
