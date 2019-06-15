@@ -12,7 +12,7 @@ class Page extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      images: [],
+      images: []
     };
   }
 
@@ -20,7 +20,7 @@ class Page extends Component {
     error: nextProps.error,
     isLoaded: nextProps.isLoaded,
     images: nextProps.images,
-    minHeight: nextProps.images
+    minHeight: nextProps.minHeight
   });
 
   componentDidMount() {

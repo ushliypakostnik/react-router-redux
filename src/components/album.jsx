@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import ScreenHelper from '../js/screen-helper';
+
 import Gallery from 'react-photo-gallery';
 import LightboxContainer from './lightbox';
 
@@ -9,8 +11,9 @@ class Album extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentImage: 0,
+      galleryData: [],
       lightboxData: [],
+      currentImage: 0,
       lightboxIsOpen: false
     };
     this.overlayKey = 0;
@@ -49,25 +52,71 @@ class Album extends Component {
   }
 
   componentWillMount() {
-    let lightboxDataArr = Object.values(this.props.photos);
-    let result = [];
-    lightboxDataArr.forEach(function(data) {
-      result.push(Object.values(data)[0]);
+    const galleryDataArr = Object.values(this.props.photos);
+    const galleryResult = [];
+    let src;
+    if (ScreenHelper.isMin()) {
+      if (ScreenHelper.getPixelRatio() > 1.5) {
+        src = 'mobile-2x';
+      } else {
+        src = 'mobile';
+      }
+    } else {
+      if (ScreenHelper.getPixelRatio() > 1.5) {
+        src = 'desktop-2x';
+      } else {
+        src = 'desktop';
+      }
+    }
+    galleryDataArr.forEach(data => {
+      galleryResult.push({
+        src: Object.values(data)[0].replace('{src}', src),
+        width: Object.values(data)[1],
+        height: Object.values(data)[2]
+      });
     });
     this.setState({
-      lightboxData: result
+      galleryData: galleryResult
+    });
+
+    const lightboxDataArr = Object.values(this.props.photos);
+    const lightboxResult = [];
+    if (!ScreenHelper.isXS()) {
+      lightboxDataArr.forEach(data => {
+        lightboxResult.push(Object.values(data)[0].replace('{src}/', ''));
+      });
+    } else {
+      if (ScreenHelper.isMin()) {
+        if (ScreenHelper.getPixelRatio() > 1.5) {
+          src = 'mobile-2x';
+        } else {
+          src = 'mobile';
+        }
+      } else {
+        if (ScreenHelper.getPixelRatio() > 1.5) {
+          src = 'desktop-2x';
+        } else {
+          src = 'desktop';
+        }
+      }
+      lightboxDataArr.forEach(data => {
+        lightboxResult.push(Object.values(data)[0].replace('{src}', src));
+      });
+    }
+    this.setState({
+      lightboxData: lightboxResult
     });
   }
 
   render() {
-    const { photos } = this.props;
-    const { currentImage, lightboxData, lightboxIsOpen } = this.state;
+    const { galleryData, lightboxData, currentImage, lightboxIsOpen } = this.state;
     ++this.overlayKey;
+    console.log(lightboxData);
 
     return (
       <div className="app__gallery">
         <Gallery
-          photos={photos}
+          photos={galleryData}
           margin={0}
           targetRowHeight={350}
           onClick={this.openLightbox} />
