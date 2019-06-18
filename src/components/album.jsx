@@ -111,7 +111,6 @@ class Album extends Component {
   render() {
     const { galleryData, lightboxData, currentImage, lightboxIsOpen } = this.state;
     ++this.overlayKey;
-    console.log(lightboxData);
 
     return (
       <div className="app__gallery">
