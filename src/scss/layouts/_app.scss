@@ -375,7 +375,6 @@ $header-height-mobile: 40px;
   .header__social,
   .header__navbar {
     @include link-style($color_text_light-theme, $color_text_light-theme);
-    @include link-style($color_text_light-theme, $color_text_light-theme);
   }
 
   .header__social--lj svg {
