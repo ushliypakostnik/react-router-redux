@@ -52,20 +52,22 @@ class Header extends Component {
     const { visible, pageIsActive } = this.state;
 
     return (
-      <div className="app__header header">
+      <header className="app__header header" role="banner">
         <div className="container-fluid">
-          <Menu>
-            {items.map((item, index) => {
-              return <MenuItem
-                key={index}
-                text={item.text}
-                path={item.path}
-                className={(pageIsActive === item.path) ? "app__menu--active" : ""}
-                onClick={() => {pageToActive(item.path)}}
-              />
-            })}
-          </Menu>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <nav role="navigation">
+            <Menu>
+                {items.map((item, index) => {
+                  return <MenuItem
+                    key={index}
+                    text={item.text}
+                    path={item.path}
+                    className={(pageIsActive === item.path) ? "app__menu--active" : ""}
+                    onClick={() => {pageToActive(item.path)}}
+                  />
+                })}
+            </Menu>
+          </nav>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/anchor-has-content */}
           <a
             href="#"
             className="header__navbar"
@@ -77,7 +79,8 @@ class Header extends Component {
                 this.setState({ visible: true });
               }
             }}
-          ><Icon type="menu" /></a>
+            aria-label="Open Menu"
+          ><Icon type="menu" aria-hidden="true" /></a>
           <Drawer
             title={null}
             placement={'right'}
@@ -87,24 +90,26 @@ class Header extends Component {
             className={'app__panel'}
             width={deviceType === "small" ? "60%" : "40%"}
           >
-            <Menu>
-              {items.map((item, index) => {
-                return <MenuItem
-                  key={index}
-                  text={item.text}
-                  path={item.path}
-                  className={(pageIsActive === item.path) ? "app__menu--active" : ""}
-                  onClick={() => {
-                    window.scrollTo( 0, 0 );
-                    this.onClose();
-                    pageToActive(item.path);
-                  }}
-                />
-              })}
-              <ThemeSwitch />
-            </Menu>
+            <nav role="navigation">
+              <Menu>
+                {items.map((item, index) => {
+                  return <MenuItem
+                    key={index}
+                    text={item.text}
+                    path={item.path}
+                    className={(pageIsActive === item.path) ? "app__menu--active" : ""}
+                    onClick={() => {
+                      window.scrollTo( 0, 0 );
+                      this.onClose();
+                      pageToActive(item.path);
+                    }}
+                  />
+                })}
+                <ThemeSwitch />
+              </Menu>
+            </nav>
           </Drawer>
-          <div className="header__right">
+          <address className="header__right" role="contentinfo">
             <ThemeSwitch />
             <span
               className="header__logo header__logo--xs"
@@ -113,27 +118,34 @@ class Header extends Component {
               href="https://sambus.livejournal.com"
               className="header__social header__social--lj"
               /* eslint-disable-next-line react/jsx-no-target-blank */
-              target="_blank">
-              <LjIcon /></a>
+              target="_blank"
+              aria-label="Ivan Samovarov livejournal">
+              <LjIcon aria-hidden="true" /></a>
             <a
               href="https://www.instagram.com/samovarov_ivan"
               className="header__social"
               /* eslint-disable-next-line react/jsx-no-target-blank */
-              target="_blank"><FontAwesomeIcon icon={faInstagram} /></a>
+              target="_blank"
+              aria-label="Ivan Samovarov instagram">
+              <FontAwesomeIcon icon={faInstagram} aria-hidden="true" /></a>
             <a
               href="https://www.facebook.com/samovaru"
               className="header__social"
               /* eslint-disable-next-line react/jsx-no-target-blank */
-              target="_blank"><FontAwesomeIcon icon={faFacebookF} /></a>
+              target="_blank"
+              aria-label="Ivan Samovarov facebook">
+              <FontAwesomeIcon icon={faFacebookF} aria-hidden="true" /></a>
             <a
               href="https://vk.com/samovaru"
               className="header__social header__social--vk"
               /* eslint-disable-next-line react/jsx-no-target-blank */
-              target="_blank"><FontAwesomeIcon icon={faVk} /></a>
+              target="_blank"
+              aria-label="Ivan Samovarov vkontakte">
+              <FontAwesomeIcon icon={faVk} aria-hidden="true" /></a>
             <span className="header__logo">Ivan Samovarov</span>
-          </div>
+          </address>
         </div>
-      </div>
+      </header>
     );
   }
 }

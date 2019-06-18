@@ -46,8 +46,9 @@ class ThemeSwitch extends Component {
            toogleTheme(theme);
            this.themeChange(theme);
          }}
+         aria-label="Theme Switch"
       >
-        <span className="theme-switch__ico"></span>
+        <span className="theme-switch__ico" aria-hidden="true"></span>
         <span className="theme-switch__label">{text} theme</span>
       </a>
     );

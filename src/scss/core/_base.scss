@@ -34,3 +34,15 @@ a {
     text-decoration: none;
   }
 }
+
+header nav {
+  display: inline-block;
+
+  @include xs {
+    display: block;
+  }
+}
+
+address {
+  font-style: normal;
+}
