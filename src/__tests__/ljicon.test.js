@@ -2,13 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 
-import Menu from '../components/menu';
+import { LjIcon } from '../components/menu';
 
-describe('menu render', () => {
+
+describe('LjIcon render', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Menu children={[]} />);
+    wrapper = shallow(<LjIcon />);
   });
 
   it('should render correctly', () => {
