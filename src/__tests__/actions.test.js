@@ -15,7 +15,8 @@ import { pageToActive,
          fetchAlbums,
          requestData,
          receiveData,
-         requestDataFailed } from '../store/actions';
+         requestDataFailed,
+         fetchData } from '../store/actions';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -126,6 +127,18 @@ describe('actions', () => {
       const store = mockStore({});
 
       return store.dispatch(fetchAlbums()).then(() => {
+        expect(store.getActions()).toEqual(actions);
+      });
+    });
+
+    it('data fetch done', () => {
+      fetchMock.getOnce(`${FETCH_URL}/albums/pinhole`, []);
+
+      const actions = [requestData(),
+                       receiveData([])];
+      const store = mockStore({});
+
+      return store.dispatch(fetchData('pinhole')).then(() => {
         expect(store.getActions()).toEqual(actions);
       });
     });
