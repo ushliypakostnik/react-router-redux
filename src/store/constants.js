@@ -8,3 +8,19 @@ export const THEME = {
 export const COOKIES = {
   THEME: "theme"
 };
+
+export const INITIAL_STATE = {
+  reducer: {
+    activePage: "/",
+    theme: THEME.DARK,
+    isFetching: false,
+    albums: [],
+    data: [],
+    resize: {
+      minHeight: 'auto',
+      deviceType: 'large'
+    },
+    error: null
+  },
+  routing: {}
+};

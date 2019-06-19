@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { render } from 'react-dom';
 import ReactResizeDetector from 'react-resize-detector';
 
-import { setMinHeight, resize } from '../store/actions.js';
+import { setMinHeight, resize } from '../store/actions';
 
 import ScreenHelper from '../js/screen-helper';
 

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { pageToActive } from '../store/actions.js';
+import { pageToActive } from '../store/actions';
 
 import ScreenHelper from '../js/screen-helper';
 
