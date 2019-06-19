@@ -41,21 +41,18 @@ describe('reducer', () => {
 
   it('REQUEST_ALBUMS_FAILED', () => {
     const initialState = {
-      albums: [],
       isFetching: true,
-      error: true
+      error: null
     }
 
     const action = {
-      type: types.RECEIVE_ALBUMS,
-      albums: [],
-      error: true
+      type: types.REQUEST_ALBUMS_FAILED,
+      error: 'error'
     }
 
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
       isFetching: false,
-      albums: [],
       error: action.error
     });
   });
@@ -92,21 +89,18 @@ describe('reducer', () => {
 
   it('REQUEST_DATA_FAILED', () => {
     const initialState = {
-      data: [],
       isFetching: true,
-      error: true
+      error: null
     }
 
     const action = {
-      type: types.RECEIVE_ALBUMS,
-      data: [],
-      error: true
+      type: types.REQUEST_DATA_FAILED,
+      error: 'error'
     }
 
     expect(reducer(initialState, action)).toEqual({
       ...initialState,
       isFetching: false,
-      data: [],
       error: action.error
     });
   });
