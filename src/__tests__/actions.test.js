@@ -4,7 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 
-import { FETCH_URL, INITIAL_STATE } from '../store/constants';
+import { FETCH_URL } from '../store/constants';
 import * as types from '../store/actions';
 import { pageToActive,
          toggleTheme,

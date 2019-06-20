@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Menu = props => (
-  <ul className="app__menu test">
+  <ul className="app__menu">
     {props.children}
   </ul>
 );

@@ -45,14 +45,13 @@ class Album extends Component {
     });
   }
 
-  lightboxUpdate = (data) => {
-    if (!data) {
+  lightboxUpdate = (state) => {
+    if (!state) {
       this.closeLightbox();
     }
   }
 
-  componentWillMount() {
-    const galleryDataArr = Object.values(this.props.photos);
+  setGalleryData = (data) => {
     const galleryResult = [];
     let src;
     if (ScreenHelper.isMin()) {
@@ -68,21 +67,21 @@ class Album extends Component {
         src = 'desktop';
       }
     }
-    galleryDataArr.forEach(data => {
+    data.forEach(data => {
       galleryResult.push({
         src: Object.values(data)[0].replace('{src}', src),
         width: Object.values(data)[1],
         height: Object.values(data)[2]
       });
     });
-    this.setState({
-      galleryData: galleryResult
-    });
+    return galleryResult;
+  }
 
-    const lightboxDataArr = Object.values(this.props.photos);
+  setLightboxData = (data) => {
     const lightboxResult = [];
+    let src;
     if (!ScreenHelper.isXS()) {
-      lightboxDataArr.forEach(data => {
+      data.forEach(data => {
         lightboxResult.push(Object.values(data)[0].replace('{src}/', ''));
       });
     } else {
@@ -99,12 +98,19 @@ class Album extends Component {
           src = 'desktop';
         }
       }
-      lightboxDataArr.forEach(data => {
+      data.forEach(data => {
         lightboxResult.push(Object.values(data)[0].replace('{src}', src));
       });
     }
+    return lightboxResult;
+  }
+
+  componentWillMount() {
     this.setState({
-      lightboxData: lightboxResult
+      galleryData: this.setGalleryData(Object.values(this.props.photos))
+    });
+    this.setState({
+      lightboxData: this.setLightboxData(Object.values(this.props.photos))
     });
   }
 

@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`album render album render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Album)
+    photos={
+      Array [
+        Object {
+          "height": 632,
+          "src": "http://127.0.0.1:8082/media/pinhole/010.jpg",
+          "width": 620,
+        },
+        Object {
+          "height": 632,
+          "src": "http://127.0.0.1:8082/media/pinhole/020.jpg",
+          "width": 1568,
+        },
+        Object {
+          "height": 632,
+          "src": "http://127.0.0.1:8082/media/pinhole/030.jpg",
+          "width": 1053,
+        },
+      ]
+    }
+  >
+    <Album
+      dispatch={[Function]}
+      photos={
+        Array [
+          Object {
+            "height": 632,
+            "src": "http://127.0.0.1:8082/media/pinhole/010.jpg",
+            "width": 620,
+          },
+          Object {
+            "height": 632,
+            "src": "http://127.0.0.1:8082/media/pinhole/020.jpg",
+            "width": 1568,
+          },
+          Object {
+            "height": 632,
+            "src": "http://127.0.0.1:8082/media/pinhole/030.jpg",
+            "width": 1053,
+          },
+        ]
+      }
+    >
+      <div
+        className="app__gallery"
+      >
+        <Gallery
+          direction="row"
+          margin={0}
+          onClick={[Function]}
+          photos={
+            Array [
+              Object {
+                "height": 632,
+                "src": "http://127.0.0.1:8082/media/pinhole/010.jpg",
+                "width": 620,
+              },
+              Object {
+                "height": 632,
+                "src": "http://127.0.0.1:8082/media/pinhole/020.jpg",
+                "width": 1568,
+              },
+              Object {
+                "height": 632,
+                "src": "http://127.0.0.1:8082/media/pinhole/030.jpg",
+                "width": 1053,
+              },
+            ]
+          }
+          targetRowHeight={350}
+        >
+          <div>
+             
+          </div>
+        </Gallery>
+      </div>
+    </Album>
+  </Connect(Album)>
+</Provider>
+`;
