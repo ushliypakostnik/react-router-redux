@@ -50,7 +50,6 @@ export const fetchAlbums = () => {
           dispatch(receiveAlbums(result2));
         },
         (error) => {
-          console.log(error);
           dispatch(requestAlbumsFailed(error));
         }
       );

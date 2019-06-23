@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { CookiesProvider } from 'react-cookie';
-import { shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -31,7 +30,7 @@ describe('theme switch render', () => {
                           </CookiesProvider>
                         </Provider>);
 
-  it('theme switch correctly: initial state', () => {
+  it('theme switch render correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
@@ -75,6 +74,7 @@ describe('theme switch render', () => {
                               <ThemeSwitch {...props} />
                            </Provider>);
 
+    expect(toJson(wrapper2)).toMatchSnapshot();
     expect(wrapper2.find('ThemeSwitch').instance().props.theme).toEqual(THEME.LIGHT);
   });
 });

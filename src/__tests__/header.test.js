@@ -22,8 +22,7 @@ describe('header render', () => {
 
   const wrapper = mount(<Provider store={store}>
                           <MemoryRouter>
-                            <Header {...props} >
-                            </Header>
+                            <Header {...props} />
                           </MemoryRouter>
                         </Provider>);
 
