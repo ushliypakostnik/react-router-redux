@@ -22,35 +22,33 @@ class LightboxContainer extends Component {
     return (
       <Fragment>
         {isOpen && (
-          <Fragment>
-            <Lightbox
-              mainSrc={images[photoIndex]}
-              nextSrc={images[(photoIndex + 1) % images.length]}
-              prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-              onCloseRequest={() =>
-                {
-                  this.setState({ isOpen: false });
-                  lightboxUpdate(this.state.isOpen);
-                }}
-              onMovePrevRequest={() =>
-                this.setState({
-                  photoIndex: (photoIndex + images.length - 1) % images.length,
-                })
-              }
-              onMoveNextRequest={() =>
-                this.setState({
-                  photoIndex: (photoIndex + 1) % images.length,
-                })
-              }
-              animationDuration={100}
-              enableZoom={false}
-              reactModalStyle={{
-                overlay: {
-                  zIndex: 2000
-                }
+          <Lightbox
+            mainSrc={images[photoIndex]}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            onCloseRequest={() =>
+              {
+                this.setState({ isOpen: false });
+                lightboxUpdate(this.state.isOpen);
               }}
-            />
-          </Fragment>
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length,
+              })
+            }
+            animationDuration={100}
+            enableZoom={false}
+            reactModalStyle={{
+              overlay: {
+                zIndex: 2000
+              }
+            }}
+          />
         )}
       </Fragment>
     );

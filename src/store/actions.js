@@ -1,32 +1,32 @@
 import { FETCH_URL } from './constants';
 
-export const pageToActive = (page) => ({
-  type: "PAGE_TO_ACTIVE",
-  activePage: page
-});
+// Actions Types
 
-export const toogleTheme = (theme) => ({
-  type: "TOGGLE_THEME",
-  theme: theme
-});
+export const PAGE_TO_ACTIVE = 'PAGE_TO_ACTIVE';
+export const TOGGLE_THEME = 'TOGGLE_THEME';
+export const RESIZE = 'RESIZE';
 
-export const resize = (minHeight, deviceType) => ({
-  type: "RESIZE",
-  minHeight: minHeight,
-  deviceType: deviceType
-});
+export const REQUEST_ALBUMS = 'REQUEST_ALBUMS';
+export const RECEIVE_ALBUMS = 'RECEIVE_ALBUMS';
+export const REQUEST_ALBUMS_FAILED = 'REQUEST_ALBUMS_FAILED';
+
+export const REQUEST_DATA = 'REQUEST_DATA';
+export const RECEIVE_DATA = 'RECEIVE_DATA';
+export const REQUEST_DATA_FAILED = 'REQUEST_DATA_FAILED';
+
+// Action Creators
 
 export const requestAlbums = () => ({
-  type: "REQUEST_ALBUMS"
+  type: REQUEST_ALBUMS
 });
 
 export const receiveAlbums = (albums) => ({
-  type: "RECEIVE_ALBUMS",
+  type: RECEIVE_ALBUMS,
   albums
 });
 
-export const requestAlbumFailed = (error) => ({
-  type: "REQUEST_ALBUMS_FAILED",
+export const requestAlbumsFailed = (error) => ({
+  type: REQUEST_ALBUMS_FAILED,
   error
 });
 
@@ -37,35 +37,36 @@ export const fetchAlbums = () => {
       .then(res => res.json())
       .then(
         (result) => {
+          const result1 = Object.values(result);
           /* eslint-disable array-callback-return */
-          let resultArr = [];
-          result.map((item, index) => {
+          let result2 = [];
+          result1.map((item, index) => {
             if (index === 0) {
-              resultArr.push({text: item.name, path: "/"});
+              result2.push({text: item.name, path: "/"});
             } else {
-              resultArr.push({text: item.name, path: "/" + item.id});
+              result2.push({text: item.name, path: "/" + item.id});
             }
           });
-          dispatch(receiveAlbums(resultArr));
+          dispatch(receiveAlbums(result2));
         },
         (error) => {
-          dispatch(requestAlbumFailed(error));
+          dispatch(requestAlbumsFailed(error));
         }
       );
   }
 }
 
 export const requestData = () => ({
-  type: "REQUEST_DATA"
+  type: REQUEST_DATA
 });
 
 export const receiveData = (data) => ({
-  type: "RECEIVE_DATA",
+  type: RECEIVE_DATA,
   data
 });
 
 export const requestDataFailed = (error) => ({
-  type: "REQUEST_DATA_FAILED",
+  type: REQUEST_DATA_FAILED,
   error
 });
 
@@ -84,3 +85,20 @@ export const fetchData = (album) => {
       );
   }
 }
+
+export const pageToActive = (page) => ({
+  type: PAGE_TO_ACTIVE,
+  activePage: page
+});
+
+export const toggleTheme = (theme) => ({
+  type: TOGGLE_THEME,
+  theme: theme
+});
+
+export const resize = (minHeight, deviceType) => ({
+  type: RESIZE,
+  minHeight: minHeight,
+  deviceType: deviceType
+});
+

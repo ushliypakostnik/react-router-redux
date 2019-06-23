@@ -1,4 +1,10 @@
-const reducer = (state = { }, action) => {
+import { INITIAL_STATE } from './constants';
+
+const reducer = (state, action) => {
+  if (typeof state === 'undefined') {
+    return INITIAL_STATE;
+  }
+
   switch (action.type) {
     case "REQUEST_ALBUMS":
       return Object.assign({}, state, {

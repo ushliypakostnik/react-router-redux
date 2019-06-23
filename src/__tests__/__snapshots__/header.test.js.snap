@@ -1,0 +1,578 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`album render header render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <MemoryRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "6fluxf",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "6fluxf",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Header)
+        deviceType="large"
+        items={
+          Array [
+            Object {
+              "path": "/",
+              "text": "pinhole",
+            },
+            Object {
+              "path": "/wedding",
+              "text": "wedding",
+            },
+            Object {
+              "path": "/concert",
+              "text": "concert",
+            },
+            Object {
+              "path": "/pixelart",
+              "text": "pixelart",
+            },
+          ]
+        }
+      >
+        <Header
+          deviceType="large"
+          items={
+            Array [
+              Object {
+                "path": "/",
+                "text": "pinhole",
+              },
+              Object {
+                "path": "/wedding",
+                "text": "wedding",
+              },
+              Object {
+                "path": "/concert",
+                "text": "concert",
+              },
+              Object {
+                "path": "/pixelart",
+                "text": "pixelart",
+              },
+            ]
+          }
+          pageIsActive="/"
+          pageToActive={[Function]}
+        >
+          <header
+            className="app__header header"
+            role="banner"
+          >
+            <div
+              className="container-fluid"
+            >
+              <nav
+                role="navigation"
+              >
+                <Menu>
+                  <ul
+                    className="app__menu"
+                  >
+                    <MenuItem
+                      className="app__menu--active"
+                      key="0"
+                      onClick={[Function]}
+                      path="/"
+                      text="pinhole"
+                    >
+                      <li>
+                        <Link
+                          className="app__menu--active"
+                          onClick={[Function]}
+                          to="/"
+                        >
+                          <a
+                            className="app__menu--active"
+                            href="/"
+                            onClick={[Function]}
+                          >
+                            pinhole
+                          </a>
+                        </Link>
+                      </li>
+                    </MenuItem>
+                    <MenuItem
+                      className=""
+                      key="1"
+                      onClick={[Function]}
+                      path="/wedding"
+                      text="wedding"
+                    >
+                      <li>
+                        <Link
+                          className=""
+                          onClick={[Function]}
+                          to="/wedding"
+                        >
+                          <a
+                            className=""
+                            href="/wedding"
+                            onClick={[Function]}
+                          >
+                            wedding
+                          </a>
+                        </Link>
+                      </li>
+                    </MenuItem>
+                    <MenuItem
+                      className=""
+                      key="2"
+                      onClick={[Function]}
+                      path="/concert"
+                      text="concert"
+                    >
+                      <li>
+                        <Link
+                          className=""
+                          onClick={[Function]}
+                          to="/concert"
+                        >
+                          <a
+                            className=""
+                            href="/concert"
+                            onClick={[Function]}
+                          >
+                            concert
+                          </a>
+                        </Link>
+                      </li>
+                    </MenuItem>
+                    <MenuItem
+                      className=""
+                      key="3"
+                      onClick={[Function]}
+                      path="/pixelart"
+                      text="pixelart"
+                    >
+                      <li>
+                        <Link
+                          className=""
+                          onClick={[Function]}
+                          to="/pixelart"
+                        >
+                          <a
+                            className=""
+                            href="/pixelart"
+                            onClick={[Function]}
+                          >
+                            pixelart
+                          </a>
+                        </Link>
+                      </li>
+                    </MenuItem>
+                  </ul>
+                </Menu>
+              </nav>
+              <a
+                aria-label="Open Menu"
+                className="header__navbar"
+                href="#"
+                onClick={[Function]}
+              >
+                <Icon
+                  aria-hidden="true"
+                  type="menu"
+                >
+                  <LocaleReceiver
+                    componentName="Icon"
+                  >
+                    <i
+                      aria-hidden="true"
+                      aria-label="icon: menu"
+                      className="anticon anticon-menu"
+                    >
+                      <IconReact
+                        className=""
+                        type="menu-o"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className=""
+                          data-icon="menu"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          key="svg-menu"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                            key="svg-menu-svg-0"
+                          />
+                        </svg>
+                      </IconReact>
+                    </i>
+                  </LocaleReceiver>
+                </Icon>
+              </a>
+              <withConfigConsumer(Drawer)
+                className="app__panel"
+                closable={true}
+                onClose={[Function]}
+                placement="right"
+                title={null}
+                visible={false}
+                width="40%"
+              >
+                <Drawer
+                  className="app__panel"
+                  closable={true}
+                  getPrefixCls={[Function]}
+                  height={256}
+                  level={null}
+                  mask={true}
+                  maskClosable={true}
+                  onClose={[Function]}
+                  placement="right"
+                  prefixCls="ant-drawer"
+                  renderEmpty={[Function]}
+                  title={null}
+                  visible={false}
+                  width="40%"
+                >
+                  <Drawer
+                    afterVisibleChange={[Function]}
+                    className="app__panel"
+                    closable={true}
+                    duration=".3s"
+                    ease="cubic-bezier(0.78, 0.14, 0.15, 0.86)"
+                    firstEnter={false}
+                    getContainer="body"
+                    getPrefixCls={[Function]}
+                    handler={false}
+                    keyboard={true}
+                    level={null}
+                    mask={true}
+                    maskClosable={true}
+                    maskStyle={Object {}}
+                    onChange={[Function]}
+                    onClose={[Function]}
+                    onMaskClick={[Function]}
+                    open={false}
+                    placement="right"
+                    prefixCls="ant-drawer"
+                    renderEmpty={[Function]}
+                    showMask={true}
+                    style={
+                      Object {
+                        "transform": undefined,
+                        "zIndex": undefined,
+                      }
+                    }
+                    title={null}
+                    visible={false}
+                    width="40%"
+                    wrapperClassName=""
+                  />
+                </Drawer>
+              </withConfigConsumer(Drawer)>
+              <address
+                className="header__right"
+                role="contentinfo"
+              >
+                <Connect(Component)>
+                  <ForwardRef
+                    theme="dark"
+                    toggleTheme={[Function]}
+                  >
+                    <withCookies(ThemeSwitch)
+                      cookies={
+                        Cookies {
+                          "HAS_DOCUMENT_COOKIE": true,
+                          "changeListeners": Array [
+                            [Function],
+                          ],
+                          "cookies": Object {},
+                        }
+                      }
+                      forwardedRef={null}
+                      theme="dark"
+                      toggleTheme={[Function]}
+                    >
+                      <ThemeSwitch
+                        allCookies={Object {}}
+                        cookies={
+                          Cookies {
+                            "HAS_DOCUMENT_COOKIE": true,
+                            "changeListeners": Array [
+                              [Function],
+                            ],
+                            "cookies": Object {},
+                          }
+                        }
+                        theme="dark"
+                        toggleTheme={[Function]}
+                      >
+                        <a
+                          aria-label="Theme Switch"
+                          className="app__theme-switch theme-switch"
+                          href="#"
+                          onClick={[Function]}
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="theme-switch__ico"
+                          />
+                          <span
+                            className="theme-switch__label"
+                          >
+                            light
+                             theme
+                          </span>
+                        </a>
+                      </ThemeSwitch>
+                    </withCookies(ThemeSwitch)>
+                  </ForwardRef>
+                </Connect(Component)>
+                <span
+                  className="header__logo header__logo--xs"
+                >
+                  Ivan Samovarov
+                </span>
+                <a
+                  aria-label="Ivan Samovarov livejournal"
+                  className="header__social header__social--lj"
+                  href="https://sambus.livejournal.com"
+                  target="_blank"
+                >
+                  <LjIcon
+                    aria-hidden="true"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 100 100"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.941,34.24C23.797,47.097,36.52,59.819,49.25,72.551 c4.946-10.602,12.749-18.402,23.357-23.35c-12.734-12.734-25.459-25.459-38.232-38.23C47.06,4.332,70.25,3.879,86.787,20.768 c16.847,17.204,17.686,44.49,1.933,62.94c-15.611,18.285-42.869,21.59-62.516,7.463C6.053,76.684,2.741,51.459,10.941,34.24z M75.545,60.745c-6.476,3.439-11.302,8.271-14.757,14.752c6.151,1.208,12.16,2.387,18.356,3.604 C77.932,72.911,76.752,66.899,75.545,60.745z M23.881,0.29c-0.249-0.243-0.958-0.284-1.31-0.117 C12.489,4.977,5.043,12.438,0.183,22.495c-0.318,0.659-0.222,1.054,0.285,1.55c2.419,2.371,4.812,4.768,7.189,7.18 c0.983,0.996,1.907,2.051,3.015,3.247c5.117-10.923,12.91-18.724,23.684-23.768C30.757,7.107,27.344,3.673,23.881,0.29z"
+                      />
+                    </svg>
+                  </LjIcon>
+                </a>
+                <a
+                  aria-label="Ivan Samovarov instagram"
+                  className="header__social"
+                  href="https://www.instagram.com/samovarov_ivan"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon
+                    aria-hidden="true"
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          448,
+                          512,
+                          Array [],
+                          "f16d",
+                          "M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z",
+                        ],
+                        "iconName": "instagram",
+                        "prefix": "fab",
+                      }
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-instagram fa-w-14 "
+                      data-icon="instagram"
+                      data-prefix="fab"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 448 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </FontAwesomeIcon>
+                </a>
+                <a
+                  aria-label="Ivan Samovarov facebook"
+                  className="header__social"
+                  href="https://www.facebook.com/samovaru"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon
+                    aria-hidden="true"
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          320,
+                          512,
+                          Array [],
+                          "f39e",
+                          "M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z",
+                        ],
+                        "iconName": "facebook-f",
+                        "prefix": "fab",
+                      }
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-facebook-f fa-w-10 "
+                      data-icon="facebook-f"
+                      data-prefix="fab"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 320 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </FontAwesomeIcon>
+                </a>
+                <a
+                  aria-label="Ivan Samovarov vkontakte"
+                  className="header__social header__social--vk"
+                  href="https://vk.com/samovaru"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon
+                    aria-hidden="true"
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          576,
+                          512,
+                          Array [],
+                          "f189",
+                          "M545 117.7c3.7-12.5 0-21.7-17.8-21.7h-58.9c-15 0-21.9 7.9-25.6 16.7 0 0-30 73.1-72.4 120.5-13.7 13.7-20 18.1-27.5 18.1-3.7 0-9.4-4.4-9.4-16.9V117.7c0-15-4.2-21.7-16.6-21.7h-92.6c-9.4 0-15 7-15 13.5 0 14.2 21.2 17.5 23.4 57.5v86.8c0 19-3.4 22.5-10.9 22.5-20 0-68.6-73.4-97.4-157.4-5.8-16.3-11.5-22.9-26.6-22.9H38.8c-16.8 0-20.2 7.9-20.2 16.7 0 15.6 20 93.1 93.1 195.5C160.4 378.1 229 416 291.4 416c37.5 0 42.1-8.4 42.1-22.9 0-66.8-3.4-73.1 15.4-73.1 8.7 0 23.7 4.4 58.7 38.1 40 40 46.6 57.9 69 57.9h58.9c16.8 0 25.3-8.4 20.4-25-11.2-34.9-86.9-106.7-90.3-111.5-8.7-11.2-6.2-16.2 0-26.2.1-.1 72-101.3 79.4-135.6z",
+                        ],
+                        "iconName": "vk",
+                        "prefix": "fab",
+                      }
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="svg-inline--fa fa-vk fa-w-18 "
+                      data-icon="vk"
+                      data-prefix="fab"
+                      focusable="false"
+                      role="img"
+                      style={Object {}}
+                      viewBox="0 0 576 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M545 117.7c3.7-12.5 0-21.7-17.8-21.7h-58.9c-15 0-21.9 7.9-25.6 16.7 0 0-30 73.1-72.4 120.5-13.7 13.7-20 18.1-27.5 18.1-3.7 0-9.4-4.4-9.4-16.9V117.7c0-15-4.2-21.7-16.6-21.7h-92.6c-9.4 0-15 7-15 13.5 0 14.2 21.2 17.5 23.4 57.5v86.8c0 19-3.4 22.5-10.9 22.5-20 0-68.6-73.4-97.4-157.4-5.8-16.3-11.5-22.9-26.6-22.9H38.8c-16.8 0-20.2 7.9-20.2 16.7 0 15.6 20 93.1 93.1 195.5C160.4 378.1 229 416 291.4 416c37.5 0 42.1-8.4 42.1-22.9 0-66.8-3.4-73.1 15.4-73.1 8.7 0 23.7 4.4 58.7 38.1 40 40 46.6 57.9 69 57.9h58.9c16.8 0 25.3-8.4 20.4-25-11.2-34.9-86.9-106.7-90.3-111.5-8.7-11.2-6.2-16.2 0-26.2.1-.1 72-101.3 79.4-135.6z"
+                        fill="currentColor"
+                        style={Object {}}
+                      />
+                    </svg>
+                  </FontAwesomeIcon>
+                </a>
+                <span
+                  className="header__logo"
+                >
+                  Ivan Samovarov
+                </span>
+              </address>
+            </div>
+          </header>
+        </Header>
+      </Connect(Header)>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

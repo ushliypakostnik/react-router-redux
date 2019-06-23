@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resize render resize render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Resize)
+    resize={
+      Object {
+        "deviceType": "large",
+        "minHeight": "700px",
+      }
+    }
+  >
+    <Resize
+      resize={[Function]}
+    >
+      <div
+        className="app__resize"
+      >
+        <ResizeDetector
+          handleHeight={true}
+          handleWidth={false}
+          nodeType="div"
+          onResize={[Function]}
+          querySelector={null}
+          refreshRate={1000}
+          skipOnMount={false}
+          targetDomEl={null}
+        >
+          <ChildWrapper>
+            <div />
+          </ChildWrapper>
+        </ResizeDetector>
+      </div>
+    </Resize>
+  </Connect(Resize)>
+</Provider>
+`;
