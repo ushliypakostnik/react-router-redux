@@ -40,4 +40,6 @@ describe('album render', () => {
   it('album has gallery', () => {
     expect(wrapper.find('Gallery')).toHaveLength(1);
   });
+
+  afterEach(() => wrapper.unmount());
 });

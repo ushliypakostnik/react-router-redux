@@ -24,7 +24,7 @@ function configureStore(state) {
       reducer,
       routing: routerReducer
     }),
-    INITIAL_STATE,
+    state,
     applyMiddleware(...middlewares)
   );
 }

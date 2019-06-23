@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { SCREENS } from '../store/constants';
 import ScreenHelper from '../js/screen-helper';
 
 import Gallery from 'react-photo-gallery';
@@ -56,15 +57,15 @@ class Album extends Component {
     let src;
     if (ScreenHelper.isMin()) {
       if (ScreenHelper.getPixelRatio() > 1.5) {
-        src = 'mobile-2x';
+        src = SCREENS.MOBILE_2X;
       } else {
-        src = 'mobile';
+        src = SCREENS.MOBILE;
       }
     } else {
       if (ScreenHelper.getPixelRatio() > 1.5) {
-        src = 'desktop-2x';
+        src = SCREENS.DESKTOP_2X;
       } else {
-        src = 'desktop';
+        src = SCREENS.DESKTOP;
       }
     }
     data.forEach(data => {
@@ -87,15 +88,15 @@ class Album extends Component {
     } else {
       if (ScreenHelper.isMin()) {
         if (ScreenHelper.getPixelRatio() > 1.5) {
-          src = 'mobile-2x';
+          src = SCREENS.MOBILE_2X;
         } else {
-          src = 'mobile';
+          src = SCREENS.MOBILE;
         }
       } else {
         if (ScreenHelper.getPixelRatio() > 1.5) {
-          src = 'desktop-2x';
+          src = SCREENS.DESKTOP_2X;
         } else {
-          src = 'desktop';
+          src = SCREENS.DESKTOP;
         }
       }
       data.forEach(data => {
