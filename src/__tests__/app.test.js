@@ -26,8 +26,8 @@ describe('app render', () => {
       albums: props.albums
     }
   });
-
   const store = mockStore(state);
+
   const wrapper = mount(<Provider store={store}>
                           <MemoryRouter>
                             <App {...props} />
@@ -71,7 +71,7 @@ describe('app render', () => {
   });
 
   it('app componentDidMount', () => {
-    const spy = jest.spyOn(wrapper.find('App').instance(), "componentDidMount");
+    const spy = jest.spyOn(wrapper.find('App').instance(), 'componentDidMount');
     wrapper.find('App').instance().componentDidMount();
     expect(spy).toHaveBeenCalled();
   });
