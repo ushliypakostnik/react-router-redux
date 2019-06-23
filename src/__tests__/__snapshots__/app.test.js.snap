@@ -24,7 +24,7 @@ exports[`app render app render correctly 1`] = `
           "entries": Array [
             Object {
               "hash": "",
-              "key": "k5q3wz",
+              "key": "cbx5aq",
               "pathname": "/",
               "search": "",
               "state": undefined,
@@ -38,7 +38,7 @@ exports[`app render app render correctly 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "k5q3wz",
+            "key": "cbx5aq",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -48,9 +48,49 @@ exports[`app render app render correctly 1`] = `
         }
       }
     >
-      <Connect(App)>
+      <Connect(App)
+        albums={
+          Array [
+            Object {
+              "path": "/",
+              "text": "pinhole",
+            },
+            Object {
+              "path": "/wedding",
+              "text": "wedding",
+            },
+            Object {
+              "path": "/concert",
+              "text": "concert",
+            },
+            Object {
+              "path": "/pixelart",
+              "text": "pixelart",
+            },
+          ]
+        }
+      >
         <App
-          albums={Array []}
+          albums={
+            Array [
+              Object {
+                "path": "/",
+                "text": "pinhole",
+              },
+              Object {
+                "path": "/wedding",
+                "text": "wedding",
+              },
+              Object {
+                "path": "/concert",
+                "text": "concert",
+              },
+              Object {
+                "path": "/pixelart",
+                "text": "pixelart",
+              },
+            ]
+          }
           fetchAlbums={[Function]}
         >
           <div
@@ -81,11 +121,49 @@ exports[`app render app render correctly 1`] = `
               </Resize>
             </Connect(Resize)>
             <Connect(Header)
-              items={Array []}
+              items={
+                Array [
+                  Object {
+                    "path": "/",
+                    "text": "pinhole",
+                  },
+                  Object {
+                    "path": "/wedding",
+                    "text": "wedding",
+                  },
+                  Object {
+                    "path": "/concert",
+                    "text": "concert",
+                  },
+                  Object {
+                    "path": "/pixelart",
+                    "text": "pixelart",
+                  },
+                ]
+              }
             >
               <Header
                 deviceType="large"
-                items={Array []}
+                items={
+                  Array [
+                    Object {
+                      "path": "/",
+                      "text": "pinhole",
+                    },
+                    Object {
+                      "path": "/wedding",
+                      "text": "wedding",
+                    },
+                    Object {
+                      "path": "/concert",
+                      "text": "concert",
+                    },
+                    Object {
+                      "path": "/pixelart",
+                      "text": "pixelart",
+                    },
+                  ]
+                }
                 pageIsActive="/"
                 pageToActive={[Function]}
               >
@@ -102,7 +180,100 @@ exports[`app render app render correctly 1`] = `
                       <Menu>
                         <ul
                           className="app__menu"
-                        />
+                        >
+                          <MenuItem
+                            className="app__menu--active"
+                            key="0"
+                            onClick={[Function]}
+                            path="/"
+                            text="pinhole"
+                          >
+                            <li>
+                              <Link
+                                className="app__menu--active"
+                                onClick={[Function]}
+                                to="/"
+                              >
+                                <a
+                                  className="app__menu--active"
+                                  href="/"
+                                  onClick={[Function]}
+                                >
+                                  pinhole
+                                </a>
+                              </Link>
+                            </li>
+                          </MenuItem>
+                          <MenuItem
+                            className=""
+                            key="1"
+                            onClick={[Function]}
+                            path="/wedding"
+                            text="wedding"
+                          >
+                            <li>
+                              <Link
+                                className=""
+                                onClick={[Function]}
+                                to="/wedding"
+                              >
+                                <a
+                                  className=""
+                                  href="/wedding"
+                                  onClick={[Function]}
+                                >
+                                  wedding
+                                </a>
+                              </Link>
+                            </li>
+                          </MenuItem>
+                          <MenuItem
+                            className=""
+                            key="2"
+                            onClick={[Function]}
+                            path="/concert"
+                            text="concert"
+                          >
+                            <li>
+                              <Link
+                                className=""
+                                onClick={[Function]}
+                                to="/concert"
+                              >
+                                <a
+                                  className=""
+                                  href="/concert"
+                                  onClick={[Function]}
+                                >
+                                  concert
+                                </a>
+                              </Link>
+                            </li>
+                          </MenuItem>
+                          <MenuItem
+                            className=""
+                            key="3"
+                            onClick={[Function]}
+                            path="/pixelart"
+                            text="pixelart"
+                          >
+                            <li>
+                              <Link
+                                className=""
+                                onClick={[Function]}
+                                to="/pixelart"
+                              >
+                                <a
+                                  className=""
+                                  href="/pixelart"
+                                  onClick={[Function]}
+                                >
+                                  pixelart
+                                </a>
+                              </Link>
+                            </li>
+                          </MenuItem>
+                        </ul>
                       </Menu>
                     </nav>
                     <a
@@ -472,7 +643,228 @@ exports[`app render app render correctly 1`] = `
                 </header>
               </Header>
             </Connect(Header)>
-            <Switch />
+            <Switch>
+              <Route
+                component={[Function]}
+                computedMatch={
+                  Object {
+                    "isExact": true,
+                    "params": Object {},
+                    "path": "/",
+                    "url": "/",
+                  }
+                }
+                exact={true}
+                key="0"
+                location={
+                  Object {
+                    "hash": "",
+                    "key": "cbx5aq",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  }
+                }
+                path="/"
+              >
+                <component
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "canGo": [Function],
+                      "createHref": [Function],
+                      "entries": Array [
+                        Object {
+                          "hash": "",
+                          "key": "cbx5aq",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        },
+                      ],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "index": 0,
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "key": "cbx5aq",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "key": "cbx5aq",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                >
+                  <Connect(Page)
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "canGo": [Function],
+                        "createHref": [Function],
+                        "entries": Array [
+                          Object {
+                            "hash": "",
+                            "key": "cbx5aq",
+                            "pathname": "/",
+                            "search": "",
+                            "state": undefined,
+                          },
+                        ],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "index": 0,
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "key": "cbx5aq",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "key": "cbx5aq",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      }
+                    }
+                    match={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
+                    path="pinhole"
+                  >
+                    <Page
+                      error={null}
+                      fetchData={[Function]}
+                      history={
+                        Object {
+                          "action": "POP",
+                          "block": [Function],
+                          "canGo": [Function],
+                          "createHref": [Function],
+                          "entries": Array [
+                            Object {
+                              "hash": "",
+                              "key": "cbx5aq",
+                              "pathname": "/",
+                              "search": "",
+                              "state": undefined,
+                            },
+                          ],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "index": 0,
+                          "length": 1,
+                          "listen": [Function],
+                          "location": Object {
+                            "hash": "",
+                            "key": "cbx5aq",
+                            "pathname": "/",
+                            "search": "",
+                            "state": undefined,
+                          },
+                          "push": [Function],
+                          "replace": [Function],
+                        }
+                      }
+                      images={Array []}
+                      isLoaded={true}
+                      location={
+                        Object {
+                          "hash": "",
+                          "key": "cbx5aq",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        }
+                      }
+                      match={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/",
+                          "url": "/",
+                        }
+                      }
+                      minHeight="auto"
+                      path="pinhole"
+                    >
+                      <section
+                        className="app__page"
+                        style={
+                          Object {
+                            "minHeight": "auto",
+                          }
+                        }
+                      >
+                        <Connect(Album)
+                          photos={Array []}
+                        >
+                          <Album
+                            dispatch={[Function]}
+                            photos={Array []}
+                          >
+                            <div
+                              className="app__gallery"
+                            >
+                              <Gallery
+                                direction="row"
+                                margin={0}
+                                onClick={[Function]}
+                                photos={Array []}
+                                targetRowHeight={350}
+                              >
+                                <div>
+                                   
+                                </div>
+                              </Gallery>
+                            </div>
+                          </Album>
+                        </Connect(Album)>
+                      </section>
+                    </Page>
+                  </Connect(Page)>
+                </component>
+              </Route>
+            </Switch>
           </div>
         </App>
       </Connect(App)>

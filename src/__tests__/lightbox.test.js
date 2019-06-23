@@ -7,9 +7,6 @@ import Lightbox from 'react-image-lightbox';
 
 describe('lightbox render', () => {
 
-  let wrapper,
-      lightbox;
-
   const props = {
     images: [`${FETCH_URL}/media/pinhole/010.jpg`,
              `${FETCH_URL}/media/pinhole/020.jpg`,
@@ -37,10 +34,8 @@ describe('lightbox render', () => {
     }
   }
 
-  beforeEach(() => {
-    wrapper = mount(<LightboxContainer {...props} />);
-    lightbox = shallow(<Lightbox {...props2} />);
-  });
+  const wrapper = mount(<LightboxContainer {...props} />);
+  const lightbox = shallow(<Lightbox {...props2} />);
 
   it('lightbox container render correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();

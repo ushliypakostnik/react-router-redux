@@ -1,12 +1,8 @@
 import React from 'react';
 
-import Menu, { MenuItem, LjIcon } from '../components/menu';
+import Menu, { MenuItem } from '../components/menu';
 
 describe('menu render', () => {
-  let wrapper,
-      item,
-      icon;
-
   const props = {
     data:[
       {
@@ -22,11 +18,8 @@ describe('menu render', () => {
     ]
   };
 
-  beforeEach(() => {
-    wrapper = shallow(<Menu children={props.data} />);
-    item = shallow(<MenuItem {...props.data[0]} />);
-    icon = shallow(<LjIcon />);
-  });
+  const wrapper = shallow(<Menu children={props.data} />);
+  const item = shallow(<MenuItem {...props.data[0]} />);
 
   it('menu render correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -50,9 +43,5 @@ describe('menu render', () => {
 
   it('item has class', () => {
     expect(item.find('Link').hasClass(props.data[0].className)).toEqual(true);
-  });
-
-  it('icon render correctly', () => {
-    expect(toJson(icon)).toMatchSnapshot();
   });
 });

@@ -33,11 +33,11 @@ describe('album render', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('album has wrapper with class', () => {
+  it('album contain wrapper with class', () => {
     expect(wrapper.find('.app__gallery')).toHaveLength(1);
   });
 
-  it('album has gallery', () => {
+  it('album contain gallery', () => {
     expect(wrapper.find('Gallery')).toHaveLength(1);
   });
 

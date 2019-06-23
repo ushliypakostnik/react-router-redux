@@ -20,8 +20,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      albums: [],
-      test: 0
+      albums: []
     };
   }
 
@@ -31,9 +30,6 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchAlbums();
-    this.setState({
-      test: 1
-    });
   }
 
   render() {

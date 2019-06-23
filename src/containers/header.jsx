@@ -9,7 +9,8 @@ import { pageToActive } from '../store/actions';
 import ScreenHelper from '../js/screen-helper';
 
 import ThemeSwitch from './theme-switch';
-import Menu, { MenuItem, LjIcon } from '../components/menu';
+import Menu, { MenuItem } from '../components/menu';
+import { LjIcon } from '../components/icons';
 
 import { Drawer } from 'antd';
 import '../scss/widgets/_drawer.scss';
