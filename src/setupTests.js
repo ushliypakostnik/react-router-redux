@@ -7,7 +7,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 global.shallow = shallow;
 global.mount = mount;
-global.toJson = toJson
+global.toJson = toJson;
 
 // fix
 window.matchMedia = window.matchMedia || function() {
