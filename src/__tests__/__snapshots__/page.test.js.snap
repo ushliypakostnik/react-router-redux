@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`page render page render correctly: initial state 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Page)
+    error={null}
+    images={Array []}
+    isLoaded={false}
+    minHeight="700px"
+    path="/pinhole"
+  >
+    <Page
+      error={null}
+      fetchData={[Function]}
+      images={Array []}
+      isLoaded={false}
+      minHeight="700px"
+      path="/pinhole"
+    >
+      <div
+        className="app__page"
+        style={
+          Object {
+            "minHeight": "700px",
+          }
+        }
+      />
+    </Page>
+  </Connect(Page)>
+</Provider>
+`;
+
+exports[`page render page render: data error page render correctly: data error 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Page)
+    error="error"
+    images={Array []}
+    isLoaded={false}
+    minHeight="700px"
+    path="/pinhole"
+  >
+    <Page
+      error="error"
+      fetchData={[Function]}
+      images={Array []}
+      isLoaded={false}
+      minHeight="700px"
+      path="/pinhole"
+    >
+      <div
+        className="app__page"
+        style={
+          Object {
+            "minHeight": "700px",
+          }
+        }
+      >
+        Error: 
+      </div>
+    </Page>
+  </Connect(Page)>
+</Provider>
+`;
+
+exports[`page render page render: data is loaded page render correctly: data is loaded 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Page)
+    error={null}
+    images={
+      Array [
+        Object {
+          "height": 632,
+          "src": "http://127.0.0.1:8082/media/pinhole/010.jpg",
+          "width": 620,
+        },
+        Object {
+          "height": 632,
+          "src": "http://127.0.0.1:8082/media/pinhole/020.jpg",
+          "width": 1568,
+        },
+        Object {
+          "height": 632,
+          "src": "http://127.0.0.1:8082/media/pinhole/030.jpg",
+          "width": 1053,
+        },
+      ]
+    }
+    isLoaded={true}
+    minHeight="700px"
+    path="/pinhole"
+  >
+    <Page
+      error={null}
+      fetchData={[Function]}
+      images={
+        Array [
+          Object {
+            "height": 632,
+            "src": "http://127.0.0.1:8082/media/pinhole/010.jpg",
+            "width": 620,
+          },
+          Object {
+            "height": 632,
+            "src": "http://127.0.0.1:8082/media/pinhole/020.jpg",
+            "width": 1568,
+          },
+          Object {
+            "height": 632,
+            "src": "http://127.0.0.1:8082/media/pinhole/030.jpg",
+            "width": 1053,
+          },
+        ]
+      }
+      isLoaded={true}
+      minHeight="700px"
+      path="/pinhole"
+    >
+      <section
+        className="app__page"
+        style={
+          Object {
+            "minHeight": "700px",
+          }
+        }
+      >
+        <Connect(Album)
+          photos={
+            Array [
+              Object {
+                "height": 632,
+                "src": "http://127.0.0.1:8082/media/pinhole/010.jpg",
+                "width": 620,
+              },
+              Object {
+                "height": 632,
+                "src": "http://127.0.0.1:8082/media/pinhole/020.jpg",
+                "width": 1568,
+              },
+              Object {
+                "height": 632,
+                "src": "http://127.0.0.1:8082/media/pinhole/030.jpg",
+                "width": 1053,
+              },
+            ]
+          }
+        >
+          <Album
+            dispatch={[Function]}
+            photos={
+              Array [
+                Object {
+                  "height": 632,
+                  "src": "http://127.0.0.1:8082/media/pinhole/010.jpg",
+                  "width": 620,
+                },
+                Object {
+                  "height": 632,
+                  "src": "http://127.0.0.1:8082/media/pinhole/020.jpg",
+                  "width": 1568,
+                },
+                Object {
+                  "height": 632,
+                  "src": "http://127.0.0.1:8082/media/pinhole/030.jpg",
+                  "width": 1053,
+                },
+              ]
+            }
+          >
+            <div
+              className="app__gallery"
+            >
+              <Gallery
+                direction="row"
+                margin={0}
+                onClick={[Function]}
+                photos={
+                  Array [
+                    Object {
+                      "height": 632,
+                      "src": "http://127.0.0.1:8082/media/pinhole/010.jpg",
+                      "width": 620,
+                    },
+                    Object {
+                      "height": 632,
+                      "src": "http://127.0.0.1:8082/media/pinhole/020.jpg",
+                      "width": 1568,
+                    },
+                    Object {
+                      "height": 632,
+                      "src": "http://127.0.0.1:8082/media/pinhole/030.jpg",
+                      "width": 1053,
+                    },
+                  ]
+                }
+                targetRowHeight={350}
+              >
+                <div>
+                   
+                </div>
+              </Gallery>
+            </div>
+          </Album>
+        </Connect(Album)>
+      </section>
+    </Page>
+  </Connect(Page)>
+</Provider>
+`;

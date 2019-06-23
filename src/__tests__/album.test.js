@@ -11,9 +11,9 @@ describe('album render', () => {
 
   const props = {
     photos: [
-      {src: `${FETCH_URL}/media/pinhole/010.jpg`, width: 620, height: 632},
-      {src: `${FETCH_URL}/media/pinhole/020.jpg`, width: 1568, height: 632},
-      {src: `${FETCH_URL}/media/pinhole/030.jpg`, width: 1053, height: 632}
+      { src: `${FETCH_URL}/media/pinhole/010.jpg`, width: 620, height: 632 },
+      { src: `${FETCH_URL}/media/pinhole/020.jpg`, width: 1568, height: 632 },
+      { src: `${FETCH_URL}/media/pinhole/030.jpg`, width: 1053, height: 632 }
     ]
   };
 
