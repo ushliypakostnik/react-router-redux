@@ -48,10 +48,6 @@ class Header extends Component {
     });
   };
 
-  test = () => {
-
-  }
-
   render () {
     const { items, pageToActive, deviceType } = this.props;
     const { visible, pageIsActive } = this.state;
