@@ -4,7 +4,7 @@ import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
 
 import { THEME, COOKIES } from '../store/constants';
-import { toogleTheme } from '../store/actions.js';
+import { toggleTheme } from '../store/actions';
 
 class ThemeSwitch extends Component {
 
@@ -26,13 +26,13 @@ class ThemeSwitch extends Component {
     const { cookies } = this.props;
     const theme = cookies.get(COOKIES.THEME) ? cookies.get(COOKIES.THEME) : this.props.theme;
     if (theme !== this.props.theme) {
-      this.props.toogleTheme(theme);
+      this.props.toggleTheme(theme);
       this.setTheme(theme);
     }
   }
 
   render() {
-    const { toogleTheme } = this.props;
+    const { toggleTheme } = this.props;
     let { theme } = this.props;
     const text = theme === THEME.DARK ? THEME.LIGHT : THEME.DARK;
 
@@ -43,7 +43,7 @@ class ThemeSwitch extends Component {
          onClick={(e) => {
            e.preventDefault();
            theme === THEME.DARK ? theme = THEME.LIGHT : theme = THEME.DARK;
-           toogleTheme(theme);
+           toggleTheme(theme);
            this.themeChange(theme);
          }}
          aria-label="Theme Switch"
@@ -64,7 +64,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toogleTheme: (theme) => dispatch(toogleTheme(theme))
+  toggleTheme: (theme) => dispatch(toggleTheme(theme))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withCookies(ThemeSwitch));

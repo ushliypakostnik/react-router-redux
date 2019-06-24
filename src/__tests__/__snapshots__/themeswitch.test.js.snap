@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`theme switch render theme switch render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <CookiesProvider>
+    <Connect(Component)
+      theme="dark"
+    >
+      <ForwardRef
+        theme="dark"
+        toggleTheme={[Function]}
+      >
+        <withCookies(ThemeSwitch)
+          cookies={
+            Cookies {
+              "HAS_DOCUMENT_COOKIE": true,
+              "changeListeners": Array [
+                [Function],
+              ],
+              "cookies": Object {},
+            }
+          }
+          forwardedRef={null}
+          theme="dark"
+          toggleTheme={[Function]}
+        >
+          <ThemeSwitch
+            allCookies={Object {}}
+            cookies={
+              Cookies {
+                "HAS_DOCUMENT_COOKIE": true,
+                "changeListeners": Array [
+                  [Function],
+                ],
+                "cookies": Object {},
+              }
+            }
+            theme="dark"
+            toggleTheme={[Function]}
+          >
+            <a
+              aria-label="Theme Switch"
+              className="app__theme-switch theme-switch"
+              href="#"
+              onClick={[Function]}
+            >
+              <span
+                aria-hidden="true"
+                className="theme-switch__ico"
+              />
+              <span
+                className="theme-switch__label"
+              >
+                light
+                 theme
+              </span>
+            </a>
+          </ThemeSwitch>
+        </withCookies(ThemeSwitch)>
+      </ForwardRef>
+    </Connect(Component)>
+  </CookiesProvider>
+</Provider>
+`;
+
+exports[`theme switch render theme switch render light theme 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Component)
+    theme="dark"
+  >
+    <ForwardRef
+      theme="light"
+      toggleTheme={[Function]}
+    >
+      <withCookies(ThemeSwitch)
+        cookies={
+          Cookies {
+            "HAS_DOCUMENT_COOKIE": true,
+            "changeListeners": Array [
+              [Function],
+            ],
+            "cookies": Object {
+              "theme": "light",
+            },
+          }
+        }
+        forwardedRef={null}
+        theme="light"
+        toggleTheme={[Function]}
+      >
+        <ThemeSwitch
+          allCookies={
+            Object {
+              "theme": "light",
+            }
+          }
+          cookies={
+            Cookies {
+              "HAS_DOCUMENT_COOKIE": true,
+              "changeListeners": Array [
+                [Function],
+              ],
+              "cookies": Object {
+                "theme": "light",
+              },
+            }
+          }
+          theme="light"
+          toggleTheme={[Function]}
+        >
+          <a
+            aria-label="Theme Switch"
+            className="app__theme-switch theme-switch"
+            href="#"
+            onClick={[Function]}
+          >
+            <span
+              aria-hidden="true"
+              className="theme-switch__ico"
+            />
+            <span
+              className="theme-switch__label"
+            >
+              dark
+               theme
+            </span>
+          </a>
+        </ThemeSwitch>
+      </withCookies(ThemeSwitch)>
+    </ForwardRef>
+  </Connect(Component)>
+</Provider>
+`;

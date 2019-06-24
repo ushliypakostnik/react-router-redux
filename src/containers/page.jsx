@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { fetchData } from '../store/actions.js';
+import { fetchData } from '../store/actions';
 
 import Album from '../components/album';
 

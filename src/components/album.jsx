@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { SCREENS } from '../store/constants';
 import ScreenHelper from '../js/screen-helper';
 
 import Gallery from 'react-photo-gallery';
@@ -45,66 +46,72 @@ class Album extends Component {
     });
   }
 
-  lightboxUpdate = (data) => {
-    if (!data) {
+  lightboxUpdate = (state) => {
+    if (!state) {
       this.closeLightbox();
     }
   }
 
-  componentWillMount() {
-    const galleryDataArr = Object.values(this.props.photos);
+  setGalleryData = (data) => {
     const galleryResult = [];
     let src;
     if (ScreenHelper.isMin()) {
       if (ScreenHelper.getPixelRatio() > 1.5) {
-        src = 'mobile-2x';
+        src = SCREENS.MOBILE_2X;
       } else {
-        src = 'mobile';
+        src = SCREENS.MOBILE;
       }
     } else {
       if (ScreenHelper.getPixelRatio() > 1.5) {
-        src = 'desktop-2x';
+        src = SCREENS.DESKTOP_2X;
       } else {
-        src = 'desktop';
+        src = SCREENS.DESKTOP;
       }
     }
-    galleryDataArr.forEach(data => {
+    data.forEach(data => {
       galleryResult.push({
         src: Object.values(data)[0].replace('{src}', src),
         width: Object.values(data)[1],
         height: Object.values(data)[2]
       });
     });
-    this.setState({
-      galleryData: galleryResult
-    });
+    return galleryResult;
+  }
 
-    const lightboxDataArr = Object.values(this.props.photos);
+  setLightboxData = (data) => {
     const lightboxResult = [];
+    let src;
     if (!ScreenHelper.isXS()) {
-      lightboxDataArr.forEach(data => {
+      data.forEach(data => {
         lightboxResult.push(Object.values(data)[0].replace('{src}/', ''));
       });
     } else {
       if (ScreenHelper.isMin()) {
         if (ScreenHelper.getPixelRatio() > 1.5) {
-          src = 'mobile-2x';
+          src = SCREENS.MOBILE_2X;
         } else {
-          src = 'mobile';
+          src = SCREENS.MOBILE;
         }
       } else {
         if (ScreenHelper.getPixelRatio() > 1.5) {
-          src = 'desktop-2x';
+          src = SCREENS.DESKTOP_2X;
         } else {
-          src = 'desktop';
+          src = SCREENS.DESKTOP;
         }
       }
-      lightboxDataArr.forEach(data => {
+      data.forEach(data => {
         lightboxResult.push(Object.values(data)[0].replace('{src}', src));
       });
     }
+    return lightboxResult;
+  }
+
+  componentWillMount() {
     this.setState({
-      lightboxData: lightboxResult
+      galleryData: this.setGalleryData(Object.values(this.props.photos))
+    });
+    this.setState({
+      lightboxData: this.setLightboxData(Object.values(this.props.photos))
     });
   }
 

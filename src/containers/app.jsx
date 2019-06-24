@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import { fetchAlbums } from '../store/actions.js';
+import { fetchAlbums } from '../store/actions';
 
 import Header from './header';
 import Page from './page';

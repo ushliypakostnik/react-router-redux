@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { pageToActive } from '../store/actions.js';
+import { pageToActive } from '../store/actions';
 
 import ScreenHelper from '../js/screen-helper';
 
 import ThemeSwitch from './theme-switch';
-import Menu, { MenuItem, LjIcon } from '../components/menu';
+import Menu, { MenuItem } from '../components/menu';
+import { LjIcon } from '../components/icons';
 
 import { Drawer } from 'antd';
 import '../scss/widgets/_drawer.scss';
@@ -46,6 +47,10 @@ class Header extends Component {
       visible: false
     });
   };
+
+  test = () => {
+
+  }
 
   render () {
     const { items, pageToActive, deviceType } = this.props;

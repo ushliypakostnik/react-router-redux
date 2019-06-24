@@ -5,26 +5,9 @@ import { browserHistory } from "react-router";
 //import { createBrowserHistory } from "history";
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
-import { THEME } from './constants';
-
+import { INITIAL_STATE } from './constants';
 import { pageToActive } from './actions';
 import reducer from './reducers';
-
-const initialState = {
-  reducer: {
-    activePage: "/",
-    theme: THEME.DARK,
-    isFetching: false,
-    albums: [],
-    data: [],
-    resize: {
-      minHeight: 'auto',
-      deviceType: 'large'
-    },
-    error: null
-  },
-  routing: {}
-};
 
 const middlewares = [];
 middlewares.push(thunkMiddleware)
@@ -41,12 +24,12 @@ function configureStore(state) {
       reducer,
       routing: routerReducer
     }),
-    initialState,
+    state,
     applyMiddleware(...middlewares)
   );
 }
 
-const store = configureStore(initialState);
+const store = configureStore(INITIAL_STATE);
 
 //const history = createBrowserHistory();
 export const history = syncHistoryWithStore(browserHistory, store);

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`menu render item render correctly 1`] = `
+<li>
+  <Link
+    className="class1"
+    onClick={[MockFunction]}
+    to="/1"
+  >
+    Item1
+  </Link>
+</li>
+`;
+
+exports[`menu render menu render correctly 1`] = `
+<ul
+  className="app__menu"
+>
+  <Component
+    key={1}
+  />
+  <Component
+    key={2}
+  />
+</ul>
+`;
