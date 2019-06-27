@@ -7,6 +7,11 @@ import { fetchAlbums } from '../store/actions';
 
 import Header from './header';
 import Page from './page';
+
+
+
+
+
 import Resize from './resize';
 
 // Styles
