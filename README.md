@@ -20,14 +20,14 @@ Cборка
 
 Сборка проекта в продакшен
 
-    $ npm run build
+    $ npm build
 
 Тесты
 -----
 
 Запуск тестов
 
-    $ npm run test
+    $ npm test
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
