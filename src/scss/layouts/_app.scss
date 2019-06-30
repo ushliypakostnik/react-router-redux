@@ -15,9 +15,9 @@ $header-height-mobile: 40px;
     list-style-type: none;
 
     > li {
-        a {
-          @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
-        }
+      a {
+        @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
+      }
     }
 
     // Menu on desktop
@@ -29,6 +29,7 @@ $header-height-mobile: 40px;
         margin-right: $size * 3;
         padding-top: 12px;
 
+        // stylelint-disable max-nesting-depth
         a {
           opacity: 0.5;
           @include link-style($color_white, $color_white);
@@ -48,6 +49,7 @@ $header-height-mobile: 40px;
           }
         }
 
+        // stylelint-disable-next-line selector-max-compound-selectors
         a svg {
           margin-right: $size / 2;
         }
@@ -56,6 +58,7 @@ $header-height-mobile: 40px;
           padding-top: 15px;
           margin-right: $size * 2;
         }
+        // stylelint-enable max-nesting-depth
       }
 
       @include xs {
@@ -71,8 +74,6 @@ $header-height-mobile: 40px;
 
       > li {
         display: block;
-        margin-bottom: 20px;
-        display: block;
         margin-bottom: 30px;
 
         @media (max-height: 400px) {
@@ -85,7 +86,7 @@ $header-height-mobile: 40px;
           @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
 
           // Active class
-          &.app__menu--active {
+          &.app__menu--active { // stylelint-disable-line max-nesting-depth
             @include link-style($color_white, $color_white);
           }
         }
@@ -95,12 +96,12 @@ $header-height-mobile: 40px;
 
   &__header {
     padding-top: 50px;
-    padding-top: 10vh;
+    padding-top: 10vh; // stylelint-disable-line declaration-block-no-duplicate-properties
     height: $header-height-mobile;
     width: 100%;
     position: sticky;
     top: -50px;
-    top: -10vh;
+    top: -10vh; // stylelint-disable-line declaration-block-no-duplicate-properties
     z-index: $header-layout;
 
     @include not-xs {
@@ -256,6 +257,7 @@ $header-height-mobile: 40px;
       @include text($font-family_sans, round($font-size_small * 1.4), $font-weight_sans_light);
     }
 
+    // stylelint-disable no-descending-specificity
     svg {
       vertical-align: top;
     }
@@ -284,6 +286,7 @@ $header-height-mobile: 40px;
         top: 1px;
       }
     }
+    // stylelint-enable no-descending-specificity
   }
 
   &__navbar {
@@ -359,7 +362,7 @@ $header-height-mobile: 40px;
 //////////////////////////////////////////////////////
 
 .--light-theme {
-  & {
+  & { // stylelint-disable-line no-duplicate-selectors
     background: $color_white;
     color: $color_text_light-theme;
   }
@@ -367,6 +370,7 @@ $header-height-mobile: 40px;
   .header {
     background: $color_white;
   }
+
   .app__page {
     background: $color_white;
   }
@@ -377,13 +381,13 @@ $header-height-mobile: 40px;
     @include link-style($color_text_light-theme, $color_text_light-theme);
   }
 
-  .header__social--lj svg {
+  .header__social--lj svg { // stylelint-disable-line no-descending-specificity
     fill: $color_text_light-theme;
   }
 
   .app__header {
     .app__menu {
-      > li a {
+      > li a { // stylelint-disable-line selector-max-compound-selectors
         @include link-style($color_text-light-theme, $color_text-light-theme);
       }
     }
@@ -391,6 +395,7 @@ $header-height-mobile: 40px;
     .theme-switch__ico {
       background: $color_text_light-theme;
     }
+
     .theme-switch__label {
       @include link-style($color_text_light-theme, $color_text_light-theme);
     }
@@ -406,6 +411,7 @@ $header-height-mobile: 40px;
       background: url("#{$image-path}prev_light.svg") 50% 50% no-repeat;
       background-size: cover;
     }
+
     &__navButtonNext {
       background: url("#{$image-path}next_light.svg") 50% 50% no-repeat;
       background-size: cover;

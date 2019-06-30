@@ -74,19 +74,25 @@
 
 // Примесь для покраски ссылок
 @mixin link-style($color, $color-hover) {
-  @include transition(color $transition-duration $transition-timing-function $transition-delay);
+  @include transition(color);
 
-  &, &:focus {
+  &,
+  &:focus {
     color: $color;
   }
-  &:hover, &:active {
+
+  &:hover,
+  &:active {
     color: $color-hover;
   }
 
   @include sm-and-xs {
-    &, &:hover, &:focus {
-     color: $color;
+    &,
+    &:hover,
+    &:focus {
+      color: $color;
     }
+
     &:active {
       color: $color-hover;
     }
@@ -98,13 +104,10 @@
 //////////////////////////////////////////////////////
 
 // Multi-transition
-// Usage:   @include transition(width, height 0.3s ease-in-out);
-//
-// Output: transition(width 0.3s, height 0.3s ease-in-out);
-//
 // Pass in any number of transitions
 @mixin transition($transitions...) {
   $unfoldedTransitions: ();
+
   @each $transition in $transitions {
     $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
   }
@@ -115,19 +118,21 @@
 @function unfoldTransition($transition) {
   // Default values
   $property: all;
-  $duration: $transition-duration;
-  $easing: $transition-timing-function; // Browser default is ease, which is what we want
-  $delay: null; // Browser default is 0, which is what we want
+  $duration: $transition_duration;
+  $easing: $transition_timing-function;
+  $delay: $transition_delay;
   $defaultProperties: ($property, $duration, $easing, $delay);
 
   // Grab transition properties if they exist
   $unfoldedTransition: ();
+
   @for $i from 1 through length($defaultProperties) {
     $p: null;
+
     @if $i <= length($transition) {
-      $p: nth($transition, $i)
+      $p: nth($transition, $i);
     } @else {
-      $p: nth($defaultProperties, $i)
+      $p: nth($defaultProperties, $i);
     }
     $unfoldedTransition: append($unfoldedTransition, $p);
   }

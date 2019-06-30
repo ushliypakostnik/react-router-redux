@@ -19,7 +19,8 @@
     padding: 0;
     @include size(25px, 25px);
 
-    &:active, &:focus {
+    &:active,
+    &:focus {
       outline: none;
     }
 
@@ -28,16 +29,19 @@
     }
   }
 
+  // stylelint-disable no-descending-specificity
   &__navButtonPrev {
     left: 20px;
     background: url("#{$image-path}prev_dark.svg") 50% 50% no-repeat;
     background-size: cover;
   }
+
   &__navButtonNext {
     right: 20px;
     background: url("#{$image-path}next_dark.svg") 50% 50% no-repeat;
     background-size: cover;
   }
+  // stylelint-enable no-descending-specificity
 
   &__closeButton {
     opacity: 0.5;
@@ -45,8 +49,13 @@
     background-size: cover;
     @include size(25px, 25px);
 
-    &:active, &:focus {
+    &:active,
+    &:focus {
       outline: none;
+    }
+
+    @include xs {
+      margin-right: 7px;
     }
   }
 
@@ -57,14 +66,8 @@
     }
   }
 
-  &__closeButton {
-    @include xs {
-      margin-right: 7px;
-    }
-  }
-
   &__toolbar,
-  &__toolbarSide  {
+  &__toolbarSide {
     @include xs {
       height: 30px;
     }

@@ -29,8 +29,10 @@ a {
     color: $color_link-hover;
   }
 
-  &:hover, &:active , &:focus {
-    outline: none !important;
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none !important; // stylelint-disable declaration-no-important
     text-decoration: none;
   }
 }
