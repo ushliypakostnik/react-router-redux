@@ -75,7 +75,9 @@ class Header extends Component {
             onClick={(e) => {
               e.preventDefault();
               if (visible) {
-                this.setState({ visible: !visible });
+                this.setState({ visible: false });
+              } else {
+                this.setState({ visible: true });
               }
             }}
             aria-label="Open Menu"
